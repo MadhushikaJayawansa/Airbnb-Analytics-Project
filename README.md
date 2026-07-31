@@ -1,7 +1,7 @@
-# Airbnb-Analytics-Project
+#<img width="512" height="512" alt="airbnb-cleaning" src="https://github.com/user-attachments/assets/6fbbabc1-4d89-4032-9bbd-f5b3a974bdd4" /> Airbnb-Analytics-Project
 
 
-## Project Overview
+##📖 Project Overview
 
 This project is an end-to-end Data Analytics project using the Airbnb New York dataset.
 
@@ -9,7 +9,7 @@ The objective is to transform raw Airbnb data into meaningful business insights 
 
 ---
 
-## Business Goal
+## 🎯 Business Goal
 
 The goal of this project is to help Airbnb managers understand:
 
@@ -22,7 +22,7 @@ The goal of this project is to help Airbnb managers understand:
 
 ---
 
-## Tools & Technologies
+## 🛠️Tools & Technologies
 
 - SQL
 - Snowflake
@@ -33,7 +33,7 @@ The goal of this project is to help Airbnb managers understand:
 
 ---
 
-## Project Structure
+##📂 Project Structure
 
 ```
 Airbnb-Analytics-Project
@@ -49,7 +49,7 @@ Airbnb-Analytics-Project
 
 ---
 
-## Project Workflow
+##🚀 Project Workflow
 
 - Business Requirements
 - Data Cleaning
@@ -61,7 +61,7 @@ Airbnb-Analytics-Project
 
 ---
 
-## Skills Demonstrated
+## 📌Skills Demonstrated
 
 - Data Cleaning
 - Data Modeling
