@@ -1,7 +1,6 @@
 #Airbnb-Analytics-Project
 
-
-##📖 Project Overview
+📖 Project Overview
 
 This project is an end-to-end Data Analytics project using the Airbnb New York dataset.
 
