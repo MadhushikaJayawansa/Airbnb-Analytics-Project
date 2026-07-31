@@ -1,4 +1,4 @@
-#<img width="512" height="512" alt="airbnb-cleaning" src="https://github.com/user-attachments/assets/6fbbabc1-4d89-4032-9bbd-f5b3a974bdd4" /> Airbnb-Analytics-Project
+#Airbnb-Analytics-Project
 
 
 ##📖 Project Overview
