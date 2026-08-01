@@ -72,8 +72,6 @@
 | Reviews        |0      |629    |Review counts vary considerably. A maximum of 629 reviews is high but may represent a very popular listing.                             |
 | Availability   |0      |365    |Values fall within the expected range (0–365 days). No obvious outliers based on the valid range.                                       |
 
-
-## Initial Findings
 ## Initial Findings
 
 - The dataset contains **48,895 rows** and **16 columns**.
