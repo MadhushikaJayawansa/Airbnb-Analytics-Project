@@ -39,7 +39,7 @@
 | Column                        | Missing Values |           Zero Values | Observation                                                       |
 | ----------------------------- | -------------: | --------------------: | ----------------------------------------------------------------- |
 | id                            |              0 |                     0 | No missing or zero values found.                                  |
-| name                          |             16 |                   N/A | A small number of listing names are missing.                      |
+| name                          |             19 |                   N/A | A small number of listing names are missing.                      |
 | host_id                       |              0 |                     0 | No missing or zero values found.                                  |
 | host_name                     |             21 |                   N/A | A small number of host names are missing.                         |
 | neighbourhood_group           |              0 |                   N/A | No missing values found.                                          |
