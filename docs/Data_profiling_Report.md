@@ -48,7 +48,7 @@
 | longitude                     |              0 |                     0 | No missing values found.                                          |
 | room_type                     |              0 |                   N/A | No missing values found.                                          |
 | price                         |              0 |                    11 | No missing values. Zero-price listings require investigation.     |
-| minimum_nights                |              0 |                    11 | No missing values. Zero values should be investigated.            |
+| minimum_nights                |              0 |                    10 | No missing values. Zero values should be investigated.            |
 | number_of_reviews             |              0 |                 10051 | Zero values indicate listings with no reviews.                    |
 | last_review                   |           10051|                   N/A | Missing values are expected for listings with no reviews.         |
 | reviews_per_month             |           10051|                     0 | Missing values are associated with listings that have no reviews. |
