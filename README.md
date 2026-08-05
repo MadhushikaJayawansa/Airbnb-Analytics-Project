@@ -39,36 +39,57 @@ What factors influence listing performance?
 📂 Project Structure
 
 Airbnb-Analytics-Project/
+|
 │
 ├── data/
+|   |
 │   ├── raw/
+|   |
 │   └── processed/
+|       |
 │       ├── Airbnb_Cleaned.csv
+|       |
 │       ├── Dim_Host.csv
+|       |
 │       ├── Dim_Location.csv
+|       |
 │       ├── Dim_Room_Type.csv
+|       |
 │       ├── Dim_Date.csv
+|       |
 │       └── Fact_Listings.csv
 │
 ├── diagrams/
 │
 ├── docs/
 │   ├── Data_Profiling_Report.md
+|   |
 │   └── Data_Cleaning_Report.md
 │
 ├── scripts/
+|   |
 │   ├── 01_data_profiling.py
+|   |
 │   ├── 02_data_cleaning.py
+|   |
 │   ├── 03_create_dim_host.py
+|   |
 │   ├── 04_create_dim_location.py
+|   |
 │   ├── 05_create_dim_room_type.py
+|   |
 │   ├── 06_create_dim_date.py
+|   |
 │   └── 07_create_fact_table.py
 │
 ├── sql/
+|
 ├── powerbi/
+|
 ├── screenshots/
+|
 ├── README.md
+|
 └── requirements.txt
 
 -------------------------------------------------------------------------------------------------------
@@ -76,14 +97,23 @@ Airbnb-Analytics-Project/
 🔄 Project Workflow
 
 Business Requirements Analysis
+
 Data Profiling
+
 Data Cleaning
+
 Exploratory Data Validation
+
 Data Modeling
+
 Star Schema Design
+
 Python ETL Pipeline
+
 Snowflake Data Warehouse (Next Phase)
+
 SQL Analytics (Next Phase)
+
 Power BI Dashboard (Next Phase)
 
 -------------------------------------------------------------------------------------------------------
@@ -93,11 +123,17 @@ Power BI Dashboard (Next Phase)
 The dimensional model consists of one fact table and four dimension tables.
 
 Fact Table
+
 Fact_Listings
+
 Dimension Tables
+
 Dim_Host
+
 Dim_Location
+
 Dim_Room_Type
+
 Dim_Date
 
 -------------------------------------------------------------------------------------------------------
@@ -105,15 +141,25 @@ Dim_Date
 📊 Skills Demonstrated
 
 Data Profiling
+
 Data Cleaning
+
 ETL Development with Python
+
 Data Modeling
+
 Star Schema Design
+
 Fact & Dimension Tables
+
 Surrogate Keys
+
 SQL
+
 Snowflake (in progress)
+
 Power BI (in progress)
+
 Git & GitHub
 
 -------------------------------------------------------------------------------------------------------
@@ -135,17 +181,25 @@ Git & GitHub
 -------------------------------------------------------------------------------------------------------
 
 📌 Dataset
+
 Source: Kaggle
+
 Dataset: Airbnb New York City Open Data
+
 Approximately 48,000+ cleaned listings used after data cleaning.
 
 -------------------------------------------------------------------------------------------------------
 
 📈 Future Enhancements
+
 Load the star schema into Snowflake.
+
 Write analytical SQL queries and create reusable views.
+
 Build an interactive Power BI dashboard.
+
 Add dashboard screenshots and documentation.
+
 Automate the ETL pipeline.
 
 -------------------------------------------------------------------------------------------------------
