@@ -13,10 +13,15 @@ The project follows a real-world analytics workflow, transforming raw Airbnb lis
 The goal of this project is to help Airbnb managers answer business questions such as:
 
 Which neighbourhoods generate the highest average prices?
+
 Which room types are the most popular?
+
 Which hosts manage the most listings?
+
 Which locations have the highest availability?
+
 How do customer reviews change over time?
+
 What factors influence listing performance?
 
 -------------------------------------------------------------------------------------------------------
