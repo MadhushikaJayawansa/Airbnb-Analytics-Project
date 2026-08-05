@@ -74,6 +74,7 @@ Airbnb-Analytics-Project/
 -------------------------------------------------------------------------------------------------------
 
 🔄 Project Workflow
+
 Business Requirements Analysis
 Data Profiling
 Data Cleaning
@@ -102,6 +103,7 @@ Dim_Date
 -------------------------------------------------------------------------------------------------------
 
 📊 Skills Demonstrated
+
 Data Profiling
 Data Cleaning
 ETL Development with Python
