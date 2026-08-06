@@ -87,3 +87,26 @@ CREATE OR REPLACE TABLE Fact_Listings (
     number_of_reviews INTEGER,
     availability_365 INTEGER
 );
+
+SELECT 'Dim_Host' AS table_name, COUNT(*) AS total_rows
+FROM Dim_Host
+
+UNION ALL
+
+SELECT 'Dim_Location', COUNT(*)
+FROM Dim_Location
+
+UNION ALL
+
+SELECT 'Dim_Room_Type', COUNT(*)
+FROM Dim_Room_Type
+
+UNION ALL
+
+SELECT 'Dim_Date', COUNT(*)
+FROM Dim_Date
+
+UNION ALL
+
+SELECT 'Fact_Listings', COUNT(*)
+FROM Fact_Listings;
