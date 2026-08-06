@@ -68,7 +68,7 @@ CREATE OR REPLACE TABLE Dim_Date (
     day INTEGER,
     month INTEGER,
     month_name VARCHAR,
-    quarter INTEGER,
+    quarter VARCHAR,
     year INTEGER
 );
 
