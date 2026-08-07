@@ -211,6 +211,7 @@ Who are the Top 10 Airbnb hosts with the highest number of listings?
 ### Results
 
 |HOST_ID	  |HOST_NAME	          |TOTAL_LISTINGS |
+|           |                     |               |
 |219517861	|Sonder (NYC)	        |327            |
 |107434423	|Blueground	          |232            |
 |30283594	  |Kara	                |121            |
