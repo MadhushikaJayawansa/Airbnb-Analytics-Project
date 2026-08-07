@@ -77,7 +77,7 @@ GROUP BY dh.host_name
 ORDER BY Total_Listings DESC
 
 -- ==========================================
--- Business Question 5
+-- Business Question 6
 -- Top 10 Hosts by Number of Listings
 -- ==========================================
 
@@ -97,7 +97,7 @@ LIMIT 10;
 
 
 -- ==========================================
--- Business Question 6
+-- Business Question 7
 -- Avarage Prices by Room Type
 -- ==========================================
 
@@ -109,3 +109,17 @@ JOIN Dim_Room_Type drt
     ON fl.room_type_key = drt.room_type_key
 GROUP BY drt.room_type
 ORDER BY Average_Price DESC;
+
+-- ==========================================
+-- Business Question 8
+-- Average Listing Price by Neighbourhood Group
+-- ==========================================
+
+SELECT
+    dl.neighbourhood_group,
+    AVG(fl.price) AS Average_price
+FROM  Fact_Listings fl
+JOIN  DIM_LOCATION dl
+     ON fl.location_key = dl.location_key
+GROUP BY  dl.neighbourhood_group
+ORDER BY Average_price DESC;
