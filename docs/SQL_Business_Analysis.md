@@ -252,10 +252,10 @@ What is the average listing price for each room type?
 
 ### Results
 
-ROOM_TYPE	AVERAGE_PRICE
-Entire home/apt	211.810918
-Private room	89.809131
-Shared room	70.248705
+|ROOM_TYPE	       | AVERAGE_PRICE |
+|Entire home/apt   | 211.810918    |
+|Private room	   | 89.809131     |
+|Shared room	   |70.248705      |
 
 
 
