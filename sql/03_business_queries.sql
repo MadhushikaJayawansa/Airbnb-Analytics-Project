@@ -35,3 +35,77 @@ JOIN Dim_Location dl
     ON fl.location_key = dl.location_key
 GROUP BY dl.neighbourhood_group
 ORDER BY Total_Listings DESC;
+
+-- ==========================================
+-- Business Question 4
+-- Listings by Room Type 
+-- ==========================================
+SELECT
+    drt.room_type,
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings fl
+JOIN Dim_room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+GROUP BY drt.room_type
+ORDER BY Total_Listings DESC;
+
+-- ==========================================
+-- Business Question 4
+--  Listings by Year
+-- ==========================================
+SELECT
+    dm.year,
+    COUNT(*)AS Total_Listings
+FROM Fact_Listings fl
+JOIN Dim_Date dm
+     ON fl.date_key =dm.date_key
+GROUP BY dm.year
+ORDER BY Total_Listings DESC
+    
+    -- ==========================================
+-- Business Question 5
+--  Listings by Host
+-- ==========================================
+
+SELECT
+    dh.host_name,
+    COUNT(*)AS Total_Listings
+FROM Fact_Listings fl
+JOIN DIM_HOST dh
+     ON fl.host_key =dh.host_key
+GROUP BY dh.host_name
+ORDER BY Total_Listings DESC
+
+-- ==========================================
+-- Business Question 5
+-- Top 10 Hosts by Number of Listings
+-- ==========================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+GROUP BY
+    dh.host_id,
+    dh.host_name
+ORDER BY Total_Listings DESC
+LIMIT 10;
+
+
+
+-- ==========================================
+-- Business Question 6
+-- Avarage Prices by Room Type
+-- ==========================================
+
+SELECT
+    drt.room_type,
+    AVG(fl.price) AS Average_Price
+FROM Fact_Listings fl
+JOIN Dim_Room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+GROUP BY drt.room_type
+ORDER BY Average_Price DESC;
