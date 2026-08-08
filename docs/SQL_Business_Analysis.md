@@ -386,6 +386,11 @@ However, high listing volume does not necessarily mean high profitability. Airbn
 
 
 
+
+
+
+
+
 # Skills Demonstrated
 
 Throughout this SQL analysis, the following SQL concepts were applied:
