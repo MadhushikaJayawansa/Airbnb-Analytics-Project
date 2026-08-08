@@ -245,3 +245,4 @@ JOIN  dim_room_type drt
      ON fl.room_type_key = drt.room_type_key
 GROUP BY  drt.room_type
 ORDER BY Average_minimum_nights;
+
