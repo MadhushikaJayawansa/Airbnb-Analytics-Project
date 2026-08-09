@@ -63,3 +63,89 @@ Airbnb should continue focusing on the entire home/apartment segment, as it repr
 The platform could provide hosts in this segment with pricing optimization, demand insights, and availability-management tools to help maximize marketplace performance.
 
 However, Airbnb should combine this analysis with actual occupancy, booking, and transaction data before making revenue-related decisions, because the current calculation represents potential rather than realized revenue.
+
+## Business question 24
+
+## Question
+
+How does estimated revenue potential vary across the years in the Airbnb dataset?
+
+## Results
+
+| Year | Estimated Revenue Potential |
+| ---: | --------------------------: |
+| 2011 |                     $84,380 |
+| 2012 |                    $784,741 |
+| 2013 |                  $2,680,344 |
+| 2014 |                  $2,400,323 |
+| 2015 |                 $11,051,194 |
+| 2016 |                 $27,381,662 |
+| 2017 |                 $27,852,641 |
+| 2018 |                 $79,555,330 |
+| 2019 |            **$561,000,000** |
+
+## Executive Summary
+
+The analysis shows that Airbnb's estimated revenue potential increased substantially over the period covered by the dataset.
+
+Estimated revenue potential grew from approximately $84,380 in 2011 to approximately $561 million in 2019, with particularly strong growth between 2017 and 2019.
+
+The largest increase occurred in 2019, which recorded an estimated revenue potential of approximately $561 million. This aligns with the earlier Listings by Year analysis, where 2019 also had the highest number of listings.
+
+The results suggest that the growth in Airbnb's listing inventory was accompanied by a significant increase in estimated revenue potential.
+
+##  Business Recommendation
+
+Airbnb should monitor yearly changes in listing growth, pricing, and availability to understand the factors contributing to increases in estimated revenue potential.
+
+The strong 2018–2019 increase could be investigated further to identify whether it was primarily driven by increased listing volume, higher prices, changes in availability, or a combination of these factors.
+
+However, management should be careful not to interpret these figures as actual revenue because the calculation is based on price × available days and does not account for actual bookings or occupancy.
+
+## Business question 25
+
+## Question
+
+Which combination of neighbourhood group and room type has the highest estimated revenue potential?
+
+## Results
+
+
+| NEIGHBOURHOOD GROUP  | ROOM TYPE       | ESTIMATED REVENUE POTENTIAL     |
+| -------------------- | --------------- | ----------------------------- |
+| Manhattan            | Entire home/apt | 4.54E+08                      |
+| Brooklyn             | Entire home/apt | 1.9E+08                       |
+| Manhattan            | Private room    | 1.17E+08                      |
+| Brooklyn             | Private room    | 86101587                      |
+| Queens               | Entire home/apt | 48467099                      |
+| Queens               | Private room    | 35923536                      |
+| Bronx                | Entire home/apt | 8471903                       |
+| Bronx                | Private room    | 7754749                       |
+| Staten Island        | Entire home/apt | 6405167                       |
+| Manhattan            | Shared room     | 5208092                       |
+| Brooklyn             | Shared room     | 3421657                       |
+| Staten Island        | Private room    | 2601275                       |
+| Queens               | Shared room     | 2096788                       |
+| Bronx                | Shared room     | 668949                        |
+| Staten Island        | Shared room     | 60527                         |
+
+## Executive Summary
+
+The analysis shows that Manhattan + Entire home/apt generates the highest estimated revenue potential, at approximately $454 million.
+
+This is substantially higher than the next-largest combination, Brooklyn + Entire home/apt, at approximately $190 million.
+
+Across the boroughs, Entire home/apartment listings consistently generate the highest estimated revenue potential, while shared rooms contribute the least.
+
+## Business Recommendation
+
+Airbnb should prioritize the Entire home/apartment segment in Manhattan and Brooklyn, as these combinations represent the strongest estimated revenue opportunities.
+
+The platform could focus on:
+
+Pricing optimization for entire homes/apartments
+Availability management
+Premium-host support
+Demand forecasting in high-value boroughs
+
+At the same time, lower-revenue segments such as shared rooms should not necessarily be abandoned, as they can provide affordable accommodation options and help maintain marketplace diversity.
