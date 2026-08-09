@@ -33,3 +33,33 @@ However, these figures should not be interpreted as actual revenue. The calculat
 Estimated Revenue Potential = Listing Price × Available Days
 
 Availability does not indicate that a listing was actually booked. Therefore, actual booking, occupancy, and transaction data would be required to calculate real revenue.
+
+## Business question 23
+
+## Question 
+
+Which room type has the highest estimated revenue potential?
+
+## Results
+
+| Rank | Room Type       | Estimated Revenue Potential |
+| ---: | --------------- | --------------------------: |
+|    1 | Entire home/apt |                 **$708.0M** |
+|    2 | Private room    |                 **$249.0M** |
+|    3 | Shared room     |                 **$11.46M** |
+
+## Executive Summary
+
+The analysis compares the estimated revenue potential of Airbnb listings across different room types.
+
+Entire homes/apartments have the highest estimated revenue potential at approximately $708 million, substantially exceeding private rooms at approximately $249 million. Shared rooms generate the lowest estimated revenue potential at approximately $11.46 million.
+
+The strong performance of entire homes/apartments is influenced by both their large number of listings and their higher average listing price compared with private and shared rooms.
+
+## Business Recommendation
+
+Airbnb should continue focusing on the entire home/apartment segment, as it represents the largest estimated revenue opportunity in the dataset.
+
+The platform could provide hosts in this segment with pricing optimization, demand insights, and availability-management tools to help maximize marketplace performance.
+
+However, Airbnb should combine this analysis with actual occupancy, booking, and transaction data before making revenue-related decisions, because the current calculation represents potential rather than realized revenue.
