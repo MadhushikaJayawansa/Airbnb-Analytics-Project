@@ -25,7 +25,7 @@ Airbnb and hosts can use review activity to understand customer engagement acros
 However, review counts should be evaluated together with listing volume, pricing, and availability before making business decisions, since reviews do not directly represent the number of bookings.
 
 
-## Business Question 13
+## Business Question 14
 
 ## Question
 
@@ -47,7 +47,7 @@ The analysis shows that shared rooms have the highest average availability at ap
 
 Airbnb could investigate why shared-room listings have substantially higher availability. Management should compare availability with reviews, pricing, and listing volume to determine whether the higher availability reflects lower demand or differences in host operating patterns.
 
-## Business Question 13
+## Business Question 15
 
 ## Question
 

@@ -1,4 +1,4 @@
-## Business Question 10
+## Business Question 09
 
 ## Question
 
@@ -34,7 +34,7 @@ Airbnb should prioritize Williamsburg, Bedford-Stuyvesant, Harlem, and other hig
 However, high listing volume does not necessarily mean high profitability. Airbnb should combine listing volume with average price, reviews, and availability to identify neighbourhoods that offer the strongest overall business opportunities.
 
 
-## Business Question 11
+## Business Question 10
 
 ## Question
 
@@ -58,7 +58,7 @@ Business Recommendation
 
 Airbnb should investigate neighbourhoods with high availability to understand whether listings are experiencing lower booking activity. Hosts in these areas could review pricing, listing quality, and promotional strategies to improve occupancy. Meanwhile, the relatively low availability in Brooklyn and Manhattan could indicate stronger demand, making these markets important areas for host growth and marketplace expansion.
 
-## Business Question 12
+## Business Question 11
 
 ## Question
 
@@ -86,7 +86,7 @@ Airbnb should investigate the factors contributing to the relatively high review
 
 However, review counts should not be treated as a direct measure of bookings or demand because not every guest leaves a review. Airbnb should combine review activity with availability, pricing, and other performance metrics when evaluating neighbourhood performance.
 
-## Business Question 13
+## Business Question 12
 
 ## Question
 

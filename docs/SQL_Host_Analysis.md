@@ -1,4 +1,4 @@
-## Business Question 16
+## Business Question 17
 
 ## Question
 
@@ -6,18 +6,18 @@ Which Airbnb hosts have the highest estimated revenue based on their listings?
 
 ## Results
 
-| Rank | Host           | Estimated Revenue |
-| ---: | -------------- | ----------------: |
-|    1 | Sonder (NYC)   |   **$24,563,716** |
-|    2 | Blueground     |   **$18,021,038** |
-|    3 | Kara           |   **$10,448,235** |
-|    4 | Red Awning     |    **$7,686,699** |
-|    5 | Henry          |    **$6,376,000** |
-|    6 | Pranjal        |    **$6,298,832** |
-|    7 | Kevin          |    **$5,889,520** |
-|    8 | Ken            |    **$5,887,671** |
-|    9 | Jeremy & Laura |    **$5,879,452** |
-|   10 | Sonder         |    **$5,611,637** |
+| Rank | HOST_NAME      |   HOST_ID | ESTIMATED_REVENUE |
+| ---: | -------------- | --------: | ----------------: |
+|    1 | Sonder (NYC)   | 219517861 |       $24,563,716 |
+|    2 | Blueground     | 107434423 |       $18,021,038 |
+|    3 | Kara           |  30283594 |       $10,448,235 |
+|    4 | Red Awning     | 205031545 |        $7,686,699 |
+|    5 | Henry          |    836168 |        $6,376,000 |
+|    6 | Pranjal        | 200380610 |        $6,298,832 |
+|    7 | Kevin          |   3750764 |        $5,889,520 |
+|    8 | Ken            |  22541573 |        $5,887,671 |
+|    9 | Jeremy & Laura |  16098958 |        $5,879,452 |
+|   10 | Sonder         |  12243051 |        $5,611,637 |
 
 # Executive Summary
 
