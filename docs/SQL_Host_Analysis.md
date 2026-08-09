@@ -114,3 +114,41 @@ Airbnb should identify and learn from hosts with consistently high review volume
 The platform could use review activity to identify successful hosts and provide them with opportunities to improve listing quality, maintain customer satisfaction, and encourage continued engagement.
 
 However, total reviews should not be treated as a direct measure of revenue or profitability. Airbnb should combine review activity with listing volume, pricing, availability, estimated revenue, and other performance indicators when evaluating host performance.
+
+## Business Question 20
+
+## Question
+
+Which hosts have the highest average number of reviews per listing?
+
+## Results
+
+| Rank | Host                       | Listings | Avg. Reviews per Listing |
+| ---: | -------------------------- | -------: | -----------------------: |
+|    1 | Maya                       |        5 |               **454.60** |
+|    2 | Danielle                   |        5 |               **403.40** |
+|    3 | Brady                      |        7 |               **259.71** |
+|    4 | Gurpreet Singh             |        5 |               **231.40** |
+|    5 | Juel                       |        5 |               **230.80** |
+|    6 | Han                        |        6 |               **204.83** |
+|    7 | Jasmin                     |        5 |               **202.60** |
+|    8 | Yasu & Akiko               |       11 |               **179.18** |
+|    9 | Asad                       |        6 |               **175.33** |
+|   10 | Brooklyn & Breakfast -Len- |       13 |               **169.62** |
+
+
+## Executive Summary
+
+The analysis identifies the Airbnb hosts with the highest average number of reviews per listing, considering only hosts with at least five listings.
+
+Maya has the highest average review activity, with 454.6 reviews per listing across five listings, followed by Danielle with 403.4 reviews per listing across five listings. Brady ranks third with an average of 259.71 reviews per listing across seven listings.
+
+The results indicate that some hosts achieve strong customer engagement across their individual listings, even when they manage relatively small portfolios. This provides a different perspective from total review volume, as a host with fewer listings can still have very high average review activity.
+
+## Business Recommendation
+
+Airbnb should identify hosts with consistently high review activity per listing and examine the practices that may contribute to strong customer engagement.
+
+These hosts could be used as examples for improving listing management, guest experience, and customer engagement across the platform.
+
+However, average reviews per listing should not be used as a standalone measure of host performance. Airbnb should combine this metric with total reviews, listing volume, pricing, availability, and estimated revenue to obtain a more complete view of host performance.

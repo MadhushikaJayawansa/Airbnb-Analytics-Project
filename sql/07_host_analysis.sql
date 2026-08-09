@@ -52,3 +52,24 @@ JOIN DIM_HOST dh
 GROUP BY dh.host_name,dh.host_id
 ORDER BY  Most_Reviews DESC
 limit 10;
+
+-- ==================================================
+-- Business Question 20
+-- Hosts with the Highest Average Reviews per Listing
+-- Minimum 5 Listings
+-- ==================================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings,
+    AVG(fl.number_of_reviews) AS Average_Listing_Reviews
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+GROUP BY
+    dh.host_id,
+    dh.host_name
+HAVING COUNT(*) >= 5
+ORDER BY Average_Listing_Reviews DESC
+LIMIT 10;
