@@ -152,3 +152,42 @@ Airbnb should identify hosts with consistently high review activity per listing 
 These hosts could be used as examples for improving listing management, guest experience, and customer engagement across the platform.
 
 However, average reviews per listing should not be used as a standalone measure of host performance. Airbnb should combine this metric with total reviews, listing volume, pricing, availability, and estimated revenue to obtain a more complete view of host performance.
+
+## Business question 21
+
+## Question
+
+  Which hosts manage a large number of listings while maintaining a high average listing price?
+
+## Results
+
+| Rank | Host          | Total Listings | Average Listing Price |
+| ---: | ------------- | -------------: | --------------------: |
+|    1 | Sally         |             12 |         **$3,091.42** |
+|    2 | Henry         |             11 |         **$1,772.73** |
+|    3 | Jessica       |             11 |         **$1,350.00** |
+|    4 | Chayla        |             12 |           **$828.17** |
+|    5 | Red Awning    |             49 |           **$720.29** |
+|    6 | Wynpoints     |             12 |           **$619.00** |
+|    7 | Bluebird      |             18 |           **$577.39** |
+|    8 | Park Lane     |             14 |           **$410.71** |
+|    9 | Chamber Hotel |             11 |           **$404.00** |
+|   10 | Janet         |             11 |           **$398.64** |
+
+## Executive Summary
+
+The analysis identifies hosts that manage at least 10 Airbnb listings while maintaining the highest average listing prices.
+
+Sally ranks first, managing 12 listings with an average listing price of $3,091.42. Henry ranks second with 11 listings at an average price of $1,772.73, followed by Jessica with 11 listings at $1,350.00.
+
+The results show that some hosts combine a relatively large portfolio with premium average listing prices. In contrast, hosts such as Red Awning manage a much larger portfolio of 49 listings, but with a lower average price of $720.29.
+
+This demonstrates that portfolio size and average listing price represent different aspects of host performance. A host with many listings is not necessarily operating at the highest price level.
+
+## Business Recommendation
+
+Airbnb should identify hosts that combine high listing volume with premium pricing, as these hosts may represent an important segment of the marketplace.
+
+The platform could provide these hosts with advanced pricing analytics, market benchmarking, and demand insights to help them maintain competitive pricing while managing larger portfolios.
+
+Airbnb should also avoid evaluating host performance using average price alone. Listing volume, availability, reviews, and estimated revenue potential should be considered together to obtain a more complete understanding of host performance.

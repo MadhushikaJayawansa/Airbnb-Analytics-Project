@@ -73,3 +73,24 @@ GROUP BY
 HAVING COUNT(*) >= 5
 ORDER BY Average_Listing_Reviews DESC
 LIMIT 10;
+
+-- ==================================================
+-- Business Question 21
+-- Hosts with Many Listings and High Average Price
+-- Minimum 10 Listings
+-- ==================================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings,
+    AVG(fl.price) AS Average_Listing_Price
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+GROUP BY
+    dh.host_id,
+    dh.host_name
+HAVING COUNT(*) >= 10
+ORDER BY Average_Listing_Price DESC
+LIMIT 10;
