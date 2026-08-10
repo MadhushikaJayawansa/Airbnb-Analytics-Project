@@ -37,3 +37,21 @@ SELECT
 FROM Fact_Listings
 WHERE price > 1000
    OR availability_365 > 300;
+
+   -- ==========================================
+-- Step 4 — CASE WHEN   
+-- ==========================================
+
+-- ===============================================================================================
+-- Business Question
+-- How can we categorize Airbnb listings into Budget, Moderate, and Expensive based on price?
+-- ===============================================================================================
+
+   SELECT
+    price,
+    CASE
+        WHEN price <= 100 THEN 'Budget'
+        WHEN price > 100 AND price <= 300 THEN 'Moderate'
+        ELSE 'Expensive'
+    END AS Price_Category
+FROM Fact_Listings;

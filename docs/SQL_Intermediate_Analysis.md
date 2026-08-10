@@ -91,3 +91,28 @@ This demonstrates how `OR` can be used to broaden a filter by allowing a row to 
 
 - `AND` → all conditions must be true.
 - `OR` → at least one condition must be true.
+
+
+
+## Step 4 — CASE WHEN
+
+### Business Question
+
+How can Airbnb listings be categorized into different price groups based on their listing price?
+
+### SQL Concept
+
+`CASE WHEN` is used to create conditional logic in SQL.
+
+It allows raw data values to be transformed into meaningful business categories based on specified conditions.
+
+### Price Categories
+
+The listings are divided into three price categories:
+
+| Price Range                   | Category |
+|-------------------------------|--------- |
+| $100 or less                  | Budget   |
+| More than $100 and up to $300 | Moderate |
+| More than $300                | Expensive|
+
