@@ -178,3 +178,19 @@ The three categories total 48,884 listings, matching the cleaned Airbnb dataset.
 - `GROUP BY` can be combined with `CASE WHEN` to analyze each category.
 - `COUNT(*)` measures the number of listings in each category.
 - `ELSE` handles the remaining values after the earlier conditions are evaluated.
+
+
+## Step 7 — LIKE: Searching Text Patterns
+
+### Business Question
+
+How many Airbnb listings belong to hosts whose name contains "John"?
+
+### SQL Concept
+
+The `LIKE` operator is used to search text values based on a specified pattern.
+
+The `%` wildcard represents zero or more characters.
+
+Using `%John%` searches for "John" anywhere within the host name.
+

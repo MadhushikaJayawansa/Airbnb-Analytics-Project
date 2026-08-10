@@ -119,3 +119,20 @@ GROUP BY
     END
 
 ORDER BY Total_Listings DESC;
+
+
+-- ==========================================
+-- Step 7 — LIKE: Searching Text Patterns
+-- ==========================================
+
+-- ===============================================================================================
+-- Business Question
+-- How many Airbnb listings belong to hosts whose name contains "John"?
+-- ===============================================================================================
+
+SELECT
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+WHERE dh.host_name LIKE '%John%';
