@@ -55,3 +55,28 @@ WHERE price > 1000
         ELSE 'Expensive'
     END AS Price_Category
 FROM Fact_Listings;
+
+-- ==========================================
+-- Step 5 —  CASE WHEN with GROUP BY 
+-- ==========================================
+
+-- ===============================================================================================
+-- Business Question
+-- How many Airbnb listings are in each price category?
+-- ===============================================================================================
+
+SELECT
+    CASE
+        WHEN price <= 100 THEN 'Budget'
+        WHEN price > 100 AND price <= 300 THEN 'Moderate'
+        ELSE 'Expensive'
+    END AS Price_Category,
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings
+GROUP BY
+    CASE
+        WHEN price <= 100 THEN 'Budget'
+        WHEN price > 100 AND price <= 300 THEN 'Moderate'
+        ELSE 'Expensive'
+    END
+ORDER BY Total_Listings DESC;

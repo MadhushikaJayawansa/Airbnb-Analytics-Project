@@ -116,3 +116,33 @@ The listings are divided into three price categories:
 | More than $100 and up to $300 | Moderate |
 | More than $300                | Expensive|
 
+## Step 5 — CASE WHEN with GROUP BY
+
+### Business Question
+
+How many Airbnb listings fall into each price category?
+
+### SQL Concept
+
+`CASE WHEN` can be combined with `GROUP BY` and `COUNT()` to create business categories and measure the number of records in each category.
+
+### Result
+
+| Price Category | Total Listings |
+|----------------|---------------:|
+| Budget         | 23,917         |
+| Moderate       | 21,610         |
+| Expensive      | 3,357          |
+| **Total**      | **48,884**     |
+
+### Interpretation
+
+The largest category is **Budget**, with 23,917 listings, followed by **Moderate** listings with 21,610.
+
+There are 3,357 listings classified as **Expensive**, representing a much smaller portion of the overall dataset.
+
+The category counts total 48,884 listings, which matches the cleaned dataset size.
+
+### Key Learning
+
+`CASE WHEN` can be used with aggregation and grouping to transform raw numerical data into meaningful business categories and analyze the distribution of those categories.
