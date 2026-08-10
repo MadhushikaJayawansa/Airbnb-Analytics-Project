@@ -80,3 +80,42 @@ GROUP BY
         ELSE 'Expensive'
     END
 ORDER BY Total_Listings DESC;
+
+
+
+-- ==========================================
+-- Step 6 —  CASE WHEN for Availability Categories
+-- ==========================================
+
+-- ===============================================================================================
+-- Business Question
+-- How can Airbnb listings be categorized based on their annual availability?
+-- ===============================================================================================
+
+SELECT
+    CASE
+        WHEN availability_365 <= 30
+            THEN 'Low Availability'
+
+        WHEN availability_365 <= 180
+            THEN 'Medium Availability'
+
+        ELSE 'High Availability'
+    END AS Listing_Availability,
+
+    COUNT(*) AS Total_Listings
+
+FROM Fact_Listings
+
+GROUP BY
+    CASE
+        WHEN availability_365 <= 30
+            THEN 'Low Availability'
+
+        WHEN availability_365 <= 180
+            THEN 'Medium Availability'
+
+        ELSE 'High Availability'
+    END
+
+ORDER BY Total_Listings DESC;

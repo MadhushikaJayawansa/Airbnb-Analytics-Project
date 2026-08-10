@@ -146,3 +146,22 @@ The category counts total 48,884 listings, which matches the cleaned dataset siz
 ### Key Learning
 
 `CASE WHEN` can be used with aggregation and grouping to transform raw numerical data into meaningful business categories and analyze the distribution of those categories.
+
+## Step 4.3 — CASE WHEN for Availability Categories
+
+### Business Question
+
+How can Airbnb listings be categorized based on their annual availability?
+
+### SQL Concept
+
+`CASE WHEN` can be used to convert numerical availability values into meaningful business categories.
+
+The listings are divided into three availability groups:
+
+| Availability (Days) | Category            |
+|--------------------:|---------------------|
+| 0–30 days           | Low Availability    |
+| 31–180 days         | Medium Availability |
+| 181–365 days        | High Availability   |
+
