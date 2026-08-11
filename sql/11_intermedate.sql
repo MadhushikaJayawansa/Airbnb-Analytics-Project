@@ -136,3 +136,21 @@ FROM Fact_Listings fl
 JOIN Dim_Host dh
     ON fl.host_key = dh.host_key
 WHERE dh.host_name LIKE '%John%';
+
+
+-- ==========================================
+-- Step 8 — Use BETWEEN 
+-- ==========================================
+
+-- ===============================================================================================
+-- Business Question
+-- How many listings have a price between $100 and $300?
+-- ===============================================================================================
+
+SELECT
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings
+WHERE Price BETWEEN 100 AND 300;
+
+-- WHERE Price >= 100
+--   AND Price <= 300

@@ -194,3 +194,56 @@ The `%` wildcard represents zero or more characters.
 
 Using `%John%` searches for "John" anywhere within the host name.
 
+### Result
+
+| Metric                                        | Value   |
+|-----------------------------------------------|--------:|
+| Listings belonging to hosts containing "John" | **378** |
+
+
+### Interpretation
+
+There are **378 Airbnb listings** associated with hosts whose names contain the text **"John"**.
+
+The `LIKE` operator allowed the query to search for the text pattern anywhere within the host name.
+
+### Key Learning
+
+- `LIKE` is used for searching text patterns.
+- `%` represents zero or more characters.
+- `%John%` searches for "John" anywhere within a text value.
+- `John%` searches for values that start with "John".
+- `%John` searches for values that end with "John".
+- `LIKE` is useful when exact text matching is not required.
+
+## Step 8 — BETWEEN
+
+### Business Question
+
+How many Airbnb listings have a price between $100 and $300?
+
+### SQL Concept
+
+`BETWEEN` is used to filter values within a specified range.
+
+The `BETWEEN` operator is **inclusive**, meaning the boundary values are included.
+
+### Result
+
+| Metric                                | Value      |
+|---------------------------------------|-----------:|
+| Listings priced between $100 and $300 | **23,661** |
+
+### Interpretation
+
+There are **23,661 Airbnb listings** with a price between **$100 and $300**.
+
+The `BETWEEN` operator includes both boundary values, meaning listings priced at exactly **$100** and exactly **$300** are included in the result.
+
+### Key Learning
+
+- `BETWEEN` is used to filter values within a range.
+- `BETWEEN` includes both the lower and upper boundaries.
+- `price BETWEEN 100 AND 300` is equivalent to `price >= 100 AND price <= 300`.
+- `BETWEEN` can be used with numerical values, dates, and other ordered values.
+- It provides a simpler and more readable alternative to using two comparison conditions with `AND`.
