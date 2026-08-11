@@ -16,7 +16,7 @@ WHERE price > (
 
 
 --==============================================================================
---Step-2
+--Step-1.2
 --Subquery with COUNT()
 -- Business Question
 --How many Airbnb listings have a price higher than the overall average listing price?
@@ -31,7 +31,7 @@ WHERE price > (
 );
 
 --==============================================================================
---Step-3
+--Step-1.3
 --subquery inside another query
 -- Business Question
 --Which hosts have more listings than the average number of listings per host?

@@ -1,4 +1,4 @@
-## Step 1 — Subquery: Listings Above Average Price
+## Step 1.1 — Subquery: Listings Above Average Price
 
 ### Business Question
 
@@ -25,7 +25,7 @@ Subqueries can make analysis dynamic because values such as averages do not need
 This technique is useful when comparing individual records against an overall benchmark.
 
 
-## Step 2 — Subquery with COUNT()
+## Step 1.2 — Subquery with COUNT()
 
 ### Business Question
 
@@ -48,7 +48,7 @@ The average price does not need to be manually entered into the query.
 
 
 
-## Step 3 — Subquery with Aggregation
+## Step 1.3 — Subquery with Aggregation
 
 ### Business Question
 
@@ -95,7 +95,7 @@ The outer query can compare grouped results against the calculated benchmark.
 This pattern is useful for identifying above-average business performance.
 
 
-## Step 4 — Correlated Subquery
+## Step 1.4 — Correlated Subquery
 
 ### Business Question
 
