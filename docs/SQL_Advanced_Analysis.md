@@ -187,3 +187,51 @@ The CTE can contain aggregation such as COUNT() and GROUP BY.
 The main query can then use the CTE as if it were a temporary table.
 
 CTEs make complex SQL easier to read, organize, and maintain.
+
+
+## Step 2.2 — CTE with Dimension Join
+
+### Business Question
+
+Which hosts manage the most Airbnb listings, including their host names?
+
+### SQL Concept
+
+A CTE can be combined with dimension tables to create a readable analytical query.
+
+The CTE first summarizes the number of listings for each host. The main query then joins this summary to `Dim_Host` to retrieve the host ID and host name.
+
+### Result
+
+The query returned 37,455 host groups.
+
+### Top Results 
+
+|   Host ID | Host Name      | Total Listings |
+| --------: | -------------- | -------------: |
+| 219517861 | Sonder (NYC)   |            327 |
+| 107434423 | Blueground     |            232 |
+|  30283594 | Kara           |            121 |
+| 137358866 | Kazuya         |            103 |
+|  16098958 | Jeremy & Laura |             96 |
+|  12243051 | Sonder         |             96 |
+
+## Interpretation
+
+The analysis identifies the hosts managing the largest number of Airbnb listings.
+
+Sonder (NYC) manages the highest number of listings with 327, followed by Blueground with 232 listings.
+
+Joining the CTE with Dim_Host makes the result more useful for business reporting because the surrogate host_key is replaced with meaningful host information.
+
+## Key Learning
+
+CTEs can be joined with dimension tables.
+
+A CTE can perform aggregation before the main query.
+
+Star-schema keys can be used to connect fact and dimension tables.
+
+CTEs help separate data preparation from final presentation.
+
+This approach is useful for creating readable analytical queries.

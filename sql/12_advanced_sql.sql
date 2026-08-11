@@ -98,3 +98,26 @@ WITH host_summary AS (
 SELECT *
 FROM host_summary
 ORDER BY Total_Listings DESC;
+
+
+--====================================================================
+--Step 2.2 — CTE + Dimension Join
+--Business Question
+--Which hosts manage the most listings, including their host names?
+--===================================================================
+
+WITH host_summary AS (
+    SELECT
+        host_key,
+        COUNT(*) AS Total_Listings
+    FROM Fact_Listings
+    GROUP BY host_key
+)
+SELECT
+    dh.host_id,
+    dh.host_name,
+    hs.Total_Listings
+FROM host_summary hs
+JOIN Dim_Host dh
+    ON hs.host_key = dh.host_key
+ORDER BY hs.Total_Listings DESC;
