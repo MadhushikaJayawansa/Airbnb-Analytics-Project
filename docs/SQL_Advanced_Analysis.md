@@ -139,3 +139,51 @@ The subquery is evaluated in relation to the current outer row.
 fl2.host_key = fl.host_key connects the inner query to the current host.
 Correlated subqueries are useful for comparing individual records against a group-specific benchmark.
 They are more advanced than standard independent subqueries because the inner query depends on the outer query.
+
+
+## Step 2.1 — CTE: Host Listing Summary
+
+### Business Question
+
+Which hosts manage the most Airbnb listings?
+
+### SQL Concept
+
+A CTE (Common Table Expression) creates a temporary named result set that can be used by the main query.
+
+A CTE begins with the `WITH` keyword.
+
+In this analysis, the CTE first calculates the total number of listings for each host. The main query then uses the CTE to sort the hosts by their listing count.
+
+### Result
+
+The CTE produced 37,455 host groups.
+
+### Top Results
+
+| Host Key | Total Listings |
+| -------: | -------------: |
+|    30563 |            327 |
+|    21708 |            232 |
+|     8393 |            121 |
+|    26732 |            103 |
+|    25206 |             96 |
+|     4421 |             96 |
+
+## Interpretation
+
+The analysis shows that most hosts manage a relatively small number of listings, while a smaller number of hosts manage many properties.
+
+The top host in the result manages 327 listings, followed by hosts managing 232 and 121 listings.
+
+## Key Learning
+
+A CTE is created using the WITH keyword.
+
+A CTE gives a complex query a temporary, readable result set.
+
+The CTE can contain aggregation such as COUNT() and GROUP BY.
+
+The main query can then use the CTE as if it were a temporary table.
+
+CTEs make complex SQL easier to read, organize, and maintain.

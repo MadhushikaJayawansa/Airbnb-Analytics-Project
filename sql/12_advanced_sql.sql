@@ -79,3 +79,22 @@ WHERE fl.price > (
     WHERE fl2.host_key = fl.host_key
 )
 ORDER BY fl.price DESC;
+
+
+
+--======================================================
+--Step 2.1 — First CTE
+--Business Question
+--Which hosts manage the most Airbnb listings?
+--=======================================================
+
+WITH host_summary AS (
+    SELECT
+        host_key,
+        COUNT(*) AS Total_Listings
+    FROM Fact_Listings
+    GROUP BY host_key
+)
+SELECT *
+FROM host_summary
+ORDER BY Total_Listings DESC;
