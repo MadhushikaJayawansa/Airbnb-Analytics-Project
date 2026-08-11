@@ -154,3 +154,35 @@ WHERE Price BETWEEN 100 AND 300;
 
 -- WHERE Price >= 100
 --   AND Price <= 300
+
+
+-- ==========================================
+-- Step 9 — IN 
+-- ==========================================
+
+-- ===============================================================================================
+-- Business Question
+-- How many Airbnb listings are either Private Room or Shared Room??
+-- ===============================================================================================
+
+SELECT
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings fl
+JOIN Dim_Room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+WHERE drt.room_type IN ('Private room', 
+'Shared room');
+
+-- ==========================================
+-- Step 10 — COALESCE 
+-- ==========================================
+
+-- =====================================================================
+-- Business Question
+-- How can we replace missing host names with "Unknown Host"
+-- =====================================================================
+
+SELECT
+    host_id,
+    COALESCE(host_name, 'Unknown Host') AS Host_Name
+FROM Dim_Host;

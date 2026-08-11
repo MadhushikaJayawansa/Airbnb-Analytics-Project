@@ -247,3 +247,81 @@ The `BETWEEN` operator includes both boundary values, meaning listings priced at
 - `price BETWEEN 100 AND 300` is equivalent to `price >= 100 AND price <= 300`.
 - `BETWEEN` can be used with numerical values, dates, and other ordered values.
 - It provides a simpler and more readable alternative to using two comparison conditions with `AND`.
+
+
+## Step 9 — IN
+
+### Business Question
+
+How many Airbnb listings are either Private Room or Shared Room?
+
+### SQL Concept
+
+The `IN` operator is used to filter records that match any value from a specified list.
+
+It provides a cleaner alternative to writing multiple `OR` conditions.
+
+### Result
+
+| Metric                          | Value      |
+|---------------------------------|-----------:|
+| Private or Shared Room Listings | **23,477** |
+
+### Interpretation
+
+There are **23,477 Airbnb listings** that are either **Private room** or **Shared room**.
+
+The `IN` operator allowed multiple specific room-type values to be filtered within a single `WHERE` condition.
+
+### Key Learning
+
+- `IN` is used to filter records that match any value from a specified list.
+- `IN ('Private room', 'Shared room')` is a shorter alternative to using multiple `OR` conditions.
+- `IN` is useful when filtering multiple known categories or values.
+- `IN` can be used with text, numbers, and other comparable values.
+
+## Step 10 — COALESCE
+
+### Business Question
+
+How can missing host names be replaced with a default value such as "Unknown Host"?
+
+### SQL Concept
+
+`COALESCE()` is used to handle `NULL` values in SQL.
+
+It returns the first non-NULL value from the values provided.
+
+For example:
+
+```sql
+COALESCE(host_name, 'Unknown Host')
+
+### Result
+
+The query returns the host ID and host name.
+
+For any host where host_name is NULL, the result displays:
+
+Unknown Host
+
+Since the Airbnb dataset was cleaned before loading into Snowflake and missing host_name values were handled during the data-cleaning stage, there may be no "Unknown Host" values in the current result.
+
+### Interpretation
+
+COALESCE() provides a way to replace missing values with a meaningful default value.
+
+This is useful when preparing data for business reporting because NULL values can make dashboards, reports, and analysis harder to interpret.
+
+In this Airbnb project, "Unknown Host" can be used as a fallback value if missing host names are present.
+
+### Key Learning
+COALESCE() is used to handle NULL values.
+
+It returns the first non-NULL value provided.
+
+COALESCE(column, 'Default Value') replaces NULL values with the specified default.
+
+It is useful for data cleaning and reporting.
+
+COALESCE() helps prevent missing values from appearing as blank or NULL in reports and dashboards.
