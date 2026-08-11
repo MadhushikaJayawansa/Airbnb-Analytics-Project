@@ -58,3 +58,24 @@ HAVING COUNT(*) > (
     )
 )
 ORDER BY Total_Listings DESC;
+
+--==============================================================================
+--Step-4
+--Correlated Subquery
+-- Business Question
+--Which hosts have at least one listing priced above that host's own average listing price?
+--===========================================================================================
+SELECT
+    fl.id,
+    dh.host_id,
+    dh.host_name,
+    fl.price
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+WHERE fl.price > (
+    SELECT AVG(fl2.price)
+    FROM Fact_Listings fl2
+    WHERE fl2.host_key = fl.host_key
+)
+ORDER BY fl.price DESC;
