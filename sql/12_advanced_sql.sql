@@ -341,3 +341,42 @@ WHERE Price_Rank <= 3
 ORDER BY
     room_type,
     Price_Rank;
+
+
+--===================================================================
+-- Phase 7 — Step 4.6: Running Total.
+--  Step 4.6 — cumulative total up to each year
+--How do Airbnb reviews accumulate over time?
+--What are the top 3 most expensive listings within each room type?*
+--=====================================================================
+
+SELECT
+    dd.year,
+    SUM(fl.number_of_reviews) AS Total_Reviews
+FROM Fact_Listings fl
+JOIN Dim_Date dd
+    ON fl.date_key = dd.date_key
+GROUP BY
+    dd.year
+ORDER BY
+    dd.year;
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY
+        dd.year
+)
+SELECT
+    year,
+    Total_Reviews,
+    SUM(Total_Reviews) OVER (
+        ORDER BY year
+    ) AS Running_Total_Reviews
+FROM yearly_reviews
+ORDER BY
+    year;

@@ -776,3 +776,54 @@ A CTE can store the ranked results.
 The outer query can filter the Window Function result.
 
 The Top N Within Group pattern is commonly used in business intelligence and data analysis.
+
+
+## Step 4.6 — Running Total
+
+### Business Question
+
+How do Airbnb reviews accumulate over time?
+
+### SQL Concept
+
+A Running Total is a cumulative calculation that continuously adds the current value to all previous values.
+
+Window Functions can be used to calculate running totals without collapsing the original summary rows.
+
+In this analysis, annual review totals are calculated first using a CTE. A Window Function is then used to calculate the cumulative number of reviews over the years.
+
+### Result
+
+| Year | Total Reviews | Running Total Reviews |
+| ---: | ------------: | --------------------: |
+| 2011 |            61 |                    61 |
+| 2012 |           178 |                   239 |
+| 2013 |           242 |                   481 |
+| 2014 |           932 |                 1,413 |
+| 2015 |         5,762 |                 7,175 |
+| 2016 |        16,182 |                23,357 |
+| 2017 |        28,522 |                51,879 |
+| 2018 |        72,355 |               124,234 |
+| 2019 |     1,013,394 |             1,137,628 |
+
+## Interpretation
+
+The running total shows the cumulative number of reviews recorded in the Airbnb dataset over time.
+
+Review activity increased substantially in the later years. By the end of 2018, the cumulative number of reviews had reached 124,234.
+
+In 2019, the dataset recorded 1,013,394 reviews, bringing the cumulative total to 1,137,628.
+
+The final running total matches the overall project KPI for total reviews
+
+## Key Learning
+
+A running total can be calculated using a Window Function.
+
+SUM() OVER (ORDER BY ...) creates a cumulative calculation.
+
+A CTE can first aggregate data before applying a Window Function.
+
+ORDER BY year determines the sequence in which values are accumulated.
+
+Running totals are useful for time-series analysis, cumulative KPIs, and business dashboards.
