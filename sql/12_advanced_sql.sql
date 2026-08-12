@@ -833,3 +833,47 @@ HAVING
 
 ORDER BY
     Expensive_Listings DESC;
+
+--===========================================================================================
+--Phase 08
+--Step 08.1.4 — Conditional Aggregation by Room Type
+--Business Question
+--How many Budget, Moderate, and Expensive listings exist for each room type?
+--==========================================================================================
+
+SELECT
+    drt.room_type AS Room_Type,
+
+    COUNT(*) AS Total_Listings,
+
+    SUM(
+        CASE
+            WHEN fl.price <= 100 THEN 1
+            ELSE 0
+        END
+    ) AS Budget_Listings,
+
+    SUM(
+        CASE
+            WHEN fl.price > 100 AND fl.price <= 300 THEN 1
+            ELSE 0
+        END
+    ) AS Moderate_Listings,
+
+    SUM(
+        CASE
+            WHEN fl.price > 300 THEN 1
+            ELSE 0
+        END
+    ) AS Expensive_Listings
+
+FROM Fact_Listings fl
+
+JOIN Dim_Room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+
+GROUP BY
+    drt.room_type
+
+ORDER BY
+    Total_Listings DESC;
