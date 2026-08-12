@@ -563,3 +563,216 @@ The OVER() clause defines how the rows are processed.
 ORDER BY inside OVER() determines the ranking order.
 
 Rows with equal values still receive different row numbers
+
+## Step 4.2 — RANK()
+
+### Business Question
+
+How can Airbnb listings be ranked by price while giving the same rank to listings with the same price?
+
+### SQL Concept
+
+`RANK()` is a Window Function that assigns the same rank to rows with equal values.
+
+Unlike `ROW_NUMBER()`, duplicate values receive the same rank. However, gaps appear in the ranking after tied values.
+
+### Result
+
+The query ranked listings from highest to lowest price.
+
+### Sample results
+
+|       ID | Price | Price Rank |
+| -------: | ----: | ---------: |
+| 13894339 | 10000 |          1 |
+| 22436899 | 10000 |          1 |
+|  7003697 | 10000 |          1 |
+|  9528920 |  9999 |          4 |
+| 31340283 |  9999 |          4 |
+|  4737930 |  9999 |          4 |
+| 23377410 |  8500 |          7 |
+|  2953058 |  8000 |          8 |
+| 22779726 |  7703 |          9 |
+
+## Interpretation
+
+Listings with the same price receive the same rank.
+
+The three listings priced at 10,000 all receive rank 1. Because three rows occupy rank 1, the next price, 9,999, receives rank 4.
+
+Similarly, the three listings priced at 9,999 all receive rank 4, causing the next rank to be 7.
+
+## Key Learning
+
+RANK() assigns the same rank to tied values.
+
+Tied rows create gaps in subsequent rankings.
+
+RANK() is useful when equal values should share the same position.
+
+RANK() differs from ROW_NUMBER(), which always assigns unique numbers.
+
+
+## Step 4.3 — DENSE_RANK()
+
+### Business Question
+
+How can Airbnb listings with the same price receive the same rank without creating gaps in the ranking?
+
+### SQL Concept
+
+`DENSE_RANK()` is a Window Function that assigns the same rank to rows with equal values while keeping the ranking consecutive.
+
+Unlike `RANK()`, `DENSE_RANK()` does not create gaps after tied values.
+
+### Result
+
+|       ID | Price | Price Rank |
+| -------: | ----: | ---------: |
+| 13894339 | 10000 |          1 |
+| 22436899 | 10000 |          1 |
+|  7003697 | 10000 |          1 |
+|  9528920 |  9999 |          2 |
+| 31340283 |  9999 |          2 |
+|  4737930 |  9999 |          2 |
+| 23377410 |  8500 |          3 |
+|  2953058 |  8000 |          4 |
+| 22779726 |  7703 |          5 |
+| 33007610 |  7500 |          6 |
+
+## Interpretation
+
+The three listings with a price of 10,000 all receive rank 1.
+
+The three listings with a price of 9,999 all receive rank 2.
+
+Unlike RANK(), the ranking does not skip from 1 to 4. The next distinct price receives the next consecutive rank.
+
+## Key Learning
+
+Key Learning
+DENSE_RANK() gives tied values the same rank.
+Unlike RANK(), it does not create gaps.
+DENSE_RANK() ranks distinct values consecutively.
+ROW_NUMBER(), RANK(), and DENSE_RANK() are useful for different ranking requirements.
+
+
+## Step 4.4 — PARTITION BY
+
+### Business Question
+
+What are the most expensive Airbnb listings within each room type?
+
+### SQL Concept
+
+`PARTITION BY` divides the data into separate groups before applying a Window Function.
+
+Instead of ranking all listings together, the ranking is restarted for each room type.
+
+In this analysis, listings are partitioned into:
+
+- Entire home/apt
+- Private room
+- Shared room
+
+The `ROW_NUMBER()` function then ranks listings by price within each room type.
+
+### Result
+
+The ranking is calculated separately for each room type.
+
+### Sample Results
+
+|       ID | Room Type       | Price | Price Rank |
+| -------: | --------------- | ----: | ---------: |
+| 13894339 | Entire home/apt | 10000 |          1 |
+| 22436899 | Entire home/apt | 10000 |          2 |
+|  4737930 | Entire home/apt |  9999 |          3 |
+| 31340283 | Entire home/apt |  9999 |          4 |
+| 23377410 | Entire home/apt |  8500 |          5 |
+|  2953058 | Entire home/apt |  8000 |          6 |
+| 22779726 | Entire home/apt |  7703 |          7 |
+| 33007610 | Entire home/apt |  7500 |          8 |
+| 33998396 | Entire home/apt |  6800 |          9 |
+|  2271504 | Entire home/apt |  6500 |         10 |
+
+## Interpretation
+
+The query ranks listings by price separately within each room type.
+
+The ranking starts from 1 for each room type rather than continuing across the entire dataset.
+
+For example, the most expensive Entire home/apt listing receives rank 1. When the query reaches Private room, the ranking starts again at 1 for that group.
+
+## Key Learning
+
+PARTITION BY divides data into groups for a Window Function.
+
+The Window Function is calculated independently within each group.
+
+Ranking restarts for every partition.
+
+PARTITION BY is different from GROUP BY.
+
+GROUP BY combines rows into summary rows, while PARTITION BY keeps the original rows and performs 
+calculations across them.
+
+PARTITION BY is extremely useful for group-level rankings and comparisons.
+
+
+## Step 4.5 — Top N Within Each Group
+
+### Business Question
+
+What are the top 3 most expensive Airbnb listings within each room type?
+
+### SQL Concept
+
+Window Functions can be combined with `PARTITION BY` to rank records within groups.
+
+A CTE is then used to filter the ranked results.
+
+The query:
+
+1. Partitions listings by room type.
+2. Ranks listings by price within each room type.
+3. Filters the results to the top 3 listings in each group.
+
+### Result
+
+The query returned 9 listings:
+
+3 Entire home/apt listings
+3 Private room listings
+3 Shared room listings
+
+|       ID | Room Type       | Price | Price Rank |
+| -------: | --------------- | ----: | ---------: |
+| 13894339 | Entire home/apt | 10000 |          1 |
+| 22436899 | Entire home/apt | 10000 |          2 |
+|  4737930 | Entire home/apt |  9999 |          3 |
+|  7003697 | Private room    | 10000 |          1 |
+|  9528920 | Private room    |  9999 |          2 |
+| 34895693 | Private room    |  7500 |          3 |
+| 11234747 | Shared room     |  1800 |          1 |
+| 23169146 | Shared room     |  1250 |          2 |
+|  2230982 | Shared room     |  1000 |          3 |
+
+## Interpretation
+
+The analysis identifies the three most expensive listings within each room type rather than ranking all listings together.
+
+Entire home/apt and Private room categories both contain listings priced at 10,000, while the highest-priced Shared room listing is 1,800.
+
+This demonstrates how Window Functions can be used to answer category-specific Top N business questions.
+
+## Key Learning
+PARTITION BY allows rankings to restart within each group.
+
+ROW_NUMBER() can be used to identify Top N records.
+
+A CTE can store the ranked results.
+
+The outer query can filter the Window Function result.
+
+The Top N Within Group pattern is commonly used in business intelligence and data analysis.

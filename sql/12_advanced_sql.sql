@@ -258,3 +258,86 @@ SELECT
     ) AS Price_Rank
 FROM Fact_Listings
 ORDER BY price DESC;
+
+--===================================================================
+-- Phase 7 — Step 4: Window Functions
+-- Step 4.2: `RANK()`
+--Business Question
+--How can Airbnb listings be ranked by price while giving the same rank to listings with the same price?
+--=====================================================================
+SELECT
+    id,
+    price,
+    RANK() OVER (
+        ORDER BY price DESC
+    ) AS Price_Rank
+FROM Fact_Listings
+ORDER BY price DESC;
+
+--===================================================================
+-- Phase 7 — Step 4: Window Functions
+-- Step 4.3 — `DENSE_RANK()`
+--Business Question
+--How can Airbnb listings be ranked by price while giving the same rank to listings with the same price?
+--=====================================================================
+
+SELECT
+    id,
+    price,
+    DENSE_RANK() OVER (
+        ORDER BY price DESC
+    ) AS Price_Rank
+FROM Fact_Listings
+ORDER BY price DESC;
+
+
+--===================================================================
+-- Phase 7 — Step 4: Window Functions
+-- Step 4.4 — `PARTITION BY`
+--Business Question
+--What are the most expensive listings within each room type?
+--=====================================================================
+SELECT
+    fl.id,
+    drt.room_type,
+    fl.price,
+    ROW_NUMBER() OVER (
+        PARTITION BY drt.room_type
+        ORDER BY fl.price DESC
+    ) AS Price_Rank
+FROM Fact_Listings fl
+JOIN Dim_Room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+ORDER BY
+    drt.room_type,
+    Price_Rank;
+
+--===================================================================
+-- Phase 7 — Step 4: Window Functions
+--  Step 4.5 — Top N Within Each Group
+--Business Question
+--What are the top 3 most expensive listings within each room type?*
+--=====================================================================
+WITH ranked_listings AS (
+    SELECT
+        fl.id,
+        drt.room_type,
+        fl.price,
+        ROW_NUMBER() OVER (
+            PARTITION BY drt.room_type
+            ORDER BY fl.price DESC
+        ) AS Price_Rank
+    FROM Fact_Listings fl
+    JOIN Dim_Room_Type drt
+        ON fl.room_type_key = drt.room_type_key
+)
+SELECT
+    id,
+    room_type,
+    price,
+    Price_Rank
+FROM ranked_listings
+WHERE Price_Rank <= 3
+ORDER BY
+    room_type,
+    Price_Rank;
