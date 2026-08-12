@@ -795,3 +795,41 @@ GROUP BY
 
 ORDER BY
     Borough;
+
+--===========================================================================================
+--Phase 08
+--Step 08.1.3 — Conditional Aggregation + HAVING
+--Business Question
+--Which boroughs have more than 500 expensive listings?
+--==========================================================================================
+
+SELECT
+    dl.neighbourhood_group AS Borough,
+
+    COUNT(*) AS Total_Listings,
+
+    SUM(
+        CASE
+            WHEN fl.price > 300 THEN 1
+            ELSE 0
+        END
+    ) AS Expensive_Listings
+
+FROM Fact_Listings fl
+
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+
+GROUP BY
+    dl.neighbourhood_group
+
+HAVING
+    SUM(
+        CASE
+            WHEN fl.price > 300 THEN 1
+            ELSE 0
+        END
+    ) > 500
+
+ORDER BY
+    Expensive_Listings DESC;
