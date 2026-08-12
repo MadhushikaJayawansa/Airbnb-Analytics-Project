@@ -661,3 +661,50 @@ WHERE Host_Rank <= 3
 ORDER BY
     borough,
     Host_Rank;
+
+--===========================================================================================
+--Step 4.11.1 — Create the ranked host analysis
+--Business Question
+--Who are the top 3 hosts in each borough based on total listings, including tied hosts?
+--==========================================================================================
+
+WITH host_borough_listings AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        dh.host_id,
+        dh.host_name,
+        COUNT(*) AS Total_Listings
+    FROM Fact_Listings fl
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group,
+        dh.host_id,
+        dh.host_name
+),
+ranked_hosts AS (
+    SELECT
+        borough,
+        host_id,
+        host_name,
+        Total_Listings,
+        RANK() OVER (
+            PARTITION BY borough
+            ORDER BY Total_Listings DESC
+        ) AS Host_Rank
+    FROM host_borough_listings
+)
+SELECT
+    borough,
+    host_id,
+    host_name,
+    Total_Listings,
+    Host_Rank
+FROM ranked_hosts
+WHERE Host_Rank <= 3
+ORDER BY
+    borough,
+    Host_Rank,
+    Total_Listings DESC;

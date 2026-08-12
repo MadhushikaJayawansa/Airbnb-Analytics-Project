@@ -1205,3 +1205,78 @@ Ranked results can be filtered using an outer query.
 This pattern is useful for Top-N business analysis.
 
 Combining aggregation and Window Functions allows complex business questions to be answered efficiently.
+
+## Step 4.11 — Final Business Analysis Using RANK()
+
+### Business Question
+
+Who are the top Airbnb hosts in each borough based on the number of listings they manage, including hosts who are tied?
+
+### SQL Concept
+
+This analysis combines:
+
+- JOIN
+- GROUP BY
+- COUNT()
+- CTEs
+- RANK()
+- PARTITION BY
+- ORDER BY
+- Filtering ranked results
+
+Unlike `ROW_NUMBER()`, the `RANK()` function assigns the same rank to records with equal values.
+
+### Result
+
+| Borough       |   Host ID | Host Name    | Total Listings | Host Rank |
+| ------------- | --------: | ------------ | -------------: | --------: |
+| Bronx         |    310670 | Vie          |             13 |         1 |
+| Bronx         |  23878336 | Armando      |             10 |         2 |
+| Bronx         |  35783912 | Pi & Leo     |              8 |         3 |
+| Bronx         |  30509656 | Orit         |              8 |         3 |
+| Brooklyn      |   7503643 | Vida         |             52 |         1 |
+| Brooklyn      |  26377263 | Stat         |             35 |         2 |
+| Brooklyn      | 119669058 | Melissa      |             34 |         3 |
+| Manhattan     | 219517861 | Sonder (NYC) |            327 |         1 |
+| Manhattan     | 107434423 | Blueground   |            230 |         2 |
+| Manhattan     |  30283594 | Kara         |            121 |         3 |
+| Queens        | 137358866 | Kazuya       |             79 |         1 |
+| Queens        |  19303369 | Hiroki       |             29 |         2 |
+| Queens        | 242962235 | Yuval        |             23 |         3 |
+| Staten Island | 104812805 | Amarjit S    |              8 |         1 |
+| Staten Island | 137999892 | Simranjeet   |              7 |         2 |
+| Staten Island | 104927746 | Amardeep     |              7 |         2 |
+| Staten Island |  50756378 | Nina         |              7 |         2 |
+
+
+## Interpretation
+
+The analysis identifies the highest-ranking hosts within each borough while preserving ties.
+
+In the Bronx, Pi & Leo and Orit both manage 8 listings and therefore receive the same rank of 3.
+
+In Staten Island, Simranjeet, Amardeep, and Nina each manage 7 listings and therefore all receive Rank 2.
+
+As a result, the query returns 17 rows rather than exactly 15 rows. This is expected because tied hosts are retained.
+
+## Business Insight
+
+Using RANK() provides a fairer representation when multiple hosts have the same number of listings.
+
+For business reporting, this can be useful when identifying leading hosts without arbitrarily excluding a host simply because another host has the same performance value.
+
+Manhattan continues to show the strongest concentration of listings among the top hosts, with Sonder (NYC) managing 327 listings.
+
+## Key Learning
+RANK() assigns the same rank to tied values.
+
+PARTITION BY creates an independent ranking within each borough.
+
+ROW_NUMBER() and RANK() behave differently when values are tied.
+
+Filtering with WHERE Host_Rank <= 3 can return more than three records per group when ties occur.
+
+CTEs make complex multi-stage business analysis easier to structure.
+
+Window Functions are useful for real-world Top-N and ranking analysis.
