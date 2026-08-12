@@ -170,3 +170,31 @@ FROM host_performance
 WHERE Total_Listings >= 5
   AND Average_Reviews > 50
 ORDER BY Average_Reviews DESC;
+
+--===================================================================
+-- Phase 7 — Step Step 3.1 — Create  First View
+--Business Question
+--Can we create a reusable view showing the performance of each host?
+--=====================================================================
+
+CREATE OR REPLACE VIEW vw_host_performance AS
+SELECT
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings,
+    AVG(fl.price) AS Average_Price,
+    SUM(fl.number_of_reviews) AS Total_Reviews,
+    AVG(fl.availability_365) AS Average_Availability
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+GROUP BY
+Selection deleted
+
+    dh.host_id,
+    dh.host_name;
+
+SELECT *
+FROM vw_host_performance
+ORDER BY Total_Listings DESC;
+--LIMIT 10;

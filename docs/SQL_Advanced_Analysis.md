@@ -351,3 +351,52 @@ Multiple conditions can be combined using AND.
 CTEs are useful for creating readable business-performance analysis.
 
 This pattern is useful when business rules depend on calculated metrics rather than raw columns.
+
+
+## Step 3.1 — Creating a Host Performance View
+
+### Business Question
+
+Can we create a reusable view showing the performance of each Airbnb host?
+
+### SQL Concept
+
+A SQL View is a saved query that behaves like a virtual table.
+
+Views allow frequently used analytical logic to be saved and reused without rewriting the complete SQL query each time.
+
+In this analysis, a host performance view was created using the `Fact_Listings` fact table and `Dim_Host` dimension.
+
+### Result
+
+The view contains 37,455 host-level records.
+
+### Sample Results
+
+| Host Name    | Total Listings | Average Price | Total Reviews | Average Availability |
+| ------------ | -------------: | ------------: | ------------: | -------------------: |
+| Sonder (NYC) |            327 |        253.20 |         1,281 |               301.49 |
+| Blueground   |            232 |        303.15 |            29 |               253.81 |
+| Kara         |            121 |        277.53 |            65 |               313.42 |
+| Kazuya       |            103 |         43.83 |            87 |               196.48 |
+| Sonder       |             96 |        213.03 |            43 |               276.61 |
+
+## Interpretation
+
+The view provides a reusable host-level performance dataset containing listing volume, average price, total reviews, and average availability.
+
+For example, Sonder (NYC) manages the largest number of listings in the sample with 327 listings, while Blueground has a higher average price of approximately $303.15.
+
+## Key Learning
+
+A View is a saved SQL query that behaves like a virtual table.
+
+CREATE OR REPLACE VIEW creates or updates a view.
+
+Views can combine fact and dimension tables.
+
+Aggregated business metrics can be stored in a reusable analytical view.
+
+Views reduce the need to repeatedly write complex SQL.
+
+Views are useful as a clean data layer for reporting and BI tools such as Power BI.
