@@ -146,3 +146,27 @@ SELECT *
 FROM host_listings
 JOIN host_reviews
     ON host_listings.host_key = host_reviews.host_key;
+
+
+--=====================================================================================================
+--Step 2.4 — CTE with a Business Filter
+-- Business Question
+--Which hosts manage at least 5 listings and have an average of more than 50 reviews per listing?
+--======================================================================================================
+
+WITH host_performance AS (
+    SELECT
+        host_key,
+        COUNT(*) AS Total_Listings,
+        AVG(number_of_reviews) AS Average_Reviews
+    FROM Fact_Listings
+    GROUP BY host_key
+)
+SELECT
+    host_key,
+    Total_Listings,
+    Average_Reviews
+FROM host_performance
+WHERE Total_Listings >= 5
+  AND Average_Reviews > 50
+ORDER BY Average_Reviews DESC;

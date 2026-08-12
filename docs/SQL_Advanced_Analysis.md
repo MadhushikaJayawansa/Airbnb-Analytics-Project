@@ -256,6 +256,8 @@ In this analysis:
 
 The query returned 37,455 host-level records.
 
+### Top Results
+
 | Host Key | Total Listings | Average Reviews |
 | -------: | -------------: | --------------: |
 |        5 |              1 |               9 |
@@ -288,3 +290,64 @@ Each CTE can perform a different calculation.
 Multiple CTEs can be joined using a common key.
 
 This approach makes complex analytical SQL easier to organize and understand.
+
+
+## Step 2.4 — CTE with Business Filters
+
+### Business Question
+
+Which hosts manage at least 5 listings and have an average of more than 50 reviews per listing?
+
+### SQL Concept
+
+A CTE can be used to calculate business metrics first and then filter those calculated metrics in the main query.
+
+In this analysis, the CTE calculates:
+
+- Total listings per host
+- Average reviews per listing
+
+The main query then filters hosts based on both measures.
+
+### Result
+
+The query returned 83 hosts that meet both business conditions:
+
+At least 5 listings
+More than 50 average reviews per listing
+
+### Top Results
+
+| Host Key | Total Listings | Average Reviews |
+| -------: | -------------: | --------------: |
+|     8004 |              5 |           454.6 |
+|     6116 |              5 |           403.4 |
+|     8583 |              7 |          259.71 |
+|     8608 |              5 |           231.4 |
+|    17225 |              5 |           230.8 |
+|    12422 |              6 |          204.83 |
+|     9852 |              5 |           202.6 |
+|     7612 |             11 |          179.18 |
+|    22616 |              6 |          175.33 |
+|     8345 |             13 |          169.62 |
+
+
+## Interpretation
+
+The analysis identified 83 hosts that combine a relatively large portfolio with strong review activity.
+
+These hosts manage at least 5 listings while averaging more than 50 reviews per listing. This can indicate hosts with both a meaningful property portfolio and strong customer engagement.
+
+Host 8004 has the highest average reviews among the filtered results, with 454.6 reviews per listing across 5 listings.
+
+## Key Learning
+
+A CTE can calculate multiple business metrics before filtering.
+
+The main query can filter the calculated CTE columns.
+
+Multiple conditions can be combined using AND.
+
+CTEs are useful for creating readable business-performance analysis.
+
+This pattern is useful when business rules depend on calculated metrics rather than raw columns.
