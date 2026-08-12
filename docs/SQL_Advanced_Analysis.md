@@ -465,3 +465,49 @@ Views prevent repeated complex joins and aggregations.
 Views make analytical SQL shorter and easier to maintain.
 
 Views can provide a clean data layer for BI reporting.
+
+## Step 3.3 — Business-Focused View: Borough and Room Type Performance
+
+### Business Question
+
+How does Airbnb listing performance vary by borough and room type?
+
+### SQL Concept
+
+A business-focused View can combine multiple dimensions and fact-table measures into a reusable analytical dataset.
+
+In this analysis, `Dim_Location` provides the borough, `Dim_Room_Type` provides the room type, and `Fact_Listings` provides the listing measures.
+
+### Result
+
+The view returned 15 borough and room-type combinations.
+
+| Borough   | Room Type       | Total Listings | Average Price | Total Reviews | Average Availability |
+| --------- | --------------- | -------------: | ------------: | ------------: | -------------------: |
+| Manhattan | Entire home/apt |         13,198 |        249.26 |       235,147 |               117.15 |
+| Brooklyn  | Private room    |         10,126 |         76.55 |       213,341 |                99.91 |
+| Brooklyn  | Entire home/apt |          9,558 |        178.35 |       267,125 |                97.21 |
+| Manhattan | Private room    |          7,982 |        116.78 |       209,150 |               101.85 |
+| Queens    | Private room    |          3,372 |         71.76 |        93,561 |               149.22 |
+
+## Interpretation
+
+The analysis shows clear differences in listing performance across boroughs and room types.
+
+Manhattan has the highest number of Entire home/apt listings with 13,198 listings and an average price of approximately $249.26.
+
+Brooklyn has the largest number of Private room listings with 10,126 listings and an average price of approximately $76.55.
+
+Brooklyn Entire home/apt listings generate the highest total reviews among the combinations shown, with 267,125 reviews.
+
+## Key Learning
+
+Views can combine multiple dimension tables with a fact table.
+
+Business-focused Views can provide reusable datasets for reporting and dashboards.
+
+Aggregation can be performed across multiple dimensions.
+
+A single View can contain multiple business metrics.
+
+Views are useful for creating a clean analytical layer between Snowflake and BI tools such as Power BI.

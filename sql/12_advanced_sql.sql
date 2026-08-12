@@ -213,3 +213,31 @@ SELECT
 FROM vw_host_performance
 WHERE Total_Listings > 20
 ORDER BY Total_Listings DESC;
+
+
+--===================================================================
+-- Phase 7 — Step 3.3: Creating a Business-Focused View
+--Business Question
+--How does listing performance vary by borough and room type?
+--=====================================================================
+
+CREATE OR REPLACE VIEW vw_borough_room_performance AS
+SELECT
+    dl.neighbourhood_group AS Borough,
+    drt.room_type AS Room_Type,
+    COUNT(*) AS Total_Listings,
+    AVG(fl.price) AS Average_Price,
+    SUM(fl.number_of_reviews) AS Total_Reviews,
+    AVG(fl.availability_365) AS Average_Availability
+FROM Fact_Listings fl
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+JOIN Dim_Room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+GROUP BY
+    dl.neighbourhood_group,
+    drt.room_type;
+
+SELECT *
+FROM vw_borough_room_performance
+ORDER BY Total_Listings DESC;
