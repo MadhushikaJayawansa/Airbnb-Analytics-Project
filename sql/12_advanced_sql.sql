@@ -121,3 +121,28 @@ FROM host_summary hs
 JOIN Dim_Host dh
     ON hs.host_key = dh.host_key
 ORDER BY hs.Total_Listings DESC;
+
+--============================================================================================
+-- Step 2.3 — Multiple CTEs
+-- Business Question
+-- How can host listing counts and average reviews be combined into a single analytical result?
+--==============================================================================================
+
+WITH host_listings AS (
+    SELECT
+        host_key,
+        COUNT(*) AS Total_Listings
+    FROM Fact_Listings
+    GROUP BY host_key
+),
+host_reviews AS (
+    SELECT
+        host_key,
+        AVG(number_of_reviews) AS Average_Reviews
+    FROM Fact_Listings
+    GROUP BY host_key
+)
+SELECT *
+FROM host_listings
+JOIN host_reviews
+    ON host_listings.host_key = host_reviews.host_key;

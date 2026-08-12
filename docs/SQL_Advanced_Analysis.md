@@ -235,3 +235,56 @@ Star-schema keys can be used to connect fact and dimension tables.
 CTEs help separate data preparation from final presentation.
 
 This approach is useful for creating readable analytical queries.
+
+## Step 2.3 — Multiple CTEs
+
+### Business Question
+
+How can host listing counts and average reviews be combined into a single analytical result?
+
+### SQL Concept
+
+Multiple CTEs can be defined within the same SQL statement by separating them with commas.
+
+In this analysis:
+
+- The first CTE calculates the total number of listings for each host.
+- The second CTE calculates the average number of reviews for each host.
+- The final query joins both CTEs using `host_key`.
+
+### Result
+
+The query returned 37,455 host-level records.
+
+| Host Key | Total Listings | Average Reviews |
+| -------: | -------------: | --------------: |
+|        5 |              1 |               9 |
+|       25 |              1 |               0 |
+|       28 |              1 |              29 |
+|       29 |              3 |          175.33 |
+|       45 |              2 |           69.50 |
+|       62 |              2 |             261 |
+|       71 |              1 |             142 |
+|       84 |              1 |              24 |
+|      100 |              1 |              19 |
+|       59 |              2 |           13.50 |
+
+## Interpretation
+
+The combined result provides two important host-level measures: the number of listings managed by each host and the average number of reviews received by those listings.
+
+For example, host 62 manages 2 listings and has an average of 261 reviews per listing, while host 29 manages 3 listings with an average of approximately 175.33 reviews.
+
+Combining multiple CTEs allows different analytical calculations to be prepared separately and then brought together for comparison.
+
+## Key Learning
+
+Multiple CTEs can be used in a single SQL query.
+
+CTEs are separated using commas.
+
+Each CTE can perform a different calculation.
+
+Multiple CTEs can be joined using a common key.
+
+This approach makes complex analytical SQL easier to organize and understand.
