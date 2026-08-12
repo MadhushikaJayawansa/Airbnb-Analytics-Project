@@ -708,3 +708,37 @@ ORDER BY
     borough,
     Host_Rank,
     Total_Listings DESC;
+
+
+
+--===========================================================================================
+--Phase 08
+--Step 08.1.1 — Conditional Aggregation by Borough
+--Business Question
+--How many Airbnb listings fall into each pricing category?
+--==========================================================================================
+SELECT
+    COUNT(*) AS Total_Listings,
+
+    SUM(
+        CASE
+            WHEN price <= 100 THEN 1
+            ELSE 0
+        END
+    ) AS Budget_Listings,
+
+    SUM(
+        CASE
+            WHEN price > 100 AND price <= 300 THEN 1
+            ELSE 0
+        END
+    ) AS Moderate_Listings,
+
+    SUM(
+        CASE
+            WHEN price > 300 THEN 1
+            ELSE 0
+        END
+    ) AS Expensive_Listings
+
+FROM Fact_Listings;
