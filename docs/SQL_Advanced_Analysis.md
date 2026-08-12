@@ -827,3 +827,103 @@ A CTE can first aggregate data before applying a Window Function.
 ORDER BY year determines the sequence in which values are accumulated.
 
 Running totals are useful for time-series analysis, cumulative KPIs, and business dashboards.
+
+
+## Step 4.7.1 — Basic LAG()
+
+### Business Question
+
+How many reviews were recorded in the previous year?
+
+### SQL Concept
+
+`LAG()` is a Window Function that allows the current row to access a value from a previous row.
+
+It is commonly used for:
+
+- Year-over-year analysis
+- Month-over-month analysis
+- Comparing current and previous periods
+- Calculating changes between periods
+
+### Result
+
+| Year | Total Reviews | Previous Year Reviews |
+| ---: | ------------: | --------------------: |
+| 2011 |            61 |                  NULL |
+| 2012 |           178 |                    61 |
+| 2013 |           242 |                   178 |
+| 2014 |           932 |                   242 |
+| 2015 |         5,762 |                   932 |
+| 2016 |        16,182 |                 5,762 |
+| 2017 |        28,522 |                16,182 |
+| 2018 |        72,355 |                28,522 |
+| 2019 |     1,013,394 |                72,355 |
+
+## Interpretation
+
+LAG() successfully retrieves the review total from the previous year.
+
+The first year, 2011, has no previous year in the dataset, so its previous-year value is NULL.
+
+For example, 2019 recorded 1,013,394 reviews, while the previous year, 2018, recorded 72,355 reviews.
+
+## Key Learning
+
+LAG() retrieves a value from a previous row.
+
+ORDER BY determines what "previous" means.
+
+The first row normally returns NULL because there is no previous row.
+
+LAG() is useful for period-over-period comparisons.
+
+## Step 4.7.2 — Year-over-Year Difference
+
+### Business Question
+
+How much did the total number of Airbnb reviews increase or decrease compared with the previous year?
+
+### SQL Concept
+
+`LAG()` can be combined with arithmetic calculations to compare the current period with the previous period.
+
+The year-over-year change is calculated as:
+
+Current Year Reviews - Previous Year Reviews
+
+### Result
+
+| Year | Total Reviews | Previous Year Reviews | Review Change |
+| ---: | ------------: | --------------------: | ------------: |
+| 2011 |            61 |                  NULL |          NULL |
+| 2012 |           178 |                    61 |           117 |
+| 2013 |           242 |                   178 |            64 |
+| 2014 |           932 |                   242 |           690 |
+| 2015 |         5,762 |                   932 |         4,830 |
+| 2016 |        16,182 |                 5,762 |        10,420 |
+| 2017 |        28,522 |                16,182 |        12,340 |
+| 2018 |        72,355 |                28,522 |        43,833 |
+| 2019 |     1,013,394 |                72,355 |       941,039 |
+
+## Interpretation
+
+The analysis shows that Airbnb review activity increased substantially over time.
+
+The largest year-over-year increase occurred in 2019, when reviews increased by 941,039 compared with 2018.
+
+Review growth also accelerated in earlier years, increasing by 43,833 reviews in 2018 compared with 2017.
+
+The first year, 2011, has no previous-year value, so the comparison returns NULL.
+
+## Key Learning
+
+LAG() can retrieve the previous period's value.
+
+The previous value can be used in arithmetic calculations.
+
+Year-over-year analysis can be created using Window Functions.
+
+LAG() is useful for identifying increases and decreases over time.
+
+CTEs can make multi-stage analytical queries easier to understand and maintain.

@@ -380,3 +380,61 @@ SELECT
 FROM yearly_reviews
 ORDER BY
     year;
+
+--============================================================
+-- Phase 7 — Step 4.7.1 — Basic LAG()
+--  Step 4.6 — cumulative total up to each year
+-- Business Question
+--How many reviews were recorded in the previous year?
+--============================================================
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY dd.year
+)
+SELECT
+    year,
+    Total_Reviews,
+    LAG(Total_Reviews) OVER (
+        ORDER BY year
+    ) AS Previous_Year_Reviews
+FROM yearly_reviews
+ORDER BY year;
+
+--================================================================================
+--Phase 7 —  Step 4.7.2 — Year-over-Year Difference
+-- tep 4.6 — cumulative total up to each year
+--Business Question
+--How much did total reviews increase or decrease compared with the previous year?
+--=================================================================================
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY dd.year
+),
+review_comparison AS (
+    SELECT
+        year,
+        Total_Reviews,
+        LAG(Total_Reviews) OVER (
+            ORDER BY year
+        ) AS Previous_Year_Reviews
+    FROM yearly_reviews
+)
+SELECT
+    year,
+    Total_Reviews,
+    Previous_Year_Reviews,
+    Total_Reviews - Previous_Year_Reviews AS Review_Change
+FROM review_comparison
+ORDER BY year;
