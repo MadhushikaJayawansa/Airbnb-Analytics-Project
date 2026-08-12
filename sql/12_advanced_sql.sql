@@ -552,3 +552,66 @@ SELECT
     ) AS Final_Year_Reviews
 FROM yearly_reviews
 ORDER BY year;
+
+--=================================================================================================
+--Phase 7 — Step 4.10 — Window Function + Business Analysis.
+--Step 4.10 — Top Hosts Within Each Borough
+--================================================================================================
+
+--=========================================================================
+--Step 4.10.1 — First, calculate listings by host and borough
+--Business Question
+--Who are the top Airbnb hosts by number of listings within each borough?
+--=========================================================================
+
+SELECT
+    dl.neighbourhood_group AS Borough,
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings
+FROM Fact_Listings fl
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+GROUP BY
+    dl.neighbourhood_group,
+    dh.host_id,
+    dh.host_name
+ORDER BY
+    Borough,
+    Total_Listings DESC;
+
+--=========================================================================
+--Step 4.10.2 — Rank Hosts Within Each Borough
+--=========================================================================
+
+WITH host_borough_listings AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        dh.host_id,
+        dh.host_name,
+        COUNT(*) AS Total_Listings
+    FROM Fact_Listings fl
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group,
+        dh.host_id,
+        dh.host_name
+)
+SELECT
+    borough,
+    host_id,
+    host_name,
+    Total_Listings,
+    ROW_NUMBER() OVER (
+        PARTITION BY borough
+        ORDER BY Total_Listings DESC
+    ) AS Host_Rank
+FROM host_borough_listings
+ORDER BY
+    borough,
+    Host_Rank;
