@@ -525,3 +525,30 @@ SELECT
     ) AS First_Year_Reviews
 FROM yearly_reviews
 ORDER BY year;
+
+--=================================================================================================
+--Phase 7 — Step 4.9.2: LAST_VALUE()
+--Step 4.9.2 — LAST_VALUE()
+--Business Question
+--How does each year's review total compare with the final year's review total in the dataset?
+--================================================================================================
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY dd.year
+)
+SELECT
+    year,
+    Total_Reviews,
+    LAST_VALUE(Total_Reviews) OVER (
+        ORDER BY year
+        ROWS BETWEEN UNBOUNDED PRECEDING
+        AND UNBOUNDED FOLLOWING
+    ) AS Final_Year_Reviews
+FROM yearly_reviews
+ORDER BY year;

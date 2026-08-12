@@ -1082,3 +1082,56 @@ ORDER BY determines which row is considered first.
 The first value can be used as a fixed baseline for comparison.
 
 FIRST_VALUE() is useful for trend analysis and comparing current performance against an initial period.
+
+
+## Step 4.9.2 — LAST_VALUE()
+
+### Business Question
+
+How does each year's total review count compare with the final year in the dataset?
+
+### SQL Concept
+
+`LAST_VALUE()` is a Window Function that returns the last value within a specified window.
+
+In this analysis, the data is ordered chronologically, so the final value is the total number of reviews recorded in 2019.
+
+A complete window frame is explicitly defined so that `LAST_VALUE()` can access the final row of the entire dataset.
+
+### Result
+
+| Year | Total Reviews | Final Year Reviews |
+| ---: | ------------: | -----------------: |
+| 2011 |            61 |          1,013,394 |
+| 2012 |           178 |          1,013,394 |
+| 2013 |           242 |          1,013,394 |
+| 2014 |           932 |          1,013,394 |
+| 2015 |         5,762 |          1,013,394 |
+| 2016 |        16,182 |          1,013,394 |
+| 2017 |        28,522 |          1,013,394 |
+| 2018 |        72,355 |          1,013,394 |
+| 2019 |     1,013,394 |          1,013,394 |
+
+## Interpretation
+
+The query identifies the total review count for the final year of the dataset and makes that value available for every year.
+
+The final year is 2019, with 1,013,394 reviews.
+
+Therefore, every row contains 1,013,394 in the Final_Year_Reviews column.
+
+This creates a fixed endpoint that can be used to compare earlier years with the final year.
+
+## Key Learning
+LAST_VALUE() returns the last value within a Window Function's frame.
+
+ORDER BY determines the order of the rows.
+
+Window frames control which rows are included in the calculation.
+
+UNBOUNDED PRECEDING starts the frame from the first row.
+
+UNBOUNDED FOLLOWING extends the frame to the final row.
+
+LAST_VALUE() can be useful for comparing historical values with a final-period benchmark.
+
