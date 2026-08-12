@@ -912,3 +912,48 @@ SELECT
     ) AS Expensive_Average_Price
 
 FROM Fact_Listings;
+
+--===========================================================================================
+--Phase 08
+--08.2.1 — Conditional Average by Borough
+--Business Question
+--What is the average price of Budget, Moderate, and Expensive listings in each borough?
+--==========================================================================================
+
+SELECT
+    dl.neighbourhood_group AS Borough,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN fl.price <= 100 THEN fl.price
+            END
+        ), 2
+    ) AS Budget_Average_Price,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN fl.price > 100 AND fl.price <= 300 THEN fl.price
+            END
+        ), 2
+    ) AS Moderate_Average_Price,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN fl.price > 300 THEN fl.price
+            END
+        ), 2
+    ) AS Expensive_Average_Price
+
+FROM Fact_Listings fl
+
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+
+GROUP BY
+    dl.neighbourhood_group
+
+ORDER BY
+    Borough;
