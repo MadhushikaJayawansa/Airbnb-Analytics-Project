@@ -198,3 +198,18 @@ SELECT *
 FROM vw_host_performance
 ORDER BY Total_Listings DESC;
 --LIMIT 10;
+
+--===================================================================
+-- Phase 7 — Step Step 3.2 — Querying a View
+--Business Question
+--Which hosts have more than 20 listings?
+--=====================================================================
+SELECT
+    host_id,
+    host_name,
+    Total_Listings,
+    Average_Price,
+    Total_Reviews
+FROM vw_host_performance
+WHERE Total_Listings > 20
+ORDER BY Total_Listings DESC;

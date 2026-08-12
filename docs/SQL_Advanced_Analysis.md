@@ -400,3 +400,68 @@ Aggregated business metrics can be stored in a reusable analytical view.
 Views reduce the need to repeatedly write complex SQL.
 
 Views are useful as a clean data layer for reporting and BI tools such as Power BI.
+
+## Step 3.2 — Querying a View
+
+### Business Question
+
+Which hosts have more than 20 Airbnb listings?
+
+### SQL Concept
+
+Once a View has been created, it can be queried like a regular table.
+
+The `vw_host_performance` view already contains host-level metrics such as total listings, average price, and total reviews. Therefore, additional filtering can be performed directly on the view without repeating the original joins and aggregation logic.
+
+### Result
+
+The query returned 38 hosts with more than 20 listings.
+
+### Sample Results
+
+## Step 3.2 — Querying a View
+
+### Business Question
+
+Which hosts have more than 20 Airbnb listings?
+
+### SQL Concept
+
+Once a View has been created, it can be queried like a regular table.
+
+The `vw_host_performance` view already contains host-level metrics such as total listings, average price, and total reviews. Therefore, additional filtering can be performed directly on the view without repeating the original joins and aggregation logic.
+
+### Result
+
+The query returned 38 hosts with more than 20 listings.
+
+### Sample Results
+
+| Host Name      | Total Listings | Average Price | Total Reviews |
+| -------------- | -------------: | ------------: | ------------: |
+| Sonder (NYC)   |            327 |        253.20 |         1,281 |
+| Blueground     |            232 |        303.15 |            29 |
+| Kara           |            121 |        277.53 |            65 |
+| Kazuya         |            103 |         43.83 |            87 |
+| Sonder         |             96 |        213.03 |            43 |
+| Jeremy & Laura |             96 |        208.96 |           138 |
+
+## Interpretation
+
+The analysis identified 38 hosts managing more than 20 listings.
+
+Sonder (NYC) manages the largest portfolio with 327 listings, followed by Blueground with 232 listings.
+
+The results also show that a large number of listings does not necessarily mean a host has a high number of reviews. For example, Blueground manages 232 listings but has only 29 total reviews in this dataset.
+
+## Key Learning
+
+A View can be queried like a regular table.
+
+WHERE can be applied directly to View columns.
+
+Views prevent repeated complex joins and aggregations.
+
+Views make analytical SQL shorter and easier to maintain.
+
+Views can provide a clean data layer for BI reporting.
