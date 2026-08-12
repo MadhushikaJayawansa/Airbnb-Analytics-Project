@@ -877,3 +877,38 @@ GROUP BY
 
 ORDER BY
     Total_Listings DESC;
+
+
+--===========================================================================================
+--Phase 08
+--Step 08.2 — Conditional Average Price
+--Business Question
+--What is the average price of Budget, Moderate, and Expensive listings?
+--==========================================================================================
+
+SELECT
+    ROUND(
+        AVG(
+            CASE
+                WHEN price <= 100 THEN price
+            END
+        ), 2
+    ) AS Budget_Average_Price,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN price > 100 AND price <= 300 THEN price
+            END
+        ), 2
+    ) AS Moderate_Average_Price,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN price > 300 THEN price
+            END
+        ), 2
+    ) AS Expensive_Average_Price
+
+FROM Fact_Listings;
