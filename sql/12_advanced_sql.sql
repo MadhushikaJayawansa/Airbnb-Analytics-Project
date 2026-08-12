@@ -438,3 +438,90 @@ SELECT
     Total_Reviews - Previous_Year_Reviews AS Review_Change
 FROM review_comparison
 ORDER BY year;
+
+--================================================================================
+--Phase 7 —  Step 4.7.2 — Year-over-Year Difference
+-- Year-over-Year Growth %
+--Business Question
+--What percentage did Airbnb reviews increase or decrease compared with the previous year?
+--=================================================================================
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY dd.year
+),
+review_comparison AS (
+    SELECT
+        year,
+        Total_Reviews,
+        LAG(Total_Reviews) OVER (
+            ORDER BY year
+        ) AS Previous_Year_Reviews
+    FROM yearly_reviews
+)
+SELECT
+    year,
+    Total_Reviews,
+    Previous_Year_Reviews,
+    Total_Reviews - Previous_Year_Reviews AS Review_Change,
+    ROUND(
+        (Total_Reviews - Previous_Year_Reviews)
+        / NULLIF(Previous_Year_Reviews, 0) * 100,
+        2
+    ) AS YoY_Growth_Percent
+FROM review_comparison
+ORDER BY year;
+
+--================================================================================
+--Phase 7 — Step 4.8 — LEAD()
+--Business Question
+--How many reviews were recorded in the following year?
+--=================================================================================
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY dd.year
+)
+SELECT
+    year,
+    Total_Reviews,
+    LEAD(Total_Reviews) OVER (
+        ORDER BY year
+    ) AS Next_Year_Reviews
+FROM yearly_reviews
+ORDER BY year;
+
+--================================================================================
+--Phase 7 — Step 4.9: FIRST_VALUE().
+--Step 4.9.1 — Basic FIRST_VALUE()
+--Business Question
+--How does each year's total review count compare with the first year in the dataset?
+--=================================================================================
+
+WITH yearly_reviews AS (
+    SELECT
+        dd.year,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Date dd
+        ON fl.date_key = dd.date_key
+    GROUP BY dd.year
+)
+SELECT
+    year,
+    Total_Reviews,
+    FIRST_VALUE(Total_Reviews) OVER (
+        ORDER BY year
+    ) AS First_Year_Reviews
+FROM yearly_reviews
+ORDER BY year;

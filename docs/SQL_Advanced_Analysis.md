@@ -927,3 +927,158 @@ Year-over-year analysis can be created using Window Functions.
 LAG() is useful for identifying increases and decreases over time.
 
 CTEs can make multi-stage analytical queries easier to understand and maintain.
+
+## Step 4.7.3 — Year-over-Year Growth %
+
+### Business Question
+
+What percentage did Airbnb reviews increase or decrease compared with the previous year?
+
+### SQL Concept
+
+Year-over-Year (YoY) Growth measures the percentage change between the current year's value and the previous year's value.
+
+The formula is:
+
+YoY Growth % =
+(Current Year Value - Previous Year Value)
+÷ Previous Year Value × 100
+
+`LAG()` is used to retrieve the previous year's review total.
+
+### Result
+
+| Year | Total Reviews | Previous Year Reviews | Review Change | YoY Growth % |
+| ---: | ------------: | --------------------: | ------------: | -----------: |
+| 2011 |            61 |                  NULL |          NULL |         NULL |
+| 2012 |           178 |                    61 |           117 |      191.80% |
+| 2013 |           242 |                   178 |            64 |       35.96% |
+| 2014 |           932 |                   242 |           690 |      285.12% |
+| 2015 |         5,762 |                   932 |         4,830 |      518.24% |
+| 2016 |        16,182 |                 5,762 |        10,420 |      180.84% |
+| 2017 |        28,522 |                16,182 |        12,340 |       76.26% |
+| 2018 |        72,355 |                28,522 |        43,833 |      153.68% |
+| 2019 |     1,013,394 |                72,355 |       941,039 |    1,300.59% |
+
+## Interpretation
+
+The analysis shows strong year-over-year growth in review activity throughout the dataset.
+
+The largest percentage increase occurred in 2019, when total reviews increased by 941,039, representing 1,300.59% growth compared with 2018.
+
+The growth rate was also particularly high in 2015, at 518.24%, while 2017 recorded the lowest positive growth rate at 76.26% among the years with a previous-year comparison.
+
+The first year, 2011, has no previous year in the dataset, so its YoY growth is NULL.
+
+## Business Consideration
+
+The very large 2019 increase should be interpreted carefully. This dataset represents Airbnb NYC listings and contains review dates over a historical period. Therefore, the result should be treated as a dataset-level observation, rather than automatically concluding that Airbnb's overall business grew by 1,300.59%.
+
+## Key Learning
+YoY Growth measures percentage change between periods.
+
+LAG() can retrieve the previous period's value.
+
+Window Functions can support business growth analysis.
+
+NULLIF() helps prevent division-by-zero errors.
+
+ROUND() controls the number of decimal places.
+
+YoY percentage analysis is commonly used in business dashboards and performance reporting.
+
+## Step 4.8 — LEAD()
+
+### Business Question
+
+How many Airbnb reviews were recorded in the following year?
+
+### SQL Concept
+
+`LEAD()` is a Window Function that allows the current row to access a value from a subsequent row.
+
+It is useful for:
+
+- Comparing current and future periods
+- Forecasting-style analysis
+- Identifying changes between consecutive periods
+- Time-series analysis
+
+`LAG()` looks backward, while `LEAD()` looks forward.
+
+### Result
+
+| Year | Total Reviews | Next Year Reviews |
+| ---: | ------------: | ----------------: |
+| 2011 |            61 |               178 |
+| 2012 |           178 |               242 |
+| 2013 |           242 |               932 |
+| 2014 |           932 |             5,762 |
+| 2015 |         5,762 |            16,182 |
+| 2016 |        16,182 |            28,522 |
+| 2017 |        28,522 |            72,355 |
+| 2018 |        72,355 |         1,013,394 |
+| 2019 |     1,013,394 |              NULL |
+
+## Interpretation
+
+LEAD() successfully retrieves the review total from the following year.
+
+For example, the 2018 row shows 72,355 reviews for 2018 and 1,013,394 reviews for the following year, 2019.
+
+The 2019 value is NULL because the dataset does not contain a following year.
+
+## Key Learning
+LEAD() retrieves a value from a subsequent row.
+
+LAG() looks backward, while LEAD() looks forward.
+
+ORDER BY determines the sequence of rows.
+
+LEAD() is useful for time-series and period-to-period analysis.
+
+
+## Step 4.9.1 — FIRST_VALUE()
+
+### Business Question
+
+How does each year's total review count compare with the first year in the dataset?
+
+### SQL Concept
+
+`FIRST_VALUE()` is a Window Function that returns the first value within the specified window.
+
+In this analysis, the data is ordered by year, so the first value is the total number of reviews recorded in 2011.
+
+The first-year review total is therefore used as a baseline for every year.
+
+### Result
+
+| Year | Total Reviews | First Year Reviews |
+| ---: | ------------: | -----------------: |
+| 2011 |            61 |                 61 |
+| 2012 |           178 |                 61 |
+| 2013 |           242 |                 61 |
+| 2014 |           932 |                 61 |
+| 2015 |         5,762 |                 61 |
+| 2016 |        16,182 |                 61 |
+| 2017 |        28,522 |                 61 |
+| 2018 |        72,355 |                 61 |
+| 2019 |     1,013,394 |                 61 |
+
+## Interpretation
+
+FIRST_VALUE() identifies the first year's review total and uses it as a reference value for every year.
+
+The first year in the dataset is 2011, with 61 reviews. Therefore, every row contains 61 in the First_Year_Reviews column.
+
+This creates a consistent baseline that can be used to compare changes in review activity over the entire period.
+
+## Key Learning
+FIRST_VALUE() returns the first value in a Window Function's ordered window.
+
+ORDER BY determines which row is considered first.
+
+The first value can be used as a fixed baseline for comparison.
+
+FIRST_VALUE() is useful for trend analysis and comparing current performance against an initial period.
