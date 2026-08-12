@@ -511,3 +511,55 @@ Aggregation can be performed across multiple dimensions.
 A single View can contain multiple business metrics.
 
 Views are useful for creating a clean analytical layer between Snowflake and BI tools such as Power BI.
+
+
+## Step 4.1 — ROW_NUMBER()
+
+### Business Question
+
+What are the Airbnb listings ranked by price from highest to lowest?
+
+### SQL Concept
+
+`ROW_NUMBER()` is a Window Function that assigns a unique sequential number to each row based on a specified order.
+
+Unlike `RANK()`, `ROW_NUMBER()` does not assign the same rank to rows with equal values.
+
+### Result
+
+The query assigned a unique price rank to every listing.
+
+## Sample Results
+
+|       ID | Price | Price Rank |
+| -------: | ----: | ---------: |
+| 13894339 | 10000 |          1 |
+| 22436899 | 10000 |          2 |
+|  7003697 | 10000 |          3 |
+|  9528920 |  9999 |          4 |
+| 31340283 |  9999 |          5 |
+|  4737930 |  9999 |          6 |
+| 23377410 |  8500 |          7 |
+|  2953058 |  8000 |          8 |
+| 22779726 |  7703 |          9 |
+| 33007610 |  7500 |         10 |
+
+Interpretation
+
+The analysis ranks Airbnb listings according to their price.
+
+The three most expensive listings each have a price of 10,000. However, because ROW_NUMBER() assigns a unique number to every row, they receive different ranks: 1, 2, and 3.
+
+Similarly, the three listings priced at 9,999 receive ranks 4, 5, and 6.
+
+## Key Learning
+
+ROW_NUMBER() is a Window Function.
+
+It assigns a unique sequential number to every row.
+
+The OVER() clause defines how the rows are processed.
+
+ORDER BY inside OVER() determines the ranking order.
+
+Rows with equal values still receive different row numbers

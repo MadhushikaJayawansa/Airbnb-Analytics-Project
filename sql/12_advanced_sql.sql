@@ -241,3 +241,20 @@ GROUP BY
 SELECT *
 FROM vw_borough_room_performance
 ORDER BY Total_Listings DESC;
+
+
+--===================================================================
+-- Phase 7 — Step 4: Window Functions
+--Step 4.1 — ROW_NUMBER()
+--Business Question
+--What are the top Airbnb listings ranked by price?
+--=====================================================================
+
+SELECT
+    id,
+    price,
+    ROW_NUMBER() OVER (
+        ORDER BY price DESC
+    ) AS Price_Rank
+FROM Fact_Listings
+ORDER BY price DESC;
