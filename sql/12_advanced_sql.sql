@@ -742,3 +742,56 @@ SELECT
     ) AS Expensive_Listings
 
 FROM Fact_Listings;
+
+--===========================================================================================
+--Phase 08
+--Step 08.1.2 — Conditional Percentage by Borough
+--Business Question
+--What percentage of each borough's listings are Budget, Moderate, and Expensive?
+--==========================================================================================
+
+SELECT
+    dl.neighbourhood_group AS Borough,
+
+    COUNT(*) AS Total_Listings,
+
+    ROUND(
+        100.0 * SUM(
+            CASE
+                WHEN fl.price <= 100 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*),
+        2
+    ) AS Budget_Percent,
+
+    ROUND(
+        100.0 * SUM(
+            CASE
+                WHEN fl.price > 100 AND fl.price <= 300 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*),
+        2
+    ) AS Moderate_Percent,
+
+    ROUND(
+        100.0 * SUM(
+            CASE
+                WHEN fl.price > 300 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*),
+        2
+    ) AS Expensive_Percent
+
+FROM Fact_Listings fl
+
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+
+GROUP BY
+    dl.neighbourhood_group
+
+ORDER BY
+    Borough;
