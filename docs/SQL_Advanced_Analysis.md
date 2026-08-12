@@ -1135,3 +1135,73 @@ UNBOUNDED FOLLOWING extends the frame to the final row.
 
 LAST_VALUE() can be useful for comparing historical values with a final-period benchmark.
 
+## Step 4.10 — Top 3 Hosts Within Each Borough
+
+### Business Question
+
+Who are the top 3 Airbnb hosts in each borough based on the number of listings they manage?
+
+### SQL Concept
+
+This analysis combines several SQL concepts:
+
+- JOIN
+- GROUP BY
+- COUNT()
+- CTEs
+- ROW_NUMBER()
+- PARTITION BY
+- ORDER BY
+- Filtering ranked results
+
+`ROW_NUMBER()` is used with `PARTITION BY borough` so that host rankings restart from 1 within each borough.
+
+### Result
+| Borough       |   Host ID | Host Name    | Total Listings | Host Rank |
+| ------------- | --------: | ------------ | -------------: | --------: |
+| Bronx         |    310670 | Vie          |             13 |         1 |
+| Bronx         |  23878336 | Armando      |             10 |         2 |
+| Bronx         |  30509656 | Orit         |              8 |         3 |
+| Brooklyn      |   7503643 | Vida         |             52 |         1 |
+| Brooklyn      |  26377263 | Stat         |             35 |         2 |
+| Brooklyn      | 119669058 | Melissa      |             34 |         3 |
+| Manhattan     | 219517861 | Sonder (NYC) |            327 |         1 |
+| Manhattan     | 107434423 | Blueground   |            230 |         2 |
+| Manhattan     |  30283594 | Kara         |            121 |         3 |
+| Queens        | 137358866 | Kazuya       |             79 |         1 |
+| Queens        |  19303369 | Hiroki       |             29 |         2 |
+| Queens        | 242962235 | Yuval        |             23 |         3 |
+| Staten Island | 104812805 | Amarjit S    |              8 |         1 |
+| Staten Island | 137999892 | Simranjeet   |              7 |         2 |
+| Staten Island |  50756378 | Nina         |              7 |         3 |
+
+
+## Interpretation
+
+The analysis identifies the three hosts with the highest number of listings within each borough.
+
+Manhattan has the highest concentration among the top hosts. Sonder (NYC) manages 327 listings, followed by Blueground with 230 and Kara with 121.
+
+In Brooklyn, Vida is the leading host with 52 listings, while Kazuya leads Queens with 79 listings.
+
+The top hosts in the Bronx and Staten Island manage substantially fewer listings than the leading hosts in Manhattan, Brooklyn, and Queens.
+
+## Business Insight
+
+The results indicate that listing concentration varies considerably by borough.
+
+Manhattan has particularly high host concentration, with Sonder (NYC) managing a large portfolio of listings. These high-volume hosts could be important targets for account management, performance monitoring, or business relationship strategies.
+
+## Key Learning
+
+PARTITION BY creates separate groups for Window Function calculations.
+
+ROW_NUMBER() can rank records within each group.
+
+A CTE can separate aggregation from ranking logic.
+
+Ranked results can be filtered using an outer query.
+
+This pattern is useful for Top-N business analysis.
+
+Combining aggregation and Window Functions allows complex business questions to be answered efficiently.
