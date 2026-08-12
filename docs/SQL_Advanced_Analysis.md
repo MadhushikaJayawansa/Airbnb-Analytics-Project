@@ -1280,3 +1280,45 @@ Filtering with WHERE Host_Rank <= 3 can return more than three records per group
 CTEs make complex multi-stage business analysis easier to structure.
 
 Window Functions are useful for real-world Top-N and ranking analysis.
+
+
+## Phase 08
+
+## Step 08.2.1 — Conditional Average by Borough
+## Business Question
+
+What is the average price of Budget, Moderate, and Expensive listings in each borough?
+
+## Business interpretation
+
+| Borough       | Budget Avg | Moderate Avg | Expensive Avg |
+| ------------- | ---------: | -----------: | ------------: |
+| Bronx         |      59.49 |       150.67 |        567.54 |
+| Brooklyn      |      65.98 |       165.36 |        617.76 |
+| Manhattan     |  **75.31** |   **181.57** |        616.74 |
+| Queens        |      62.98 |       160.53 |    **668.47** |
+| Staten Island |      62.04 |       166.52 |  **1,281.75** |
+
+## Key findings
+Manhattan has the highest average Budget price: 75.31.
+
+Manhattan also has the highest Moderate average: 181.57.
+
+Queens has the highest Expensive average among the larger boroughs: 668.47.
+
+Staten Island shows a very high Expensive average of 1,281.75, but remember it has only 8 expensive 
+listings, so a small number of high-priced listings can heavily influence the average.
+
+This demonstrates why we shouldn't interpret an average without considering the number of observations behind it.
+
+## Key learning
+
+CASE
+ ↓
+AVG()
+ ↓
+GROUP BY
+ ↓
+JOIN
+ ↓
+Business interpretation
