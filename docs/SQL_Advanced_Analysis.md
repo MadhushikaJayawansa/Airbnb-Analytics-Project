@@ -1325,3 +1325,42 @@ JOIN
 Business interpretation
 
 
+## Step 08.2.2 — Conditional Average by Room Type is complete
+
+## Business Question
+
+How does average pricing differ between Budget, Moderate, and Expensive listings for each room type?
+
+## Results
+
+| Room Type       | Budget Avg | Moderate Avg | Expensive Avg |
+| --------------- | ---------: | -----------: | ------------: |
+| Entire home/apt |      84.97 |       179.24 |        601.56 |
+| Private room    |      64.71 |       149.40 |    **774.06** |
+| Shared room     |      48.60 |       162.83 |        617.04 |
+
+
+## Business interpretation
+Entire home/apt has the highest Budget average: 84.97.
+
+Entire home/apt also has the highest Moderate average: 179.24.
+
+Private rooms have the highest Expensive average: 774.06.
+
+Shared rooms have the lowest Budget average: 48.60.
+
+The large Expensive average for Private rooms is interesting, but we should always consider the number of listings behind the average before drawing strong conclusions.
+
+## Key learning
+
+You've now used:
+
+CASE
+ ↓
+AVG()
+ ↓
+GROUP BY
+ ↓
+JOIN
+
+This is an important analytical SQL pattern.
