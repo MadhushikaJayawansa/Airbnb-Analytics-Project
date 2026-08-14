@@ -1591,3 +1591,58 @@ For Airbnb management, these hosts could be considered key or high-volume hosts 
 ## Key Learning
 
 This step demonstrates the real power of multiple CTEs.
+
+## Step 08.5 — Host Performance Classification
+
+### Step 08.5.1 — Calculate Reviews per Listing
+
+### Business Question
+
+How efficiently are hosts generating reviews relative to the number of listings they manage?
+
+## Result
+
+The query returned 37,455 hosts.
+
+The top 10 hosts by reviews per listing are:
+
+| Host           | Listings | Total Reviews | Reviews / Listing |
+| -------------- | -------: | ------------: | ----------------: |
+| Dona           |        2 |         1,205 |        **602.50** |
+| Jj             |        3 |         1,798 |        **599.33** |
+| Carol          |        1 |           540 |        **540.00** |
+| Asa            |        1 |           488 |        **488.00** |
+| Wanda          |        1 |           480 |        **480.00** |
+| Maya           |        5 |         2,273 |        **454.60** |
+| Lloyd          |        1 |           454 |        **454.00** |
+| Agnes          |        2 |           897 |        **448.50** |
+| Dennis & Naoko |        1 |           441 |        **441.00** |
+| Miss Dy        |        1 |           434 |        **434.00** |
+
+
+## Interpretation
+
+The results show that some hosts generate a very high number of reviews relative to the number of listings they manage.
+
+For example, Dona has only 2 listings but 1,205 total reviews, producing 602.5 reviews per listing.
+
+However, notice that several of the highest values come from hosts with only 1–3 listings. So a high reviews-per-listing value doesn't necessarily mean the host is the most important host overall.
+
+This is an important analytical lesson:
+
+A metric needs context.
+
+We should consider both volume and efficiency, rather than relying on one metric alone.
+
+## Business Insight
+
+Hosts with high reviews per listing may represent listings with strong customer engagement or long-established properties.
+
+However, Airbnb management should distinguish between:
+
+High-volume hosts → many listings
+High-engagement hosts → many reviews per listing
+High-volume + high-engagement hosts → potentially the strongest performers
+
+That last category is what we'll work toward.
+
