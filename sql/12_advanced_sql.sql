@@ -1188,3 +1188,40 @@ average_host_listings AS (
 
 SELECT *
 FROM average_host_listings;
+
+
+--=============================================================================
+--Step 08.4.3 — Multiple CTEs: Hosts Above Average
+--Business Question
+--Which hosts have more listings than the average host?
+--============================================================================
+
+WITH host_listing_counts AS (
+    SELECT
+        dh.host_id,
+        dh.host_name,
+        COUNT(*) AS total_listings
+    FROM Fact_Listings fl
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+    GROUP BY
+        dh.host_id,
+        dh.host_name
+),
+
+average_host_listings AS (
+    SELECT
+        AVG(total_listings) AS average_listings_per_host
+    FROM host_listing_counts
+)
+
+SELECT
+    hlc.host_id,
+    hlc.host_name,
+    hlc.total_listings,
+    ROUND(ahl.average_listings_per_host, 2) AS average_listings_per_host
+FROM host_listing_counts hlc
+CROSS JOIN average_host_listings ahl
+WHERE hlc.total_listings > ahl.average_listings_per_host
+ORDER BY
+    hlc.total_listings DESC;

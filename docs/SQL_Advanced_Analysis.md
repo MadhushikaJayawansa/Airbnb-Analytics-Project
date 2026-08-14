@@ -1544,3 +1544,50 @@ Pricing
 Availability
 Customer reviews
 Overall marketplace performance
+
+## Step 08.4.3 — Multiple CTEs is complete.
+
+1,515 hosts have more listings than the average host.
+
+Average host listing count = 1.31 listings
+
+The top hosts are well above that benchmark.
+
+## Result
+
+| Host              | Total Listings | Average Host Listings |
+| ----------------- | -------------: | --------------------: |
+| Sonder (NYC)      |            327 |                  1.31 |
+| Blueground        |            232 |                  1.31 |
+| Kara              |            121 |                  1.31 |
+| Kazuya            |            103 |                  1.31 |
+| Jeremy & Laura    |             96 |                  1.31 |
+| Sonder            |             96 |                  1.31 |
+| Corporate Housing |             91 |                  1.31 |
+| Ken               |             87 |                  1.31 |
+| Pranjal           |             65 |                  1.31 |
+| Vida              |             52 |                  1.31 |
+
+## Interpretation
+
+The average host manages only 1.31 listings, while 1,515 hosts manage more than this average.
+
+The difference between the average and the largest host portfolios is substantial. For example, Sonder (NYC) manages 327 listings, which is far above the average.
+
+This indicates that the distribution of listings across hosts is highly uneven.
+
+## Business Insight
+
+A relatively small group of hosts manages a significant number of listings. These high-volume hosts may have a greater influence on:
+
+Overall listing supply
+Pricing patterns
+Availability
+Customer reviews
+Marketplace performance
+
+For Airbnb management, these hosts could be considered key or high-volume hosts and may deserve separate monitoring or targeted relationship strategies.
+
+## Key Learning
+
+This step demonstrates the real power of multiple CTEs.
