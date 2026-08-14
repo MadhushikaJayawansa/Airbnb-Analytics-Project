@@ -1225,3 +1225,38 @@ CROSS JOIN average_host_listings ahl
 WHERE hlc.total_listings > ahl.average_listings_per_host
 ORDER BY
     hlc.total_listings DESC;
+
+
+--===========================================================================================
+--Step 08.5 — Host Performance Classification
+--==========================================================================================
+===============================================================================================
+--Step 08.5.1 — Calculate Reviews per Listing
+--Business Question
+--How efficiently are hosts generating reviews relative to the number of listings they manage?
+--============================================================================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+
+    COUNT(*) AS total_listings,
+
+    SUM(fl.number_of_reviews) AS total_reviews,
+
+    ROUND(
+        SUM(fl.number_of_reviews) / NULLIF(COUNT(*), 0),
+        2
+    ) AS reviews_per_listing
+
+FROM Fact_Listings fl
+
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+
+GROUP BY
+    dh.host_id,
+    dh.host_name
+
+ORDER BY
+    reviews_per_listing DESC;
