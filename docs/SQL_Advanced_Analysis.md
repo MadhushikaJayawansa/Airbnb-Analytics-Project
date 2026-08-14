@@ -1397,3 +1397,51 @@ That shows why looking at both volume and price is more useful than looking at e
 For example:
 
 A host can have a very high average price but relatively few listings, while another host can operate a much larger portfolio at a lower average price.
+
+## Step 08.3.1 — HAVING with Conditional Aggregation
+
+## Business Question
+
+## Which boroughs have at least 10,000 listings AND more than 30% of their listings are Budget listings?
+
+## Results 
+
+The query returned 2 boroughs that met both conditions:
+
+At least 10,000 listings
+
+More than 30% Budget listings
+
+| Borough   | Total Listings | Budget Listings | Budget % |
+| --------- | -------------: | --------------: | -------: |
+| Brooklyn  |         20,095 |          11,762 |   58.53% |
+| Manhattan |         21,660 |           6,920 |   31.95% |
+
+## Interpretation
+
+Brooklyn and Manhattan are the only boroughs that satisfy both criteria.
+
+Brooklyn has a much higher proportion of Budget listings (58.53%) compared with Manhattan (31.95%). Manhattan has slightly more total listings, but its listings are more concentrated in the Moderate and Expensive categories.
+
+## Business Insight
+
+Brooklyn represents a larger budget-oriented market, while Manhattan has a more premium pricing structure.
+
+For Airbnb management, this suggests that:
+
+Brooklyn may provide stronger opportunities for customers seeking affordable accommodation.
+Manhattan may have greater potential for premium-priced listings.
+Pricing and marketing strategies could therefore be tailored by borough rather than applying the same strategy across New York City.
+Key Learning
+
+This query demonstrates how HAVING can filter groups based on multiple aggregated business conditions.
+
+The analytical process is:
+
+GROUP BY
+    ↓
+Calculate aggregate metrics
+    ↓
+HAVING filters the groups
+    ↓
+Business insight

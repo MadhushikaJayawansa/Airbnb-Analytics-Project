@@ -1062,3 +1062,53 @@ HAVING
 
 ORDER BY
     Average_Price DESC;
+
+
+--===========================================================================================
+--Phase 08
+--Step 08.3.1 — HAVING with Conditional Aggregation
+--Business Question
+--Which boroughs have at least 10,000 listings AND more than 30% of their listings are Budget listings?
+--==========================================================================================
+SELECT
+    dl.neighbourhood_group AS Borough,
+
+    COUNT(*) AS Total_Listings,
+
+    SUM(
+        CASE
+            WHEN fl.price <= 100 THEN 1
+            ELSE 0
+        END
+    ) AS Budget_Listings,
+
+    ROUND(
+        100.0 * SUM(
+            CASE
+                WHEN fl.price <= 100 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*),
+        2
+    ) AS Budget_Percent
+
+FROM Fact_Listings fl
+
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+
+GROUP BY
+    dl.neighbourhood_group
+
+HAVING
+    COUNT(*) >= 10000
+    AND
+    100.0 * SUM(
+        CASE
+            WHEN fl.price <= 100 THEN 1
+            ELSE 0
+        END
+    ) / COUNT(*) > 30
+
+ORDER BY
+    Budget_Percent DESC;
