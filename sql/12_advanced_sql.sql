@@ -957,3 +957,48 @@ GROUP BY
 
 ORDER BY
     Borough;
+
+--===========================================================================================
+--Phase 08
+--Step 08.2.2 — Conditional Average by Room Type
+--Business Question
+--How does average pricing differ between Budget, Moderate, and Expensive listings for each room type?
+--==========================================================================================
+
+SELECT
+    drt.room_type AS Room_Type,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN fl.price <= 100 THEN fl.price
+            END
+        ), 2
+    ) AS Budget_Average_Price,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN fl.price > 100 AND fl.price <= 300 THEN fl.price
+            END
+        ), 2
+    ) AS Moderate_Average_Price,
+
+    ROUND(
+        AVG(
+            CASE
+                WHEN fl.price > 300 THEN fl.price
+            END
+        ), 2
+    ) AS Expensive_Average_Price
+
+FROM Fact_Listings fl
+
+JOIN Dim_Room_Type drt
+    ON fl.room_type_key = drt.room_type_key
+
+GROUP BY
+    drt.room_type
+
+ORDER BY
+    Room_Type;

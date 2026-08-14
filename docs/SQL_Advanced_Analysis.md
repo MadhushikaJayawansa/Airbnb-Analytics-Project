@@ -1289,7 +1289,7 @@ Window Functions are useful for real-world Top-N and ranking analysis.
 
 What is the average price of Budget, Moderate, and Expensive listings in each borough?
 
-## Business interpretation
+## Result
 
 | Borough       | Budget Avg | Moderate Avg | Expensive Avg |
 | ------------- | ---------: | -----------: | ------------: |
@@ -1300,6 +1300,7 @@ What is the average price of Budget, Moderate, and Expensive listings in each bo
 | Staten Island |      62.04 |       166.52 |  **1,281.75** |
 
 ## Key findings
+
 Manhattan has the highest average Budget price: 75.31.
 
 Manhattan also has the highest Moderate average: 181.57.
@@ -1322,3 +1323,5 @@ GROUP BY
 JOIN
  ↓
 Business interpretation
+
+
