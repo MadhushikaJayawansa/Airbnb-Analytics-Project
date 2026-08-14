@@ -1646,3 +1646,56 @@ High-volume + high-engagement hosts → potentially the strongest performers
 
 That last category is what we'll work toward.
 
+
+## Step 08.5.2 — CASE Performance Classification
+
+## Result
+
+The first 10 hosts are all classified as High because their reviews per listing are well above
+
+| Host           | Listings | Reviews | Reviews / Listing | Category |
+| -------------- | -------: | ------: | ----------------: | -------- |
+| Dona           |        2 |   1,205 |            602.50 | High     |
+| Jj             |        3 |   1,798 |            599.33 | High     |
+| Carol          |        1 |     540 |            540.00 | High     |
+| Asa            |        1 |     488 |            488.00 | High     |
+| Wanda          |        1 |     480 |            480.00 | High     |
+| Maya           |        5 |   2,273 |            454.60 | High     |
+| Lloyd          |        1 |     454 |            454.00 | High     |
+| Agnes          |        2 |     897 |            448.50 | High     |
+| Dennis & Naoko |        1 |     441 |            441.00 | High     |
+| Miss Dy        |        1 |     434 |            434.00 | High     |
+
+## Interpretation
+
+The CASE statement successfully converts the numerical Reviews per Listing metric into a business-friendly classification:
+
+Reviews per Listing
+       ↓
+   CASE
+       ↓
+High / Medium / Low
+
+This makes the results much easier for a business user to understand than looking at raw numerical values alone.
+
+## Business Insight
+
+The classification can help Airbnb management segment hosts based on review engagement per listing.
+
+However, we should be careful: a host with only one listing and 540 reviews can appear "High" even though they operate a very small portfolio.
+
+Therefore, performance category should be considered together with listing volume when making business decisions.
+
+## Key Learning
+
+You combined:
+
+COUNT()
+SUM()
+Calculated metrics
+NULLIF()
+CASE
+GROUP BY
+JOIN
+
+

@@ -1260,3 +1260,44 @@ GROUP BY
 
 ORDER BY
     reviews_per_listing DESC;
+
+--=============================================================================================
+--Step 08.5.2 — CASE Performance Classification
+--Business Question
+--How can we classify hosts based on reviews per listing?
+--============================================================================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+
+    COUNT(*) AS total_listings,
+
+    SUM(fl.number_of_reviews) AS total_reviews,
+
+    ROUND(
+        SUM(fl.number_of_reviews) / NULLIF(COUNT(*), 0),
+        2
+    ) AS reviews_per_listing,
+
+    CASE
+        WHEN SUM(fl.number_of_reviews) / NULLIF(COUNT(*), 0) >= 100
+            THEN 'High'
+
+        WHEN SUM(fl.number_of_reviews) / NULLIF(COUNT(*), 0) >= 50
+            THEN 'Medium'
+
+        ELSE 'Low'
+    END AS performance_category
+
+FROM Fact_Listings fl
+
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+
+GROUP BY
+    dh.host_id,
+    dh.host_name
+
+ORDER BY
+    reviews_per_listing DESC;
