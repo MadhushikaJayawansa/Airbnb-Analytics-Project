@@ -1160,3 +1160,31 @@ WITH host_listing_counts AS (
 SELECT *
 FROM host_listing_counts
 ORDER BY total_listings DESC;
+
+--=============================================================================
+--Step 08.4.2 — CTE 2: Calculate Average Listings per Host
+--Business Question
+--What is the average number of listings managed by a host?
+--============================================================================
+
+WITH host_listing_counts AS (
+    SELECT
+        dh.host_id,
+        dh.host_name,
+        COUNT(*) AS total_listings
+    FROM Fact_Listings fl
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+    GROUP BY
+        dh.host_id,
+        dh.host_name
+),
+
+average_host_listings AS (
+    SELECT
+        AVG(total_listings) AS average_listings_per_host
+    FROM host_listing_counts
+)
+
+SELECT *
+FROM average_host_listings;

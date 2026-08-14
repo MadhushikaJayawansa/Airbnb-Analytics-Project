@@ -1507,3 +1507,40 @@ host_listing_counts CTE
 Host-level listing analysis
 
 This CTE will become the input for the next stage of the multiple-CTE analysis.
+
+
+## Step 08.4.2 — CTE 2: Calculate Average Listings per Host is complete.
+
+### Business Question
+
+What is the average number of listings managed by a host?
+
+## Results
+
+| Metric                    |      Result |
+| ------------------------- | ----------: |
+| Average listings per host | **1.30514** |
+
+## Interpretation
+
+On average, each host manages approximately 1.31 listings.
+
+This is quite low compared with the high-volume hosts we saw earlier. For example:
+
+Sonder (NYC) → 327 listings
+Blueground → 232 listings
+Kara → 121 listings
+
+This tells us that the host distribution is highly uneven: many hosts manage only one or a few listings, while a small number manage very large portfolios.
+
+## Business Insight
+
+This is useful for Airbnb management because it highlights host concentration.
+
+A small group of high-volume hosts may have a disproportionate influence on:
+
+Listing supply
+Pricing
+Availability
+Customer reviews
+Overall marketplace performance
