@@ -1112,3 +1112,51 @@ HAVING
 
 ORDER BY
     Budget_Percent DESC;
+
+--===========================================================================================
+--Step 08.4 — Multiple CTEs
+--Business Question
+--Which hosts have more listings than the average host?
+--==========================================================================================
+
+WITH host_listing_counts AS (
+    SELECT
+        dh.host_id,
+        dh.host_name,
+        COUNT(*) AS total_listings
+    FROM Fact_Listings fl
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+    GROUP BY
+        dh.host_id,
+        dh.host_name
+)
+
+SELECT *
+FROM host_listing_counts
+ORDER BY total_listings DESC;
+
+--===========================================================================================
+--Step 08.4 — Multiple CTEs
+--=============================================================================
+--Step 08.4.1 — CTE 1: Calculate Listings per Host
+--Business Question
+--Which hosts have more listings than the average host?
+--==========================================================================================
+
+WITH host_listing_counts AS (
+    SELECT
+        dh.host_id,
+        dh.host_name,
+        COUNT(*) AS total_listings
+    FROM Fact_Listings fl
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+    GROUP BY
+        dh.host_id,
+        dh.host_name
+)
+
+SELECT *
+FROM host_listing_counts
+ORDER BY total_listings DESC;

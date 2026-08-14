@@ -1445,3 +1445,65 @@ Calculate aggregate metrics
 HAVING filters the groups
     ↓
 Business insight
+
+
+## Step 08.4.1 — CTE: Calculate Listings per Host
+
+### Business Question
+
+How many listings does each host have?
+
+### SQL Concept
+
+Common Table Expression (CTE)
+
+### Purpose
+
+Create an intermediate result that calculates the total number of listings associated with each host. This result will be used as the first stage of a multiple-CTE analysis.
+
+### Result
+
+The query returned 37,455 rows.
+
+The first 10 results were:
+
+| HOST_ID   | HOST_NAME         | TOTAL_LISTINGS |
+| --------- | ----------------- | -------------: |
+| 219517861 | Sonder (NYC)      |            327 |
+| 107434423 | Blueground        |            232 |
+| 30283594  | Kara              |            121 |
+| 137358866 | Kazuya            |            103 |
+| 12243051  | Sonder            |             96 |
+| 16098958  | Jeremy & Laura    |             96 |
+| 61391963  | Corporate Housing |             91 |
+| 22541573  | Ken               |             87 |
+| 200380610 | Pranjal           |             65 |
+| 7503643   | Vida              |             52 |
+
+## Interpretation
+
+The CTE calculates the number of listings associated with each host and produces an intermediate host-level dataset.
+
+The results show that some hosts manage significantly more listings than others. Sonder (NYC) has the highest number of listings in the displayed results with 327, followed by Blueground with 232 and Kara with 121.
+
+## Business Insight
+
+A small number of hosts appear to manage a large number of Airbnb listings. This indicates that listing activity is not evenly distributed across hosts.
+
+Identifying high-volume hosts can help Airbnb management understand host concentration and identify hosts who may have a significant impact on the overall marketplace.
+
+## Key Learning
+
+A CTE allows a complex SQL problem to be divided into smaller logical steps.
+
+In this step:
+
+Fact_Listings + Dim_Host
+↓
+GROUP BY host
+↓
+host_listing_counts CTE
+↓
+Host-level listing analysis
+
+This CTE will become the input for the next stage of the multiple-CTE analysis.
