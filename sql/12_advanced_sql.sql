@@ -1002,3 +1002,63 @@ GROUP BY
 
 ORDER BY
     Room_Type;
+
+
+--===========================================================================================
+--Phase 08
+--Step 08.3 — Hosts with Many Listings and High Average Prices
+--Business Question
+--Which hosts have at least 10 listings and an average listing price above $200?
+--==========================================================================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings,
+    ROUND(AVG(fl.price), 2) AS Average_Price
+
+FROM Fact_Listings fl
+
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+
+GROUP BY
+    dh.host_id,
+    dh.host_name
+
+HAVING
+    COUNT(*) >= 10
+    AND AVG(fl.price) > 200
+
+ORDER BY
+    Average_Price DESC;
+
+
+--===========================================================================================
+--Phase 08
+--Step 08.3 — Hosts with Many Listings and High Average Prices
+--Business Question
+--Which hosts have at least 10 listings and an average listing price above $200?
+--==========================================================================================
+
+SELECT
+    dh.host_id,
+    dh.host_name,
+    COUNT(*) AS Total_Listings,
+    ROUND(AVG(fl.price), 2) AS Average_Price
+
+FROM Fact_Listings fl
+
+JOIN Dim_Host dh
+    ON fl.host_key = dh.host_key
+
+GROUP BY
+    dh.host_id,
+    dh.host_name
+
+HAVING
+    COUNT(*) >= 10
+    AND AVG(fl.price) > 200
+
+ORDER BY
+    Average_Price DESC;

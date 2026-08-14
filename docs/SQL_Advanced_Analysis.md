@@ -1339,8 +1339,8 @@ How does average pricing differ between Budget, Moderate, and Expensive listings
 | Private room    |      64.71 |       149.40 |    **774.06** |
 | Shared room     |      48.60 |       162.83 |        617.04 |
 
-
 ## Business interpretation
+
 Entire home/apt has the highest Budget average: 84.97.
 
 Entire home/apt also has the highest Moderate average: 179.24.
@@ -1353,8 +1353,6 @@ The large Expensive average for Private rooms is interesting, but we should alwa
 
 ## Key learning
 
-You've now used:
-
 CASE
  ↓
 AVG()
@@ -1363,4 +1361,39 @@ GROUP BY
  ↓
 JOIN
 
-This is an important analytical SQL pattern.
+
+## Step 08.3 — Hosts with Many Listings and High Average Prices
+
+## Business Question
+
+## Which hosts have at least 10 listings and an average listing price above $200?
+
+## Results 
+
+The query identifies 35 hosts who satisfy both conditions:
+
+At least 10 listings
+
+Average price above $200
+
+| Host       | Listings |   Avg. Price |
+| ---------- | -------: | -----------: |
+| Sally      |       12 | **3,091.42** |
+| Henry      |       11 | **1,772.73** |
+| Jessica    |       11 | **1,350.00** |
+| Chayla     |       12 |   **828.17** |
+| Red Awning |       49 |   **720.29** |
+| Bluebird   |       18 |   **577.39** |
+| Blueground |      232 |   **303.15** |
+
+## Business Insight
+
+Sally has the highest average price (3,091.42) but only 12 listings.
+
+Blueground, on the other hand, has 232 listings with an average price of 303.15.
+
+That shows why looking at both volume and price is more useful than looking at either metric alone.
+
+For example:
+
+A host can have a very high average price but relatively few listings, while another host can operate a much larger portfolio at a lower average price.
