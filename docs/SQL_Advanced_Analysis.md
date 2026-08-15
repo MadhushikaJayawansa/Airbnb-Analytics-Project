@@ -1698,4 +1698,56 @@ CASE
 GROUP BY
 JOIN
 
+## Step 08.5.3 — Count Hosts by Performance Category
 
+## Results
+
+| Performance Category | Total Hosts |      Share |
+| -------------------- | ----------: | ---------: |
+| Low                  |      32,233 | **86.06%** |
+| Medium               |       3,093 |  **8.26%** |
+| High                 |       2,129 |  **5.68%** |
+| **Total**            |  **37,455** |   **100%** |
+
+## Interpretation
+
+The majority of hosts (86.06%) fall into the Low category based on reviews per listing.
+
+Only 5.68% of hosts are classified as High, while 8.26% are Medium.
+
+This shows that high review engagement is concentrated among a relatively small group of hosts.
+
+## Business Insight
+
+This suggests that Airbnb management could focus on the 2,129 High-performance hosts as a distinct group.
+
+They could be analyzed further to understand what characteristics contribute to their stronger review engagement, such as:
+
+Number of listings
+Room type
+Borough
+Average price
+Availability
+Minimum nights
+
+At the same time, the large Low-performance group (32,233 hosts) could be investigated to identify opportunities to improve guest engagement and reviews.
+
+Important: Our High/Medium/Low thresholds (100 and 50 reviews per listing) are analytical thresholds we chose for this exercise, not official Airbnb performance standards.
+
+## Key Learning
+
+This step combines several important analytical SQL techniques:
+
+Fact + Dimension
+      ↓
+GROUP BY
+      ↓
+Calculate KPI
+      ↓
+CASE classification
+      ↓
+CTE
+      ↓
+GROUP BY classification
+      ↓
+Business summary
