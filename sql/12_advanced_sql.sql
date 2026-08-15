@@ -1301,3 +1301,54 @@ GROUP BY
 
 ORDER BY
     reviews_per_listing DESC;
+
+
+
+--=============================================================================================
+--Step 08.5.3 — Count Hosts by Performance Category
+--Business Question
+--How many hosts are classified as High, Medium, and Low performers?
+--============================================================================================
+
+WITH host_performance AS (
+    SELECT
+        dh.host_id,
+        dh.host_name,
+
+        COUNT(*) AS total_listings,
+
+        SUM(fl.number_of_reviews) AS total_reviews,
+
+        SUM(fl.number_of_reviews)
+            / NULLIF(COUNT(*), 0) AS reviews_per_listing,
+
+        CASE
+            WHEN SUM(fl.number_of_reviews)
+                 / NULLIF(COUNT(*), 0) >= 100
+                THEN 'High'
+
+            WHEN SUM(fl.number_of_reviews)
+                 / NULLIF(COUNT(*), 0) >= 50
+                THEN 'Medium'
+
+            ELSE 'Low'
+        END AS performance_category
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Host dh
+        ON fl.host_key = dh.host_key
+
+    GROUP BY
+        dh.host_id,
+        dh.host_name
+)
+
+SELECT
+    performance_category,
+    COUNT(*) AS total_hosts
+FROM host_performance
+GROUP BY
+    performance_category
+ORDER BY
+    total_hosts DESC;
