@@ -1937,3 +1937,59 @@ Difference calculation
 RANK() window function
  ↓
 Business ranking
+
+## Step 08.7.2 — Rank + Business Position
+
+## Business Question
+
+## How should we classify each borough based on its position relative to the NYC average?
+
+| Rank | Borough       | Avg. Price | Difference vs NYC Avg. | Business Position |
+| ---: | ------------- | ---------: | ---------------------: | ----------------- |
+|    1 | Manhattan     |    $196.88 |            **+$44.13** | **Premium**       |
+|    2 | Brooklyn      |    $124.44 |            **−$28.32** | **Below Market**  |
+|    3 | Staten Island |    $114.81 |            **−$37.94** | **Below Market**  |
+|    4 | Queens        |     $99.52 |            **−$53.24** | **Below Market**  |
+|    5 | Bronx         |     $87.58 |            **−$65.18** | **Below Market**  |
+
+## Interpretation
+
+The classification is working correctly:
+
+Manhattan is the only borough classified as Premium.
+
+Brooklyn, Staten Island, Queens, and Bronx are classified as Below Market.
+
+None fall into the Near Market Average category because none are within ±$20 of the NYC average.
+
+## Business Insight
+
+The analysis shows a strong pricing gap between Manhattan and the other boroughs.
+
+Manhattan's average listing price is $44.13 above the NYC benchmark, making it the clear premium market.
+
+The Bronx is at the opposite end, with an average price $65.18 below the NYC benchmark.
+
+For Airbnb management, this suggests:
+
+Pricing strategy should be differentiated by borough.
+
+A premium strategy may be more appropriate for Manhattan, while the other boroughs may require more competitive pricing or value-focused positioning.
+
+## Key Learning
+
+This step combines several Phase 08 concepts:
+
+Multiple CTEs
+      ↓
+Aggregate metrics
+      ↓
+Overall benchmark
+      ↓
+Difference calculation
+      ↓
+RANK()
+      ↓
+CASE classification
+      ↓
+Business positioning
