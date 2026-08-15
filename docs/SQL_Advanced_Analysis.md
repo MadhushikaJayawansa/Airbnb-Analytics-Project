@@ -1875,3 +1875,65 @@ Calculate difference
 CASE classification
        ↓
 Business interpretation
+
+
+## Step 08.7 — Analytical Ranking
+
+## Business Question
+
+## Which boroughs are furthest above or below the NYC average?
+
+## Step 08.7.1 — Rank Boroughs by Price Difference
+
+## Results
+
+| Rank | Borough       | Avg. Price | NYC Avg. |  Difference |
+| ---: | ------------- | ---------: | -------: | ----------: |
+|    1 | Manhattan     |    $196.88 |  $152.76 | **+$44.13** |
+|    2 | Brooklyn      |    $124.44 |  $152.76 | **−$28.32** |
+|    3 | Staten Island |    $114.81 |  $152.76 | **−$37.94** |
+|    4 | Queens        |     $99.52 |  $152.76 | **−$53.24** |
+|    5 | Bronx         |     $87.58 |  $152.76 | **−$65.18** |
+
+
+## Interpretation
+
+Manhattan ranks #1 because it is the only borough above the NYC-wide average.
+
+The Bronx ranks #5, with the largest negative difference from the overall benchmark.
+
+The ranking therefore provides a clearer picture than average price alone: it shows each borough's relative market position.
+
+## Business Insight
+
+Manhattan has the strongest premium pricing position, averaging $44.13 above the NYC benchmark.
+
+The Bronx is the furthest below the market benchmark at $65.18 below.
+
+This could help Airbnb managers:
+
+Identify premium markets.
+
+Identify more price-sensitive markets.
+
+Develop borough-specific pricing strategies.
+
+Compare future pricing performance against the NYC benchmark.
+
+## Key Learning
+
+You've now combined several advanced SQL concepts:
+
+CTE
+ ↓
+GROUP BY
+ ↓
+Aggregate KPI
+ ↓
+Overall benchmark
+ ↓
+Difference calculation
+ ↓
+RANK() window function
+ ↓
+Business ranking
