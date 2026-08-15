@@ -1796,3 +1796,34 @@ Compare individual groups
         ↓
 Above / Below benchmark
 
+## Step 08.6.2 — Calculate Borough Average Prices is complete
+
+## Results 
+
+| Borough       | Total Listings | Average Price |
+| ------------- | -------------: | ------------: |
+| Manhattan     |         21,660 |    **196.88** |
+| Brooklyn      |         20,095 |    **124.44** |
+| Staten Island |            373 |    **114.81** |
+| Queens        |          5,666 |     **99.52** |
+| Bronx         |          1,090 |     **87.58** |
+
+## Interpretation
+
+There is a clear difference in average pricing across boroughs.
+
+Manhattan has the highest average price at $196.88.
+Brooklyn is second at $124.44.
+Staten Island averages $114.81.
+Queens averages $99.52.
+Bronx has the lowest average at $87.58.
+
+Manhattan's average is notably higher than the other boroughs, which will be important when we compare each borough against the overall NYC benchmark of $152.76.
+
+## Business Insight
+
+The results suggest that location has a strong relationship with Airbnb pricing.
+
+Manhattan's substantially higher average price may indicate stronger demand and/or a greater concentration of premium listings. Meanwhile, Queens and the Bronx offer lower average prices, potentially representing more budget-oriented markets.
+
+For Airbnb management, this means pricing strategies should be location-specific rather than uniform across NYC.
