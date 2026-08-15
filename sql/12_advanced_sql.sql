@@ -1431,3 +1431,64 @@ CROSS JOIN overall_average oa
 
 ORDER BY
     ba.Average_Price DESC;
+
+
+--============================================================================
+-- Step 08.7 — Analytical Ranking
+
+-- Business Question
+
+-- Which boroughs are furthest above or below the NYC average?
+--===============================================================================
+
+--================================================================================
+--Step 08.7.1 — Rank Boroughs by Price Difference
+--=================================================================================
+
+WITH overall_average AS (
+    SELECT
+        AVG(price) AS overall_avg_price
+    FROM Fact_Listings
+),
+
+borough_average AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        AVG(fl.price) AS Average_Price
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+borough_comparison AS (
+    SELECT
+        ba.Borough,
+        ba.Total_Listings,
+        ba.Average_Price,
+        oa.overall_avg_price,
+
+        ba.Average_Price - oa.overall_avg_price
+            AS Difference_From_Average
+
+    FROM borough_average ba
+    CROSS JOIN overall_average oa
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+    ROUND(Average_Price, 2) AS Average_Price,
+    ROUND(overall_avg_price, 2) AS Overall_Average_Price,
+    ROUND(Difference_From_Average, 2) AS Difference_From_Average,
+
+    RANK() OVER (
+        ORDER BY Difference_From_Average DESC
+    ) AS Price_Difference_Rank
+
+FROM borough_comparison
+
+ORDER BY
+    Price_Difference_Rank;
