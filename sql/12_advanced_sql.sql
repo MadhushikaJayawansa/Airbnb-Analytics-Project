@@ -1366,3 +1366,19 @@ ORDER BY
 SELECT
     ROUND(AVG(price), 2) AS overall_average_price
 FROM Fact_Listings;
+
+--================================================
+--Step 08.6.2 — Calculate Borough Average Prices
+--================================================
+
+SELECT
+    dl.neighbourhood_group AS Borough,
+    COUNT(*) AS Total_Listings,
+    ROUND(AVG(fl.price), 2) AS Average_Price
+FROM Fact_Listings fl
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+GROUP BY
+    dl.neighbourhood_group
+ORDER BY
+    Average_Price DESC;
