@@ -1739,7 +1739,7 @@ Important: Our High/Medium/Low thresholds (100 and 50 reviews per listing) are a
 This step combines several important analytical SQL techniques:
 
 Fact + Dimension
-      ↓
+    ↓
 GROUP BY
       ↓
 Calculate KPI
@@ -1827,3 +1827,51 @@ The results suggest that location has a strong relationship with Airbnb pricing.
 Manhattan's substantially higher average price may indicate stronger demand and/or a greater concentration of premium listings. Meanwhile, Queens and the Bronx offer lower average prices, potentially representing more budget-oriented markets.
 
 For Airbnb management, this means pricing strategies should be location-specific rather than uniform across NYC.
+
+## Step 08.6.3 — Compare Boroughs Against the NYC Average is complete
+
+## Results
+
+| Borough       | Avg. Price | NYC Avg. |  Difference | Position |
+| ------------- | ---------: | -------: | ----------: | -------- |
+| Manhattan     |    $196.88 |  $152.76 | **+$44.13** | Above    |
+| Brooklyn      |    $124.44 |  $152.76 | **−$28.32** | Below    |
+| Staten Island |    $114.81 |  $152.76 | **−$37.94** | Below    |
+| Queens        |     $99.52 |  $152.76 | **−$53.24** | Below    |
+| Bronx         |     $87.58 |  $152.76 | **−$65.18** | Below    |
+
+## Interpretation
+
+Manhattan is the only borough with an average listing price above the overall NYC average.
+
+Its average price is $44.13 higher than the NYC benchmark.
+
+The Bronx has the largest negative difference, with an average price $65.18 below the NYC average.
+
+## Business Insight
+
+The results indicate a strong geographical pricing difference within the Airbnb NYC marketplace.
+
+Manhattan represents the premium-priced market.
+
+Brooklyn is below the NYC average despite having a large listing base.
+
+Queens and the Bronx represent considerably lower-priced markets.
+
+Staten Island also falls below the city-wide benchmark, although its smaller listing volume means its average should be interpreted with more caution.
+
+For Airbnb management, this supports using borough-specific pricing and marketing strategies rather than treating NYC as one uniform market.
+
+## Key Learning
+
+This is an important analytical SQL pattern:
+
+Overall benchmark
+       ↓
+Group-level metric
+       ↓
+Calculate difference
+       ↓
+CASE classification
+       ↓
+Business interpretation
