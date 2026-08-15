@@ -1352,3 +1352,17 @@ GROUP BY
     performance_category
 ORDER BY
     total_hosts DESC;
+
+--=============================================================================================
+--Step 08.6 — Analytical Comparison
+--Business Question
+--Which boroughs have an average listing price above the overall NYC average price?
+--============================================================================================
+
+--============================================================================================
+--Step 08.6.1 — Calculate the Overall Average Price
+--===========================================================================================
+
+SELECT
+    ROUND(AVG(price), 2) AS overall_average_price
+FROM Fact_Listings;
