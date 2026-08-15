@@ -1751,3 +1751,48 @@ CTE
 GROUP BY classification
       ↓
 Business summary
+
+## Step 08.6 — Analytical Comparison
+
+## Business Question
+
+## Which boroughs have an average listing price above the overall NYC average price?
+
+## Step 08.6.1 — Calculate the Overall Average Price
+
+## Result
+
+Overall NYC Average Price = $152.76
+
+This will be our benchmark for the next steps.
+
+## Interpretation
+
+The average listing price across all 48,884 listings is $152.76.
+
+We'll now compare each borough's average price against this benchmark to identify which areas are priced above or below the NYC-wide average.
+
+## Business Insight
+
+The overall average gives Airbnb management a useful market benchmark.
+
+Instead of simply saying:
+
+"Manhattan has an average price of $X."
+
+we can ask the more meaningful business question:
+
+"Is Manhattan's average price higher or lower than the NYC market average?"
+
+That's the core idea behind analytical comparison.
+
+## Key Learning
+
+Overall business metric
+        ↓
+     Benchmark
+        ↓
+Compare individual groups
+        ↓
+Above / Below benchmark
+
