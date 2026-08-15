@@ -1382,3 +1382,52 @@ GROUP BY
     dl.neighbourhood_group
 ORDER BY
     Average_Price DESC;
+
+--============================================================================
+-- Step 08.6.3 — Compare Boroughs Against the NYC Average
+
+-- Business Question
+
+-- Which boroughs have an average listing price above the overall NYC average?
+--===============================================================================
+
+WITH overall_average AS (
+    SELECT
+        AVG(price) AS overall_avg_price
+    FROM Fact_Listings
+),
+
+borough_average AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        AVG(fl.price) AS Average_Price
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group
+)
+
+SELECT
+    ba.Borough,
+    ba.Total_Listings,
+    ROUND(ba.Average_Price, 2) AS Average_Price,
+    ROUND(oa.overall_avg_price, 2) AS Overall_Average_Price,
+
+    ROUND(
+        ba.Average_Price - oa.overall_avg_price,
+        2
+    ) AS Difference_From_Average,
+
+    CASE
+        WHEN ba.Average_Price > oa.overall_avg_price
+            THEN 'Above NYC Average'
+        ELSE 'Below NYC Average'
+    END AS Price_Position
+
+FROM borough_average ba
+CROSS JOIN overall_average oa
+
+ORDER BY
+    ba.Average_Price DESC;
