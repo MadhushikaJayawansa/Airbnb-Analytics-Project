@@ -1557,3 +1557,28 @@ FROM borough_analysis
 
 ORDER BY
     Price_Rank;
+
+--=============================================================================================
+-- Step 08.8 — Advanced HAVING + Business KPI
+--Business Question
+--Which boroughs have both a large listing base and an average price above a business-defined threshold?
+
+--=============================================================================================
+--Step 08.8.1 — Apply Multiple Conditions with HAVING
+
+--=============================================================================================
+
+SELECT
+    dl.neighbourhood_group AS Borough,
+    COUNT(*) AS Total_Listings,
+    ROUND(AVG(fl.price), 2) AS Average_Price
+FROM Fact_Listings fl
+JOIN Dim_Location dl
+    ON fl.location_key = dl.location_key
+GROUP BY
+    dl.neighbourhood_group
+HAVING
+    COUNT(*) >= 5000
+    AND AVG(fl.price) >= 100
+ORDER BY
+    Average_Price DESC;
