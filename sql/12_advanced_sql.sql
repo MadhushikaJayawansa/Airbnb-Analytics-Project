@@ -1758,3 +1758,80 @@ FROM borough_shares
 
 ORDER BY
     Market_Strength_Score DESC;
+
+
+--==========================================================================================
+--Step 08.9.3 — Rank Boroughs by Market Strength
+--Business Question
+--Which boroughs have the strongest overall marketplace position when listing supply and review activity are considered together?
+--=============================================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        SUM(fl.number_of_reviews) AS Total_Reviews
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_totals AS (
+    SELECT
+        COUNT(*) AS Total_NYC_Listings,
+        SUM(number_of_reviews) AS Total_NYC_Reviews
+    FROM Fact_Listings
+),
+
+borough_shares AS (
+    SELECT
+        bm.Borough,
+        bm.Total_Listings,
+        bm.Total_Reviews,
+
+        bm.Total_Listings * 100.0
+            / mt.Total_NYC_Listings AS Listing_Share,
+
+        bm.Total_Reviews * 100.0
+            / mt.Total_NYC_Reviews AS Review_Share
+
+    FROM borough_metrics bm
+    CROSS JOIN market_totals mt
+),
+
+market_strength AS (
+    SELECT
+        Borough,
+        Total_Listings,
+        Total_Reviews,
+        Listing_Share,
+        Review_Share,
+
+        (Listing_Share * 0.50)
+        + (Review_Share * 0.50)
+            AS Market_Strength_Score
+
+    FROM borough_shares
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+    Total_Reviews,
+
+    ROUND(Listing_Share, 2) AS Listing_Share_Percent,
+    ROUND(Review_Share, 2) AS Review_Share_Percent,
+
+    ROUND(Market_Strength_Score, 2)
+        AS Market_Strength_Score,
+
+    RANK() OVER (
+        ORDER BY Market_Strength_Score DESC
+    ) AS Market_Strength_Rank
+
+FROM market_strength
+
+ORDER BY
+    Market_Strength_Rank;
