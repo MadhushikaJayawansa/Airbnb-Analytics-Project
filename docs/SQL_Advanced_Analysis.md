@@ -1993,3 +1993,28 @@ RANK()
 CASE classification
       ↓
 Business positioning
+
+
+## Step 08.8 — Advanced HAVING + Business KPI
+
+## Business Question
+
+ ## Which boroughs have both a large listing base and an average price above a business-defined threshold?
+
+## Step 08.8.1 — Apply Multiple Conditions with HAVING
+
+## Results
+
+| Borough   | Listings | Avg Price |
+| --------- | -------: | --------: |
+| Manhattan |   21,660 |   $196.88 |
+| Brooklyn  |   20,095 |   $124.44 |
+
+
+## Business Insight
+
+Both Manhattan and Brooklyn have a sufficiently large listing base (≥5,000 listings) and an average price of at least $100.
+
+Queens is excluded because although it has 5,666 listings, its average price of $99.52 is just below the $100 threshold.
+
+This is a good example of why multiple HAVING conditions are useful: a borough must satisfy both scale and pricing requirements.
