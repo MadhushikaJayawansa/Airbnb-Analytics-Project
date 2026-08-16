@@ -1627,3 +1627,63 @@ CROSS JOIN total_market tm
 
 GROUP BY
     tm.Total_NYC_Listings;
+
+--======================================================================================
+--Step 08.9 — Complex Business Metrics
+--Business Question
+--Which boroughs have the strongest combination of listing supply and guest engagement?
+--======================================================================================
+
+--======================================================================================
+--Step 08.9.1 — Calculate Borough Listing & Review Shares
+--======================================================================================
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_totals AS (
+    SELECT
+        COUNT(*) AS Total_NYC_Listings,
+        SUM(number_of_reviews) AS Total_NYC_Reviews
+
+    FROM Fact_Listings
+)
+
+SELECT
+    bm.Borough,
+
+    bm.Total_Listings,
+
+    bm.Total_Reviews,
+
+    ROUND(
+        bm.Total_Listings * 100.0
+        / mt.Total_NYC_Listings,
+        2
+    ) AS Listing_Share_Percent,
+
+    ROUND(
+        bm.Total_Reviews * 100.0
+        / mt.Total_NYC_Reviews,
+        2
+    ) AS Review_Share_Percent
+
+FROM borough_metrics bm
+
+CROSS JOIN market_totals mt
+
+ORDER BY
+    Listing_Share_Percent DESC;
