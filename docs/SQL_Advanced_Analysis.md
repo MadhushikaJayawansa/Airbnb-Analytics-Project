@@ -2118,3 +2118,37 @@ Manhattan has a larger share of listings than reviews.
 Brooklyn and Queens generate a larger share of reviews than their share of listings.
 Queens has the largest positive gap: +2.21 percentage points.
 
+## Step 08.9.2 — Calculate the Market Strength Score
+
+## Results 
+
+| Rank* | Borough       | Listing Share | Review Share | Market Strength |
+| ----: | ------------- | ------------: | -----------: | --------------: |
+|     1 | Manhattan     |        44.31% |       39.96% |       **42.13** |
+|     2 | Brooklyn      |        41.11% |       42.74% |       **41.93** |
+|     3 | Queens        |        11.59% |       13.80% |       **12.69** |
+|     4 | Bronx         |         2.23% |        2.49% |        **2.36** |
+|     5 | Staten Island |         0.76% |        1.01% |        **0.89** |
+
+Manhattan and Brooklyn are extremely close.
+
+Manhattan: 42.13
+Brooklyn: 41.93
+Difference: only 0.20 points
+
+But there's an interesting difference underneath:
+
+Manhattan has the largest listing share: 44.31%.
+Brooklyn has a higher review share than listing share: 42.74% vs 41.11%.
+
+That means Brooklyn's review contribution is slightly stronger relative to its supply.
+
+## Business Insight
+
+The combined KPI confirms that Manhattan and Brooklyn dominate the NYC Airbnb marketplace in terms of both supply and review activity.
+
+However, the score also shows why looking at only one metric can be misleading:
+
+Manhattan leads in listing supply, while Brooklyn leads in review share relative to its listing share.
+
+This could indicate stronger guest engagement relative to available supply in Brooklyn.
