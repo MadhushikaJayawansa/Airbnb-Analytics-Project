@@ -2018,3 +2018,35 @@ Both Manhattan and Brooklyn have a sufficiently large listing base (≥5,000 lis
 Queens is excluded because although it has 5,666 listings, its average price of $99.52 is just below the $100 threshold.
 
 This is a good example of why multiple HAVING conditions are useful: a borough must satisfy both scale and pricing requirements.
+
+
+## Step 08.8.2 — Create a Business KPI from the Qualified Boroughs
+
+## Business Question
+
+## What percentage of all NYC listings are located in qualifying boroughs?
+
+## Results 
+
+| KPI                 |      Value |
+| ------------------- | ---------: |
+| Qualified Listings  | **41,755** |
+| Total NYC Listings  | **48,884** |
+| Qualified Listing % | **85.42%** |
+
+## Interpretation
+
+The two qualifying boroughs—Manhattan and Brooklyn—contain 41,755 listings, representing 85.42% of all NYC listings in your cleaned dataset.
+
+That is a significant finding: although only 2 of 5 boroughs meet both business conditions, they account for more than 85% of the marketplace listings.
+
+## Business Insight
+
+This suggests that Manhattan and Brooklyn are the dominant markets under our selected criteria:
+
+At least 5,000 listings
+Average price of at least $100
+
+Together, they represent 85.42% of listing supply.
+
+For management, these two boroughs could therefore be treated as priority markets when analyzing pricing, supply, availability, and host performance.
