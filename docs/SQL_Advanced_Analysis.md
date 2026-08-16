@@ -2050,3 +2050,38 @@ Average price of at least $100
 Together, they represent 85.42% of listing supply.
 
 For management, these two boroughs could therefore be treated as priority markets when analyzing pricing, supply, availability, and host performance.
+
+
+## Step 08.8.3 — Add a Business Classification to the KPI
+
+## Business Question
+
+## Is the qualified-market share large enough to be considered a dominant portion of the NYC marketplace
+
+| Metric                  |       Result |
+| ----------------------- | -----------: |
+| Qualified Listings      |   **41,755** |
+| Total NYC Listings      |   **48,884** |
+| Qualified Listing Share |   **85.42%** |
+| Market Coverage         | **Dominant** |
+
+## Business Insight 
+
+The qualifying markets—Manhattan and Brooklyn—represent 85.42% of all listings in the cleaned dataset.
+
+Although only 2 of the 5 boroughs meet both criteria, they contain the overwhelming majority of the marketplace supply.
+
+This suggests that, under our defined criteria, Manhattan and Brooklyn should be considered priority markets for further pricing, host, availability, and performance analysis.
+
+### SQL Concepts Practiced
+
+- `HAVING`
+- Multiple aggregate conditions
+- CTEs
+- `CROSS JOIN`
+- `SUM()`
+- `COUNT()`
+- `AVG()`
+- Percentage calculations
+- `CASE`
+- Business KPI creation
