@@ -2152,3 +2152,28 @@ However, the score also shows why looking at only one metric can be misleading:
 Manhattan leads in listing supply, while Brooklyn leads in review share relative to its listing share.
 
 This could indicate stronger guest engagement relative to available supply in Brooklyn.
+
+## Step 08.9.3 — Rank Boroughs by Market Strength
+## Business Question
+## Which boroughs have the strongest overall marketplace position when listing supply and review activity are considered together?
+
+## Results
+| Rank | Borough       | Market Strength Score |
+| ---: | ------------- | --------------------: |
+|    1 | Manhattan     |             **42.13** |
+|    2 | Brooklyn      |             **41.93** |
+|    3 | Queens        |             **12.69** |
+|    4 | Bronx         |              **2.36** |
+|    5 | Staten Island |              **0.89** |
+
+## Business Insight
+
+Manhattan ranks #1, but Brooklyn is extremely close, only 0.20 points behind.
+
+This is particularly interesting because their strengths are slightly different:
+
+Manhattan: highest listing share (44.31%)
+Brooklyn: highest review share (42.74%) relative to its listing base
+Queens: a distant third, but its review share (13.80%) is higher than its listing share (11.59%)
+
+So the composite KPI shows that Manhattan dominates in overall marketplace scale, while Brooklyn demonstrates relatively strong guest engagement.
