@@ -1582,3 +1582,48 @@ HAVING
     AND AVG(fl.price) >= 100
 ORDER BY
     Average_Price DESC;
+
+--============================================================================
+--Step 08.8.2 — Create a Business KPI from the Qualified Boroughs
+
+--Business Question
+
+--What percentage of all NYC listings are located in qualifying boroughs?
+--==============================================================================
+
+WITH qualified_boroughs AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        AVG(fl.price) AS Average_Price
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group
+    HAVING
+        COUNT(*) >= 5000
+        AND AVG(fl.price) >= 100
+),
+
+total_market AS (
+    SELECT
+        COUNT(*) AS Total_NYC_Listings
+    FROM Fact_Listings
+)
+
+SELECT
+    SUM(qb.Total_Listings) AS QUALIFIED_LISTINGS,
+    tm.Total_NYC_Listings,
+
+    ROUND(
+        SUM(qb.Total_Listings) * 100.0
+        / tm.Total_NYC_Listings,
+        2
+    ) AS QUALIFIED_LISTING_PERCENT
+
+FROM qualified_boroughs qb
+CROSS JOIN total_market tm
+
+GROUP BY
+    tm.Total_NYC_Listings;
