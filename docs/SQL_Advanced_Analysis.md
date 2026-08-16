@@ -2085,3 +2085,36 @@ This suggests that, under our defined criteria, Manhattan and Brooklyn should be
 - Percentage calculations
 - `CASE`
 - Business KPI creation
+
+## Step 08.9 — Complex Business Metrics
+## Business Question
+## Which boroughs have the strongest combination of listing supply and guest engagement?
+
+## Step 08.9.1 — Calculate Borough Listing & Review Shares
+
+## Results
+
+| Borough       | Listings | Reviews | Listing Share | Review Share |
+| ------------- | -------: | ------: | ------------: | -----------: |
+| Manhattan     |   21,660 | 454,569 |        44.31% |       39.96% |
+| Brooklyn      |   20,095 | 486,252 |        41.11% |       42.74% |
+| Queens        |    5,666 | 156,950 |        11.59% |       13.80% |
+| Bronx         |    1,090 |  28,316 |         2.23% |        2.49% |
+| Staten Island |      373 |  11,541 |         0.76% |        1.01% |
+
+## Compare Review Share − Listing Share:
+
+| Borough       | Listing Share | Review Share |   Difference |
+| ------------- | ------------: | -----------: | -----------: |
+| Manhattan     |        44.31% |       39.96% | **−4.35 pp** |
+| Brooklyn      |        41.11% |       42.74% | **+1.63 pp** |
+| Queens        |        11.59% |       13.80% | **+2.21 pp** |
+| Bronx         |         2.23% |        2.49% | **+0.26 pp** |
+| Staten Island |         0.76% |        1.01% | **+0.25 pp** |
+
+This gives  an interesting business perspective:
+
+Manhattan has a larger share of listings than reviews.
+Brooklyn and Queens generate a larger share of reviews than their share of listings.
+Queens has the largest positive gap: +2.21 percentage points.
+
