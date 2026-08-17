@@ -2413,3 +2413,39 @@ Staten Island → strongest engagement, smallest listing supply
 Queens → strong engagement with a much larger listing base
 
 This is exactly why combining several rankings is useful.
+
+
+## Step 08.12.3 — Final Overall Performance Rank
+
+## Ranks
+
+| Rank | Borough           | Combined Score |
+| ---: | ----------------- | -------------: |
+|    1 | **Manhattan**     |              7 |
+|    2 | **Brooklyn**      |              8 |
+|    3 | **Staten Island** |              9 |
+|    3 | **Queens**        |              9 |
+|    5 | **Bronx**         |             12 |
+
+## Business Insight
+
+This ranking shows something important:
+
+Manhattan ranks #1 overall because of its very strong marketplace scale and pricing power, despite weaker engagement.
+Brooklyn is the most balanced large market, ranking #2 overall.
+Staten Island achieves the strongest engagement but has very little listing volume.
+Queens combines strong engagement with considerably more marketplace scale than Staten Island.
+Bronx ranks lowest across the combined measures.
+
+So the ranking should not be interpreted as "Manhattan is the best borough in every way." It means Manhattan has the strongest combined position under our chosen scoring method.
+
+### SQL Concepts Practiced
+
+- Multiple CTEs
+- `RANK()`
+- Window functions
+- Multi-metric ranking
+- Calculated scores
+- Analytical comparisons
+- Tie handling
+- Business interpretation
