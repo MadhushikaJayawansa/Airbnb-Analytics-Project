@@ -2177,3 +2177,32 @@ Brooklyn: highest review share (42.74%) relative to its listing base
 Queens: a distant third, but its review share (13.80%) is higher than its listing share (11.59%)
 
 So the composite KPI shows that Manhattan dominates in overall marketplace scale, while Brooklyn demonstrates relatively strong guest engagement.
+
+
+## Step 08.10 — Advanced CTE Analysis
+## Business Question
+## Which boroughs have strong guest engagement relative to their listing supply, and how does their average price compare with the NYC market?
+
+## Step 08.10.1 — Calculate Borough Performance Metrics
+
+## Results 
+
+| Borough       | Listings | Reviews | Avg. Price | Reviews / Listing |
+| ------------- | -------: | ------: | ---------: | ----------------: |
+| Staten Island |      373 |  11,541 |    $114.81 |         **30.94** |
+| Queens        |    5,666 | 156,950 |     $99.52 |         **27.70** |
+| Bronx         |    1,090 |  28,316 |     $87.58 |         **25.98** |
+| Brooklyn      |   20,095 | 486,252 |    $124.44 |         **24.20** |
+| Manhattan     |   21,660 | 454,569 |    $196.88 |         **20.99** |
+
+The borough with the largest marketplace isn't necessarily the borough with the highest guest engagement per listing.
+
+Staten Island has the highest reviews per listing:
+
+30.94 reviews per listing
+
+while Manhattan has the lowest:
+
+20.99 reviews per listing
+
+This is exactly why we're doing advanced CTE analysis—combining metrics can reveal things that simple totals hide.

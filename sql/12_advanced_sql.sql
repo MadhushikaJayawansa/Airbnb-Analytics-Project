@@ -1835,3 +1835,49 @@ FROM market_strength
 
 ORDER BY
     Market_Strength_Rank;
+
+--==========================================================================================
+--Step 08.10 — Advanced CTE Analysis
+--Business Question
+--Which boroughs have strong guest engagement relative to their listing supply, and how does their average price compare with the NYC market?
+--===========================================================================================
+
+--===========================================================================================
+--Step 08.10.1 — Calculate Borough Performance Metrics
+--===========================================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+
+        AVG(fl.price) AS Average_Price
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+    Total_Reviews,
+
+    ROUND(Average_Price, 2) AS Average_Price,
+
+    ROUND(
+        Total_Reviews * 1.0 / Total_Listings,
+        2
+    ) AS Reviews_Per_Listing
+
+FROM borough_metrics
+
+ORDER BY
+    Reviews_Per_Listing DESC;
