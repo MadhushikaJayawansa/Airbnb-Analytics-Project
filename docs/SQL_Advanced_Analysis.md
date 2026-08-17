@@ -2206,3 +2206,32 @@ while Manhattan has the lowest:
 20.99 reviews per listing
 
 This is exactly why we're doing advanced CTE analysis—combining metrics can reveal things that simple totals hide.
+
+
+## Step 08.10.2 — Create the NYC Benchmark CTE
+## Business Question
+## How does each borough's review engagement compare with the NYC-wide average reviews per listing?
+
+## Results 
+
+| Borough       | Reviews / Listing | NYC Reviews / Listing |
+| ------------- | ----------------: | --------------------: |
+| Staten Island |             30.94 |                 23.27 |
+| Queens        |             27.70 |                 23.27 |
+| Bronx         |             25.98 |                 23.27 |
+| Brooklyn      |             24.20 |                 23.27 |
+| Manhattan     |             20.99 |                 23.27 |
+
+The NYC benchmark is:
+
+23.27 reviews per listing
+
+Compared with that:
+
+Staten Island: 30.94 → above benchmark
+Queens: 27.70 → above benchmark
+Bronx: 25.98 → above benchmark
+Brooklyn: 24.20 → above benchmark
+Manhattan: 20.99 → below benchmark
+
+This is already an interesting business finding: Manhattan has the highest average price but the lowest reviews-per-listing among the five boroughs.
