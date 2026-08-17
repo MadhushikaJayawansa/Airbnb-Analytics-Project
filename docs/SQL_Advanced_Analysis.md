@@ -2262,3 +2262,28 @@ Notice the interesting contrast:
 Manhattan has the highest average price ($196.88), but the lowest reviews per listing (20.99).
 
 That doesn't mean Manhattan is performing poorly—it simply means its review activity per listing is lower relative to the NYC-wide benchmark.
+
+## Step 08.10.4 — Classify Borough Engagement
+## Business Question
+## Which boroughs have high, average, or low guest engagement compared with the NYC benchmark?
+
+| Borough       | Reviews / Listing | Difference | Engagement Category    |
+| ------------- | ----------------: | ---------: | ---------------------- |
+| Staten Island |             30.94 |      +7.67 | **High Engagement**    |
+| Queens        |             27.70 |      +4.43 | **High Engagement**    |
+| Bronx         |             25.98 |      +2.71 | **Average Engagement** |
+| Brooklyn      |             24.20 |      +0.93 | **Average Engagement** |
+| Manhattan     |             20.99 |      −2.29 | **Low Engagement**     |
+
+## siness Insight
+
+The most interesting finding is the contrast between price and engagement:
+
+Manhattan has the highest average price at $196.88, but its reviews per listing are below the NYC benchmark.
+Staten Island has the highest engagement at 30.94 reviews per listing, despite having a much lower average price of $114.81.
+Queens also shows strong engagement at 27.70 reviews per listing.
+Brooklyn is slightly above the NYC benchmark, while also having a very large listing base.
+
+This demonstrates why Airbnb management shouldn't evaluate a market using price alone.
+
+A higher-priced market isn't automatically the most engaged market.
