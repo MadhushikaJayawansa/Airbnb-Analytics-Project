@@ -2162,3 +2162,34 @@ GROUP BY
 
 ORDER BY
     Total_Boroughs DESC;
+
+
+
+--========================================================================================
+--Step 08.11 — Advanced Analytical Comparison
+--Business Question
+--How does each borough perform relative to the overall NYC market across price and guest engagement?
+--========================================================================================
+
+--======================================================
+--Step 08.11.1 — Create NYC Benchmarks
+--======================================================
+
+WITH market_benchmark AS (
+    SELECT
+        AVG(price) AS NYC_AVERAGE_PRICE,
+
+        SUM(number_of_reviews) * 1.0
+            / COUNT(*) AS NYC_REVIEWS_PER_LISTING
+
+    FROM Fact_Listings
+)
+
+SELECT
+    ROUND(NYC_AVERAGE_PRICE, 2)
+        AS NYC_AVERAGE_PRICE,
+
+    ROUND(NYC_REVIEWS_PER_LISTING, 2)
+        AS NYC_REVIEWS_PER_LISTING
+
+FROM market_benchmark;
