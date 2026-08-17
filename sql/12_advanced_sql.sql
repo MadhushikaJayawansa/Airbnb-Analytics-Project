@@ -1940,3 +1940,58 @@ CROSS JOIN market_benchmark mb
 
 ORDER BY
     Reviews_Per_Listing DESC;
+
+
+--===================================================================
+--Step 08.10.3 — Difference from NYC Engagement Benchmark
+--===================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+        AVG(fl.price) AS Average_Price
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_benchmark AS (
+    SELECT
+        SUM(number_of_reviews) * 1.0
+        / COUNT(*) AS NYC_Reviews_Per_Listing
+    FROM Fact_Listings
+)
+
+SELECT
+    bm.Borough,
+    bm.Total_Listings,
+    bm.Total_Reviews,
+
+    ROUND(bm.Average_Price, 2)
+        AS Average_Price,
+
+    ROUND(
+        bm.Total_Reviews * 1.0
+        / bm.Total_Listings,
+        2
+    ) AS Reviews_Per_Listing,
+
+    ROUND(mb.NYC_Reviews_Per_Listing, 2)
+        AS NYC_Reviews_Per_Listing,
+
+    ROUND(
+        (bm.Total_Reviews * 1.0 / bm.Total_Listings)
+        - mb.NYC_Reviews_Per_Listing,
+        2
+    ) AS ENGAGEMENT_DIFFERENCE
+
+FROM borough_metrics bm
+
+CROSS JOIN market_benchmark mb
+
+ORDER BY
+    ENGAGEMENT_DIFFERENCE DESC;

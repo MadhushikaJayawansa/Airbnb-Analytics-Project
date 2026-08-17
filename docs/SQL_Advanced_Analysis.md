@@ -2235,3 +2235,4 @@ Brooklyn: 24.20 → above benchmark
 Manhattan: 20.99 → below benchmark
 
 This is already an interesting business finding: Manhattan has the highest average price but the lowest reviews-per-listing among the five boroughs.
+
