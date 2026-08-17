@@ -2377,3 +2377,111 @@ FROM comparison
 
 ORDER BY
     Price_Difference DESC;
+
+--========================================================================================
+--Step 08.11.4 — Summarize Business Positions
+--Business Question
+--How many listings and reviews belong to each business-position category?
+--=======================================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+
+        AVG(fl.price) AS Average_Price
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_benchmark AS (
+    SELECT
+        AVG(price) AS NYC_Average_Price,
+
+        SUM(number_of_reviews) * 1.0
+            / COUNT(*) AS NYC_Reviews_Per_Listing
+
+    FROM Fact_Listings
+),
+
+comparison AS (
+    SELECT
+        bm.Borough,
+        bm.Total_Listings,
+        bm.Total_Reviews,
+        bm.Average_Price,
+
+        bm.Total_Reviews * 1.0
+            / bm.Total_Listings
+            AS Reviews_Per_Listing,
+
+        mb.NYC_Average_Price,
+        mb.NYC_Reviews_Per_Listing,
+
+        bm.Average_Price
+            - mb.NYC_Average_Price
+            AS Price_Difference,
+
+        (
+            bm.Total_Reviews * 1.0
+            / bm.Total_Listings
+        )
+            - mb.NYC_Reviews_Per_Listing
+            AS Engagement_Difference
+
+    FROM borough_metrics bm
+
+    CROSS JOIN market_benchmark mb
+),
+
+classified_boroughs AS (
+    SELECT
+        Borough,
+        Total_Listings,
+        Total_Reviews,
+
+        CASE
+            WHEN Price_Difference > 0
+                 AND Engagement_Difference > 0
+                THEN 'Premium & High Engagement'
+
+            WHEN Price_Difference > 0
+                 AND Engagement_Difference <= 0
+                THEN 'Premium & Low Engagement'
+
+            WHEN Price_Difference <= 0
+                 AND Engagement_Difference > 0
+                THEN 'Value & High Engagement'
+
+            ELSE
+                'Value & Low Engagement'
+        END AS Business_Position
+
+    FROM comparison
+)
+
+SELECT
+    Business_Position,
+
+    COUNT(*) AS Total_Boroughs,
+
+    SUM(Total_Listings) AS Total_Listings,
+
+    SUM(Total_Reviews) AS Total_Reviews
+
+FROM classified_boroughs
+
+GROUP BY
+    Business_Position
+
+ORDER BY
+    Total_Listings DESC;
