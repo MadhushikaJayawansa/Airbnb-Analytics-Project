@@ -2485,3 +2485,78 @@ GROUP BY
 
 ORDER BY
     Total_Listings DESC;
+
+--=============================================================================================
+--Step 08.12 — Advanced Analytical Ranking
+--Business Question
+--Which NYC borough has the strongest overall Airbnb performance when considering marketplace size, guest engagement, and pricing?
+--=============================================================================================
+
+--===============================================================
+--Step 08.12.1 — Rank Boroughs Across Multiple Metrics
+--===============================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+
+        AVG(fl.price) AS Average_Price
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+ranked_metrics AS (
+    SELECT
+        Borough,
+        Total_Listings,
+        Total_Reviews,
+        Average_Price,
+
+        Total_Reviews * 1.0
+            / Total_Listings
+            AS Reviews_Per_Listing,
+
+        RANK() OVER (
+            ORDER BY Total_Listings DESC
+        ) AS Listing_Volume_Rank,
+
+        RANK() OVER (
+            ORDER BY
+                Total_Reviews * 1.0
+                / Total_Listings DESC
+        ) AS Engagement_Rank,
+
+        RANK() OVER (
+            ORDER BY Average_Price DESC
+        ) AS Price_Rank
+
+    FROM borough_metrics
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+    ROUND(Average_Price, 2)
+        AS Average_Price,
+
+    ROUND(Reviews_Per_Listing, 2)
+        AS Reviews_Per_Listing,
+
+    Listing_Volume_Rank,
+    Engagement_Rank,
+    Price_Rank
+
+FROM ranked_metrics
+
+ORDER BY
+    Listing_Volume_Rank;
