@@ -2326,3 +2326,63 @@ Manhattan has enormous marketplace scale, but its review engagement per listing 
 - Multi-level CTE analysis
 - `GROUP BY`
 - Business classification
+
+## Step 08.11.3 — Two-Dimensional Business Classification
+## Business Question
+## How should each borough be positioned based on price and guest engagement relative to NYC?
+
+## Results
+
+| Borough           | Price vs NYC | Engagement vs NYC | Business Position            |
+| ----------------- | -----------: | ----------------: | ---------------------------- |
+| **Manhattan**     |      +$44.13 |             −2.29 | **Premium & Low Engagement** |
+| **Brooklyn**      |      −$28.32 |             +0.93 | **Value & High Engagement**  |
+| **Staten Island** |      −$37.94 |             +7.67 | **Value & High Engagement**  |
+| **Queens**        |      −$53.24 |             +4.43 | **Value & High Engagement**  |
+| **Bronx**         |      −$65.18 |             +2.71 | **Value & High Engagement**  |
+
+## Business Insight
+
+This gives us a strong two-dimensional view of the NYC Airbnb market:
+
+Manhattan is the only premium-priced borough, but its engagement is below the NYC benchmark.
+Brooklyn combines a lower-than-average price with above-average engagement.
+Staten Island has the strongest engagement difference (+7.67) while remaining below the NYC average price.
+Queens also offers relatively low prices with strong engagement.
+Bronx has the lowest average price ($87.58) while still exceeding the NYC engagement benchmark.
+
+The important business takeaway is:
+
+Lower-priced boroughs are not necessarily lower-performing. Several lower-priced markets show stronger guest engagement than Manhattan.
+
+## Step 08.11.4 — Summarize Business Positions
+## Business Question
+## How many listings and reviews belong to each business-position category?
+
+## Results
+
+| Business Position            | Boroughs | Listings | Reviews |
+| ---------------------------- | -------: | -------: | ------: |
+| **Value & High Engagement**  |        4 |   27,224 | 683,059 |
+| **Premium & Low Engagement** |        1 |   21,660 | 454,569 |
+
+## Business Insight
+
+This is a particularly strong finding for your project:
+
+4 out of 5 boroughs fall into Value & High Engagement, representing:
+
+27,224 listings
+683,059 reviews
+
+Meanwhile, Manhattan alone represents:
+
+21,660 listings
+454,569 reviews
+Premium pricing
+Below-NYC engagement per listing
+
+So the NYC Airbnb market can broadly be viewed as:
+
+A large value-oriented market with strong guest engagement, alongside a large premium market concentrated in Manhattan.
+
