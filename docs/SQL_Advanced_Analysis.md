@@ -2386,3 +2386,30 @@ So the NYC Airbnb market can broadly be viewed as:
 
 A large value-oriented market with strong guest engagement, alongside a large premium market concentrated in Manhattan.
 
+
+## Step 08.12.2 — Calculate the Combined Performance Score
+## Business Question
+## Which borough has the strongest overall performance when considering listing scale, guest engagement, and price?
+
+## Results 
+
+| Borough           | Listing Rank | Engagement Rank | Price Rank | Combined Score |
+| ----------------- | -----------: | --------------: | ---------: | -------------: |
+| **Manhattan**     |            1 |               5 |          1 |          **7** |
+| **Brooklyn**      |            2 |               4 |          2 |          **8** |
+| **Staten Island** |            5 |               1 |          3 |          **9** |
+| **Queens**        |            3 |               2 |          4 |          **9** |
+| **Bronx**         |            4 |               3 |          5 |         **12** |
+
+## Business insight
+
+Manhattan has the best combined score (7) because it ranks #1 in both listing volume and price, even though it ranks last in engagement.
+
+Brooklyn is #2 overall (8) and is much more balanced across the three dimensions.
+
+Staten Island and Queens tie at 9, but for very different reasons:
+
+Staten Island → strongest engagement, smallest listing supply
+Queens → strong engagement with a much larger listing base
+
+This is exactly why combining several rankings is useful.
