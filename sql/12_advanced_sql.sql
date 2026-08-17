@@ -2193,3 +2193,82 @@ SELECT
         AS NYC_REVIEWS_PER_LISTING
 
 FROM market_benchmark;
+
+--====================================================================================
+--Step 08.11.2 — Compare Each Borough Against Both Benchmarks
+--Business Question
+--Is each borough above or below the NYC market on both price and guest engagement?
+--=====================================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+
+        AVG(fl.price) AS Average_Price
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_benchmark AS (
+    SELECT
+        AVG(price) AS NYC_Average_Price,
+
+        SUM(number_of_reviews) * 1.0
+            / COUNT(*) AS NYC_Reviews_Per_Listing
+
+    FROM Fact_Listings
+)
+
+SELECT
+    bm.Borough,
+
+    bm.Total_Listings,
+
+    bm.Total_Reviews,
+
+    ROUND(bm.Average_Price, 2)
+        AS Average_Price,
+
+    ROUND(
+        bm.Total_Reviews * 1.0
+        / bm.Total_Listings,
+        2
+    ) AS Reviews_Per_Listing,
+
+    ROUND(mb.NYC_Average_Price, 2)
+        AS NYC_Average_Price,
+
+    ROUND(mb.NYC_Reviews_Per_Listing, 2)
+        AS NYC_Reviews_Per_Listing,
+
+    ROUND(
+        bm.Average_Price
+        - mb.NYC_Average_Price,
+        2
+    ) AS Price_Difference,
+
+    ROUND(
+        (
+            bm.Total_Reviews * 1.0
+            / bm.Total_Listings
+        )
+        - mb.NYC_Reviews_Per_Listing,
+        2
+    ) AS Engagement_Difference
+
+FROM borough_metrics bm
+
+CROSS JOIN market_benchmark mb
+
+ORDER BY
+    bm.Average_Price DESC;
