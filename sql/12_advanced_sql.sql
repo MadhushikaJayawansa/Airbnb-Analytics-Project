@@ -1995,3 +1995,84 @@ CROSS JOIN market_benchmark mb
 
 ORDER BY
     ENGAGEMENT_DIFFERENCE DESC;
+
+--============================================================================================
+--Step 08.10.4 — Classify Borough Engagement
+--Business Question
+--Which boroughs have high, average, or low guest engagement compared with the NYC benchmark?
+--=============================================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+        AVG(fl.price) AS Average_Price
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_benchmark AS (
+    SELECT
+        SUM(number_of_reviews) * 1.0
+        / COUNT(*) AS NYC_Reviews_Per_Listing
+    FROM Fact_Listings
+),
+
+engagement_analysis AS (
+    SELECT
+        bm.Borough,
+        bm.Total_Listings,
+        bm.Total_Reviews,
+        bm.Average_Price,
+
+        bm.Total_Reviews * 1.0
+            / bm.Total_Listings
+            AS Reviews_Per_Listing,
+
+        mb.NYC_Reviews_Per_Listing,
+
+        (
+            bm.Total_Reviews * 1.0
+            / bm.Total_Listings
+        ) - mb.NYC_Reviews_Per_Listing
+            AS Engagement_Difference
+
+    FROM borough_metrics bm
+    CROSS JOIN market_benchmark mb
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+    Total_Reviews,
+
+    ROUND(Average_Price, 2)
+        AS Average_Price,
+
+    ROUND(Reviews_Per_Listing, 2)
+        AS Reviews_Per_Listing,
+
+    ROUND(NYC_Reviews_Per_Listing, 2)
+        AS NYC_Reviews_Per_Listing,
+
+    ROUND(Engagement_Difference, 2)
+        AS Engagement_Difference,
+
+    CASE
+        WHEN Engagement_Difference >= 3
+            THEN 'High Engagement'
+
+        WHEN Engagement_Difference >= 0
+            THEN 'Average Engagement'
+
+        ELSE 'Low Engagement'
+    END AS Engagement_Category
+
+FROM engagement_analysis
+
+ORDER BY
+    Engagement_Difference DESC;
