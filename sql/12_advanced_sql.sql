@@ -2654,3 +2654,99 @@ FROM performance_score
 
 ORDER BY
     Combined_Performance_Score ASC;
+
+--=====================================================
+--Step 08.12.3 — Final Overall Performance Rank
+--=====================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+
+        AVG(fl.price) AS Average_Price
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+ranked_metrics AS (
+    SELECT
+        Borough,
+        Total_Listings,
+        Total_Reviews,
+        Average_Price,
+
+        Total_Reviews * 1.0
+            / Total_Listings
+            AS Reviews_Per_Listing,
+
+        RANK() OVER (
+            ORDER BY Total_Listings DESC
+        ) AS Listing_Volume_Rank,
+
+        RANK() OVER (
+            ORDER BY
+                Total_Reviews * 1.0
+                / Total_Listings DESC
+        ) AS Engagement_Rank,
+
+        RANK() OVER (
+            ORDER BY Average_Price DESC
+        ) AS Price_Rank
+
+    FROM borough_metrics
+),
+
+performance_score AS (
+    SELECT
+        Borough,
+        Total_Listings,
+        Total_Reviews,
+        Average_Price,
+        Reviews_Per_Listing,
+
+        Listing_Volume_Rank,
+        Engagement_Rank,
+        Price_Rank,
+
+        Listing_Volume_Rank
+        + Engagement_Rank
+        + Price_Rank
+            AS Combined_Performance_Score
+
+    FROM ranked_metrics
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+
+    ROUND(Average_Price, 2)
+        AS Average_Price,
+
+    ROUND(Reviews_Per_Listing, 2)
+        AS Reviews_Per_Listing,
+
+    Listing_Volume_Rank,
+    Engagement_Rank,
+    Price_Rank,
+
+    Combined_Performance_Score,
+
+    RANK() OVER (
+        ORDER BY Combined_Performance_Score ASC
+    ) AS Overall_Performance_Rank
+
+FROM performance_score
+
+ORDER BY
+    Overall_Performance_Rank;
