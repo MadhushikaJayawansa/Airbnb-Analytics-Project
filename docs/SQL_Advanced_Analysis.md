@@ -2236,3 +2236,29 @@ Manhattan: 20.99 → below benchmark
 
 This is already an interesting business finding: Manhattan has the highest average price but the lowest reviews-per-listing among the five boroughs.
 
+## Step 08.10.3 — Difference from NYC Engagement Benchmark
+
+## Results 
+
+| Borough       | Reviews/Listing | NYC Benchmark | Difference |
+| ------------- | --------------: | ------------: | ---------: |
+| Staten Island |           30.94 |         23.27 |  **+7.67** |
+| Queens        |           27.70 |         23.27 |  **+4.43** |
+| Bronx         |           25.98 |         23.27 |  **+2.71** |
+| Brooklyn      |           24.20 |         23.27 |  **+0.93** |
+| Manhattan     |           20.99 |         23.27 |  **−2.29** |
+
+usiness Insight
+
+This gives us a much better picture of guest engagement relative to marketplace supply:
+
+Staten Island is furthest above the NYC benchmark.
+Queens also has substantially higher engagement.
+Brooklyn is slightly above the NYC benchmark.
+Manhattan is the only borough below the NYC benchmark.
+
+Notice the interesting contrast:
+
+Manhattan has the highest average price ($196.88), but the lowest reviews per listing (20.99).
+
+That doesn't mean Manhattan is performing poorly—it simply means its review activity per listing is lower relative to the NYC-wide benchmark.
