@@ -2287,3 +2287,42 @@ Brooklyn is slightly above the NYC benchmark, while also having a very large lis
 This demonstrates why Airbnb management shouldn't evaluate a market using price alone.
 
 A higher-priced market isn't automatically the most engaged market.
+
+
+## Step 08.10.5 — Summarize Engagement Categories
+## Business Question
+## How many boroughs fall into each engagement category?
+
+| Engagement Category    | Boroughs | Listings | Reviews |
+| ---------------------- | -------: | -------: | ------: |
+| **High Engagement**    |        2 |    6,039 | 168,491 |
+| **Average Engagement** |        2 |   21,185 | 514,568 |
+| **Low Engagement**     |        1 |   21,660 | 454,569 |
+
+## Business Insight
+
+The key finding is interesting:
+
+High Engagement: only 2 boroughs, but they contain 6,039 listings and 168,491 reviews.
+Average Engagement: 2 boroughs contain 21,185 listings, making this the largest group outside the low-engagement market.
+Low Engagement: only Manhattan, but it contains 21,660 listings and 454,569 reviews.
+
+So "Low Engagement" does not mean low total reviews.
+
+It means Manhattan has fewer reviews per listing relative to the NYC benchmark.
+
+That's an important analytical distinction.
+
+Manhattan has enormous marketplace scale, but its review engagement per listing is below the NYC average.
+
+## SQL Concepts Practiced
+
+- Multiple CTEs
+- `CROSS JOIN`
+- Aggregate functions
+- Calculated metrics
+- Benchmark comparison
+- `CASE`
+- Multi-level CTE analysis
+- `GROUP BY`
+- Business classification
