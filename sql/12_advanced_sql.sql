@@ -2750,3 +2750,75 @@ FROM performance_score
 
 ORDER BY
     Overall_Performance_Rank;
+
+--=============================================================================================
+--Step 08.13 — Advanced Analytical KPI / Final SQL Challenge
+--Business Question
+--Which borough provides the best overall opportunity when considering listing supply, pricing, and guest engagement?
+--=============================================================================================
+
+--=====================================================
+--Step 08.13.1 — Build the Three KPI Components
+--=====================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+
+        COUNT(*) AS Total_Listings,
+
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+
+        AVG(fl.price) AS Average_Price,
+
+        SUM(fl.number_of_reviews) * 1.0
+            / COUNT(*) AS Reviews_Per_Listing
+
+    FROM Fact_Listings fl
+
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+
+    GROUP BY
+        dl.neighbourhood_group
+),
+
+market_benchmark AS (
+    SELECT
+        AVG(price) AS NYC_Average_Price,
+
+        SUM(number_of_reviews) * 1.0
+            / COUNT(*) AS NYC_Reviews_Per_Listing
+
+    FROM Fact_Listings
+)
+
+SELECT
+    bm.Borough,
+
+    bm.Total_Listings,
+
+    ROUND(bm.Average_Price, 2)
+        AS Average_Price,
+
+    ROUND(bm.Reviews_Per_Listing, 2)
+        AS Reviews_Per_Listing,
+
+    ROUND(
+        bm.Average_Price
+        / mb.NYC_Average_Price * 100,
+        2
+    ) AS Price_Position_Percent,
+
+    ROUND(
+        bm.Reviews_Per_Listing
+        / mb.NYC_Reviews_Per_Listing * 100,
+        2
+    ) AS Engagement_Position_Percent
+
+FROM borough_metrics bm
+
+CROSS JOIN market_benchmark mb
+
+ORDER BY
+    Price_Position_Percent DESC;
