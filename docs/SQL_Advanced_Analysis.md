@@ -2488,3 +2488,23 @@ One interesting result is Staten Island: despite having only 0.76% of NYC listin
 ## Business insight
 
 Manhattan has the highest overall opportunity score because its enormous marketplace scale and premium pricing offset its below-average engagement. Staten Island ranks second because of exceptionally strong guest engagement, despite its very small marketplace size.
+
+## Step 08.13.3 — Rank Boroughs by Opportunity Score
+
+## Results
+
+| Rank | Borough           | Opportunity Score | Avg Price | Reviews / Listing |
+| ---: | ----------------- | ----------------: | --------: | ----------------: |
+|    1 | **Manhattan**     |         **84.16** |   $196.88 |             20.99 |
+|    2 | **Staten Island** |         **81.74** |   $114.81 |             30.94 |
+|    3 | **Brooklyn**      |         **80.61** |   $124.44 |             24.20 |
+|    4 | **Queens**        |         **76.02** |    $99.52 |             27.70 |
+|    5 | **Bronx**         |         **67.95** |    $87.58 |             25.98 |
+
+## Business Insight
+
+Manhattan has the highest overall opportunity score because its huge listing base and premium pricing give it a strong overall position, even though guest engagement is below the NYC benchmark.
+
+Staten Island is particularly interesting. It has only 373 listings, but its 30.94 reviews per listing gives it the strongest engagement position and pushes it to #2.
+
+Brooklyn provides the strongest combination of large marketplace scale and above-average engagement, making it an especially interesting market for further investigation.
