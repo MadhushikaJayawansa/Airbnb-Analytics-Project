@@ -2913,3 +2913,91 @@ FROM normalized_metrics
 
 ORDER BY
     Opportunity_Score DESC;
+
+
+--===================================================================================
+--Step 08.13.3 — Rank Boroughs by Opportunity Score
+--===================================================================================
+
+WITH borough_metrics AS (
+    SELECT
+        dl.neighbourhood_group AS Borough,
+        COUNT(*) AS Total_Listings,
+        SUM(fl.number_of_reviews) AS Total_Reviews,
+        AVG(fl.price) AS Average_Price,
+        SUM(fl.number_of_reviews) * 1.0 / COUNT(*) AS Reviews_Per_Listing
+    FROM Fact_Listings fl
+    JOIN Dim_Location dl
+        ON fl.location_key = dl.location_key
+    GROUP BY dl.neighbourhood_group
+),
+
+market_benchmark AS (
+    SELECT
+        COUNT(*) AS Total_NYC_Listings,
+        AVG(price) AS NYC_Average_Price,
+        SUM(number_of_reviews) * 1.0 / COUNT(*) AS NYC_Reviews_Per_Listing
+    FROM Fact_Listings
+),
+
+normalized_metrics AS (
+    SELECT
+        bm.Borough,
+        bm.Total_Listings,
+        bm.Average_Price,
+        bm.Reviews_Per_Listing,
+
+        bm.Total_Listings * 1.0
+            / mb.Total_NYC_Listings * 100
+            AS Listing_Scale_Percent,
+
+        bm.Average_Price
+            / mb.NYC_Average_Price * 100
+            AS Price_Position_Percent,
+
+        bm.Reviews_Per_Listing
+            / mb.NYC_Reviews_Per_Listing * 100
+            AS Engagement_Position_Percent
+
+    FROM borough_metrics bm
+    CROSS JOIN market_benchmark mb
+),
+
+opportunity_scores AS (
+    SELECT
+        Borough,
+        Total_Listings,
+        Average_Price,
+        Reviews_Per_Listing,
+        Listing_Scale_Percent,
+        Price_Position_Percent,
+        Engagement_Position_Percent,
+
+        (
+            Engagement_Position_Percent * 0.50
+            + Listing_Scale_Percent * 0.30
+            + Price_Position_Percent * 0.20
+        ) AS Opportunity_Score
+
+    FROM normalized_metrics
+)
+
+SELECT
+    Borough,
+    Total_Listings,
+
+    ROUND(Average_Price, 2) AS Average_Price,
+
+    ROUND(Reviews_Per_Listing, 2)
+        AS Reviews_Per_Listing,
+
+    ROUND(Opportunity_Score, 2)
+        AS Opportunity_Score,
+
+    RANK() OVER (
+        ORDER BY Opportunity_Score DESC
+    ) AS Opportunity_Rank
+
+FROM opportunity_scores
+
+ORDER BY Opportunity_Rank;
