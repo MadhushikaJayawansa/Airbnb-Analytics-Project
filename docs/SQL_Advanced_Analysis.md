@@ -2472,3 +2472,19 @@ What these percentages mean
 90.18% engagement position → Manhattan's reviews per listing are about 10% below the NYC benchmark.
 132.95% engagement position → Staten Island's reviews per listing are about 33% above the NYC benchmark.
 
+
+## Step 08.13.2 — Create the Final Opportunity Score
+
+| Rank so far | Borough           | Opportunity Score |
+| ----------: | ----------------- | ----------------: |
+|           1 | **Manhattan**     |         **84.16** |
+|           2 | **Staten Island** |         **81.74** |
+|           3 | **Brooklyn**      |         **80.61** |
+|           4 | **Queens**        |         **76.02** |
+|           5 | **Bronx**         |         **67.95** |
+
+One interesting result is Staten Island: despite having only 0.76% of NYC listings, its very high engagement pushes its opportunity score above Brooklyn.
+
+## Business insight
+
+Manhattan has the highest overall opportunity score because its enormous marketplace scale and premium pricing offset its below-average engagement. Staten Island ranks second because of exceptionally strong guest engagement, despite its very small marketplace size.
