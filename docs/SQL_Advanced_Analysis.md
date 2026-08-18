@@ -2449,3 +2449,26 @@ So the ranking should not be interpreted as "Manhattan is the best borough in ev
 - Analytical comparisons
 - Tie handling
 - Business interpretation
+
+
+## Step 08.13 — Advanced Analytical KPI / Final SQL Challenge
+## Business Question
+## Which borough provides the best overall opportunity when considering listing supply, pricing, and guest engagement?
+
+## Step 08.13.1 — Build the Three KPI Components
+
+## Results
+
+| Borough       | Price Position | Engagement Position |
+| ------------- | -------------: | ------------------: |
+| Manhattan     |    **128.89%** |          **90.18%** |
+| Brooklyn      |     **81.46%** |         **103.98%** |
+| Staten Island |     **75.16%** |         **132.95%** |
+| Queens        |     **65.15%** |         **119.03%** |
+| Bronx         |     **57.33%** |         **111.63%** |
+
+What these percentages mean
+128.89% price position → Manhattan's average price is about 29% higher than NYC's average.
+90.18% engagement position → Manhattan's reviews per listing are about 10% below the NYC benchmark.
+132.95% engagement position → Staten Island's reviews per listing are about 33% above the NYC benchmark.
+
