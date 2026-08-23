@@ -4,7 +4,29 @@ Airbnb Analytics Project
 
 This project is an end-to-end Business Intelligence and Data Analytics project built using the Airbnb New York City dataset from Kaggle.
 
-The project follows a real-world analytics workflow, transforming raw Airbnb listing data into a dimensional data warehouse (Star Schema) for business reporting and visualization. The cleaned and modeled data will be analyzed using SQL and visualized with Power BI to generate actionable business insights.
+The project follows a real-world analytics workflow, transforming raw Airbnb listing data into a cleaned and dimensional Star Schema, loading the modeled data into Snowflake, analyzing the data using SQL, and building an interactive Power BI dashboard for business reporting and visualization.
+
+The project demonstrates the complete journey from raw data to business insights:
+
+Raw Airbnb Dataset
+        ↓
+Data Profiling
+        ↓
+Data Cleaning
+        ↓
+Data Modeling
+        ↓
+Star Schema
+        ↓
+Python ETL
+        ↓
+Snowflake Data Warehouse
+        ↓
+SQL Analytics
+        ↓
+Power BI Semantic Model
+        ↓
+Interactive Dashboard
 
 -------------------------------------------------------------------------------------------------------
 
