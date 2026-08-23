@@ -216,7 +216,7 @@ Contains date-related attributes used for time-based analysis.
 
 Model Structure
 
-```text
+
                     Dim_Host
                        │
                        │
