@@ -220,32 +220,31 @@ Dim_Location ───► Fact_Listings ◄─── Dim_Room_Type
                     Dim_Date
 ---------------------------------------------------------------------------------------------------
 
+📊 Key KPIs
 
-📊 Skills Demonstrated
+The Executive Overview dashboard contains the following key performance indicators:
 
-Data Profiling
+KPI	Result
 
-Data Cleaning
+Total Listings	        48,884
 
-ETL Development with Python
+Average Price	        $152.76
 
-Data Modeling
+Total Reviews	        1,137,628
 
-Star Schema Design
+Average Minimum Nights	7.03
 
-Fact & Dimension Tables
+Average Availability	112.78 days
 
-Surrogate Keys
+Additional dataset statistics:
 
-SQL
+Metric	        Result
 
-Snowflake (in progress)
+Lowest Price	$10
 
-Power BI (in progress)
+Highest Price	$10,000
 
-Git & GitHub
-
--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 🚀 Current Progress
 
@@ -261,17 +260,48 @@ Git & GitHub
 | SQL Analytics            | ⏳ Planned       |
 | Power BI Dashboard       | ⏳ Planned       |
 
--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
-📌 Dataset
+📈 Power BI Dashboard
 
-Source: Kaggle
+The Power BI report contains four analytical pages.
 
-Dataset: Airbnb New York City Open Data
+1. Executive Overview
 
-Approximately 48,000+ cleaned listings used after data cleaning.
+Provides a high-level view of Airbnb listing performance.
 
--------------------------------------------------------------------------------------------------------
+KPIs
+Total Listings
+Average Price
+Total Reviews
+Average Minimum Nights
+Average Availability
+Visualizations
+Listings by Borough
+Listings by Room Type
+Average Price by Borough
+Listings by Year
+Filters
+Borough
+Room Type
+Year
+
+---------------------------------------------------------------------------------------------------
+
+2. Pricing Analysis
+
+Analyzes Airbnb pricing patterns across different segments.
+
+Visualizations
+Average Price by Room Type
+Average Price by Borough
+Listings by Price Range
+Price vs. Minimum Nights
+Filters
+Room Type
+Borough
+
+---------------------------------------------------------------------------------------------------
 
 📈 Future Enhancements
 
