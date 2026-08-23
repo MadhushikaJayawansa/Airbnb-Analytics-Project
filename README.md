@@ -371,3 +371,19 @@ The average listing availability across the cleaned dataset is approximately:
 112.78 days per year
 
 ---------------------------------------------------------------------------------------------------
+
+📸 Dashboard Screenshots
+
+Screenshots of the completed Power BI dashboard are available in:
+
+screenshots/powerbi/
+
+Dashboard pages include:
+
+Executive Overview
+Pricing Analysis
+Location & Room Analysis
+Host & Performance Analysis
+
+--------------------------------------------------------------------------------------------------
+
