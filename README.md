@@ -65,10 +65,13 @@ Dataset	Kaggle Airbnb NYC Dataset
 Airbnb-Analytics-Project/
 │
 ├── data/
+|   |
 │   ├── raw/
 │   │
 │   └── processed/
+|       |
 │       ├── Airbnb_Cleaned.csv
+|       |
 │       ├── Dim_Host.csv
 │       ├── Dim_Location.csv
 │       ├── Dim_Room_Type.csv
