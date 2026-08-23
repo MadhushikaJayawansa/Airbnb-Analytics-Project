@@ -134,6 +134,7 @@ Duplicate records
 Minimum and maximum values
 Potential outliers
 Data quality issues
+
 3. Data Cleaning
 
 Performed data cleaning using Python and Pandas, including:
@@ -144,6 +145,7 @@ Converting date fields to appropriate date types
 Cleaning descriptive fields
 Validating duplicate records
 Preparing data for dimensional modeling
+
 4. Data Modeling
 
 Designed a dimensional data model using a Star Schema.
@@ -168,6 +170,7 @@ Host analysis
 Time-based analysis
 Revenue analysis
 Reusable analytical views
+
 8. Power BI
 
 Connected Power BI Online to Snowflake and created the Airbnb Analytics Semantic Model.
@@ -210,6 +213,7 @@ Dim_Date
 Contains date-related attributes used for time-based analysis.
 
 Model Structure
+
 ```text
                     Dim_Host
                        │
