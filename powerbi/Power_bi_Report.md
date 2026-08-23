@@ -72,6 +72,7 @@ Provides a high-level summary of Airbnb listings using KPI cards, borough and ro
 
 Analyzes pricing differences across room types and boroughs, price ranges, and the relationship between price and minimum-night requirements.
 
+
 ### 3. Location & Room Analysis
 
 Analyzes the geographical distribution of listings, top neighbourhoods, room-type distribution across boroughs, and listing availability.
