@@ -387,3 +387,24 @@ Host & Performance Analysis
 
 --------------------------------------------------------------------------------------------------
 
+📚 Documentation
+
+Detailed project documentation is available in the docs/ directory.
+
+Business Requirements
+
+Defines the business objectives, stakeholders, business questions, and KPIs.
+
+Data Profiling Report
+
+Documents the initial data-quality assessment and profiling process.
+
+Data Cleaning Report
+
+Documents the cleaning, transformation, and validation process.
+
+Power BI Report Documentation
+
+Documents the Snowflake-to-Power BI workflow, semantic model, dashboard pages, and visualizations.
+
+--------------------------------------------------------------------------------------------------
