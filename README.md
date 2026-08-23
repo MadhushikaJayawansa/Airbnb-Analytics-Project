@@ -303,16 +303,3 @@ Borough
 
 ---------------------------------------------------------------------------------------------------
 
-📈 Future Enhancements
-
-Load the star schema into Snowflake.
-
-Write analytical SQL queries and create reusable views.
-
-Build an interactive Power BI dashboard.
-
-Add dashboard screenshots and documentation.
-
-Automate the ETL pipeline.
-
--------------------------------------------------------------------------------------------------------
