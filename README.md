@@ -424,3 +424,47 @@ Revenue analysis
 
 ---------------------------------------------------------------------------------------------------
 
+🧠 Skills Demonstrated
+
+Business Requirements Analysis
+
+Data Profiling
+
+Data Cleaning
+
+Exploratory Data Analysis
+
+Python
+
+Pandas
+
+ETL Development
+
+Data Modeling
+
+Star Schema Design
+
+Fact & Dimension Tables
+
+Surrogate Keys
+
+SQL
+
+Snowflake
+
+Business Intelligence
+
+Power BI
+
+Semantic Modeling
+
+Dashboard Design
+
+KPI Development
+
+Git
+
+GitHub
+
+--------------------------------------------------------------------------------------------------
+
