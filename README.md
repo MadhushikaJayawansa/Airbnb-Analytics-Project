@@ -316,3 +316,15 @@ Filter
 Room Type
 
 ---------------------------------------------------------------------------------------------------
+
+4. Host & Performance Analysis
+
+Analyzes host activity and listing performance.
+
+Visualizations
+Top 10 Hosts by Number of Listings
+Top 10 Hosts by Total Reviews
+Average Reviews per Listing by Room Type
+Average Availability by Room Type
+
+---------------------------------------------------------------------------------------------------
