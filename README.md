@@ -509,3 +509,23 @@ After data cleaning, the project contains:
 The cleaned dataset was transformed into a dimensional model consisting of a fact table and four dimension tables.
 
 ---------------------------------------------------------------------------------------------------
+
+🔮 Future Enhancements
+
+Potential future improvements include:
+
+Automating the ETL pipeline
+
+Adding more advanced analytical measures
+
+Improving host-level analysis using unique host_id
+
+Adding more advanced time-series analysis
+
+Adding additional Power BI drill-through pages
+
+Implementing automated data refresh
+
+Expanding the dashboard with additional business KPIs
+
+---------------------------------------------------------------------------------------------------
