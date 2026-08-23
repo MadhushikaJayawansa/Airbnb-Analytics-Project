@@ -119,28 +119,61 @@ Airbnb-Analytics-Project/
 ---------------------------------------------------------------------------------------------------
 
 🔄 Project Workflow
+1. Business Requirements Analysis
 
-Business Requirements Analysis
+Defined the business objectives, stakeholders, business questions, KPIs, and analytical requirements.
 
-Data Profiling
+2. Data Profiling
 
-Data Cleaning
+Inspected the raw dataset to understand:
 
-Exploratory Data Validation
+Data types
+Missing values
+Duplicate records
+Minimum and maximum values
+Potential outliers
+Data quality issues
+3. Data Cleaning
 
-Data Modeling
+Performed data cleaning using Python and Pandas, including:
 
-Star Schema Design
+Removing invalid records where price was 0
+Handling missing values
+Converting date fields to appropriate date types
+Cleaning descriptive fields
+Validating duplicate records
+Preparing data for dimensional modeling
+4. Data Modeling
 
-Python ETL Pipeline
+Designed a dimensional data model using a Star Schema.
 
-Snowflake Data Warehouse (Next Phase)
+5. Python ETL Pipeline
 
-SQL Analytics (Next Phase)
+Created Python scripts to generate the dimension and fact tables from the cleaned Airbnb dataset.
 
-Power BI Dashboard (Next Phase)
+6. Snowflake Data Warehouse
 
--------------------------------------------------------------------------------------------------------
+Loaded the dimensional model into Snowflake and created the required database environment, schemas, tables, and analytical structures.
+
+7. SQL Analytics
+
+Developed SQL queries for:
+
+Business analysis
+Pricing analysis
+Location analysis
+Room-type analysis
+Host analysis
+Time-based analysis
+Revenue analysis
+Reusable analytical views
+8. Power BI
+
+Connected Power BI Online to Snowflake and created the Airbnb Analytics Semantic Model.
+
+Built an interactive multi-page dashboard for business reporting.
+
+---------------------------------------------------------------------------------------------------
 
 ⭐ Star Schema
 
