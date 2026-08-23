@@ -62,3 +62,24 @@ Power BI Report
         ↓
 Interactive Dashboard
 ```
+
+
+### 1. Executive Overview
+
+Provides a high-level summary of Airbnb listings using KPI cards, borough and room-type analysis, pricing analysis, and yearly listing trends.
+
+### 2. Pricing Analysis
+
+Analyzes pricing differences across room types and boroughs, price ranges, and the relationship between price and minimum-night requirements.
+
+### 3. Location & Room Analysis
+
+Analyzes the geographical distribution of listings, top neighbourhoods, room-type distribution across boroughs, and listing availability.
+
+### 4. Host & Performance Analysis
+
+Analyzes top hosts by listing count and reviews, average reviews per listing by room type, and average availability by room type.
+
+## Dashboard Screenshots
+
+The completed Power BI dashboard pages are stored in the `screenshots/powerbi/` directory.
