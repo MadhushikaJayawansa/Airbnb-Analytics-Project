@@ -28,98 +28,95 @@ Power BI Semantic Model
         ↓
 Interactive Dashboard
 
--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 🎯 Business Objectives
 
-The goal of this project is to help Airbnb managers answer business questions such as:
+The goal of this project is to help Airbnb managers understand listing performance and answer key business questions such as:
 
-Which neighbourhoods generate the highest average prices?
-
-Which room types are the most popular?
-
+Which neighbourhoods have the highest number of listings?
+Which boroughs have the highest average prices?
+Which room types are most common?
 Which hosts manage the most listings?
-
+Which hosts receive the most reviews?
 Which locations have the highest availability?
+How are listings distributed across price ranges?
+How do listing volumes change over time?
+How do room types vary across different boroughs?
 
-How do customer reviews change over time?
-
-What factors influence listing performance?
-
--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 🛠️ Technologies Used
 
-| Category           | Technology                |
-| ------------------ | ------------------------- |
-| Programming        | Python (Pandas)           |
-| Database           | Snowflake *(coming next)* |
-| Query Language     | SQL                       |
-| Data Visualization | Power BI *(coming next)*  |
-| Version Control    | Git & GitHub              |
-| Diagramming        | Draw.io                   |
-| Dataset            | Kaggle Airbnb NYC Dataset |
+Category	Technology
+Programming	Python, Pandas
+Database / Data Warehouse	Snowflake
+Query Language	SQL
+Data Visualization	Power BI Online
+Semantic Model	Power BI Semantic Model
+Version Control	Git & GitHub
+Diagramming	Draw.io
+Dataset	Kaggle Airbnb NYC Dataset
 
--------------------------------------------------------------------------------------------------------
-
+---------------------------------------------------------------------------------------------------
 
 📂 Project Structure
-
 Airbnb-Analytics-Project/
-|
 │
 ├── data/
-|   |
 │   ├── raw/
-|   |
+│   │
 │   └── processed/
-|       |
 │       ├── Airbnb_Cleaned.csv
-|       |
 │       ├── Dim_Host.csv
-|       |
 │       ├── Dim_Location.csv
-|       |
 │       ├── Dim_Room_Type.csv
-|       |
 │       ├── Dim_Date.csv
-|       |
 │       └── Fact_Listings.csv
 │
 ├── diagrams/
 │
 ├── docs/
+│   ├── Business_Requirements.md
 │   ├── Data_Profiling_Report.md
-|   |
 │   └── Data_Cleaning_Report.md
 │
 ├── scripts/
-|   |
 │   ├── 01_data_profiling.py
-|   |
 │   ├── 02_data_cleaning.py
-|   |
 │   ├── 03_create_dim_host.py
-|   |
 │   ├── 04_create_dim_location.py
-|   |
 │   ├── 05_create_dim_room_type.py
-|   |
 │   ├── 06_create_dim_date.py
-|   |
 │   └── 07_create_fact_table.py
 │
 ├── sql/
-|
+│   ├── 01_create_environment.sql
+│   ├── 02_create_tables.sql
+│   ├── 03_business_queries.sql
+│   ├── 04_pricing_analysis.sql
+│   ├── 05_location_analysis.sql
+│   ├── 06_room_type_analysis.sql
+│   ├── 07_host_analysis.sql
+│   ├── 08_time_analysis.sql
+│   ├── 09_view.sql
+│   └── 10_revenue_analysis.sql
+│
 ├── powerbi/
-|
+│   └── Power_BI_Report.md
+│
 ├── screenshots/
-|
+│   └── powerbi/
+│       ├── executive_overview.png
+│       ├── pricing_analysis.png
+│       ├── location_room_analysis.png
+│       └── host_performance_analysis.png
+│
 ├── README.md
-|
+│
 └── requirements.txt
 
--------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 🔄 Project Workflow
 
