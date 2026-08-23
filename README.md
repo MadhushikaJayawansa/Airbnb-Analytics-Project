@@ -61,6 +61,7 @@ Dataset	Kaggle Airbnb NYC Dataset
 ---------------------------------------------------------------------------------------------------
 
 📂 Project Structure
+
 Airbnb-Analytics-Project/
 │
 ├── data/
@@ -218,6 +219,7 @@ Dim_Location ───► Fact_Listings ◄─── Dim_Room_Type
                        │
                        │
                     Dim_Date
+
 ---------------------------------------------------------------------------------------------------
 
 📊 Key KPIs
@@ -243,22 +245,6 @@ Metric	        Result
 Lowest Price	$10
 
 Highest Price	$10,000
-
----------------------------------------------------------------------------------------------------
-
-🚀 Current Progress
-
-| Phase                    | Status           |
-| ------------------------ | -----------------|
-| Business Requirements    | ✅ Completed    |
-| Data Profiling           | ✅ Completed    |
-| Data Cleaning            | ✅ Completed    |
-| Data Modeling            | ✅ Completed    |
-| Star Schema Design       | ✅ Completed    |
-| Python ETL Pipeline      | ✅ Completed    |
-| Snowflake Data Warehouse | 🔄 In Progress  |
-| SQL Analytics            | ⏳ Planned       |
-| Power BI Dashboard       | ⏳ Planned       |
 
 ---------------------------------------------------------------------------------------------------
 
