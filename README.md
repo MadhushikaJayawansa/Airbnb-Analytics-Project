@@ -529,3 +529,13 @@ Implementing automated data refresh
 Expanding the dashboard with additional business KPIs
 
 ---------------------------------------------------------------------------------------------------
+
+👩‍💻 Project
+
+Airbnb Analytics — End-to-End Business Intelligence Project
+
+Built using:
+
+Python → Snowflake → SQL → Power BI → GitHub
+
+---------------------------------------------------------------------------------------------------
