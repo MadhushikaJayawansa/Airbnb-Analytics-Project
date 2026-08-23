@@ -59,7 +59,7 @@ Diagramming	Draw.io
 Dataset	Kaggle Airbnb NYC Dataset
 
 ---------------------------------------------------------------------------------------------------
-
+```text
 📂 Project Structure
 
 Airbnb-Analytics-Project/
@@ -73,9 +73,13 @@ Airbnb-Analytics-Project/
 │       ├── Airbnb_Cleaned.csv
 |       |
 │       ├── Dim_Host.csv
+|       |
 │       ├── Dim_Location.csv
+|       |
 │       ├── Dim_Room_Type.csv
+|       |
 │       ├── Dim_Date.csv
+|       |
 │       └── Fact_Listings.csv
 │
 ├── diagrams/
