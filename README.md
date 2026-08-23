@@ -328,3 +328,46 @@ Average Reviews per Listing by Room Type
 Average Availability by Room Type
 
 ---------------------------------------------------------------------------------------------------
+
+💡 Key Analytical Findings
+
+The analysis identified several important patterns in the Airbnb NYC dataset.
+
+Listing Distribution
+
+Manhattan and Brooklyn contain the majority of Airbnb listings.
+
+Manhattan: 21,660
+Brooklyn: 20,095
+Queens: 5,666
+Bronx: 1,090
+Staten Island: 373
+Room Type Distribution
+
+The largest room-type category is:
+
+Entire home/apt — 25,407 listings
+
+followed by:
+
+Private room — 22,319 listings
+
+and:
+
+Shared room — 1,158 listings
+
+Host Activity
+
+The host analysis identifies the most active hosts based on listing volume and total reviews.
+
+Examples from the SQL analysis include:
+
+Michael — 417 listings
+David — 403 listings
+Availability
+
+The average listing availability across the cleaned dataset is approximately:
+
+112.78 days per year
+
+---------------------------------------------------------------------------------------------------
