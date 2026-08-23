@@ -194,6 +194,8 @@ Minimum nights
 Number of reviews
 Availability
 Foreign keys to dimensions
+
+
 Dimension Tables
 
 Dim_Host
@@ -284,6 +286,7 @@ Year
 Analyzes Airbnb pricing patterns across different segments.
 
 Visualizations
+
 Average Price by Room Type
 Average Price by Borough
 Listings by Price Range
@@ -313,6 +316,7 @@ Room Type
 Analyzes host activity and listing performance.
 
 Visualizations
+
 Top 10 Hosts by Number of Listings
 Top 10 Hosts by Total Reviews
 Average Reviews per Listing by Room Type
