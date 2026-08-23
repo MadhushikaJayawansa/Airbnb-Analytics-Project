@@ -183,17 +183,43 @@ Fact Table
 
 Fact_Listings
 
+Contains listing-level measures including:
+
+Price
+Minimum nights
+Number of reviews
+Availability
+Foreign keys to dimensions
 Dimension Tables
 
 Dim_Host
 
+Contains host-related information and surrogate host keys.
+
 Dim_Location
+
+Contains borough and neighbourhood information.
 
 Dim_Room_Type
 
+Contains Airbnb room-type categories.
+
 Dim_Date
 
--------------------------------------------------------------------------------------------------------
+Contains date-related attributes used for time-based analysis.
+
+Model Structure
+                    Dim_Host
+                       │
+                       │
+                       ▼
+Dim_Location ───► Fact_Listings ◄─── Dim_Room_Type
+                       ▲
+                       │
+                       │
+                    Dim_Date
+---------------------------------------------------------------------------------------------------
+
 
 📊 Skills Demonstrated
 
