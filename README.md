@@ -408,3 +408,19 @@ Power BI Report Documentation
 Documents the Snowflake-to-Power BI workflow, semantic model, dashboard pages, and visualizations.
 
 --------------------------------------------------------------------------------------------------
+
+📊 SQL Analysis
+
+The sql/ directory contains analytical SQL scripts covering:
+
+Business queries
+Pricing analysis
+Location analysis
+Room-type analysis
+Host analysis
+Time analysis
+Views
+Revenue analysis
+
+---------------------------------------------------------------------------------------------------
+
