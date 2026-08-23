@@ -209,7 +209,7 @@ Dim_Date
 
 Contains date-related attributes used for time-based analysis.
 
-###Model Structure
+Model Structure
 ```text
                     Dim_Host
                        │
