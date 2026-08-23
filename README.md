@@ -65,21 +65,13 @@ Dataset	Kaggle Airbnb NYC Dataset
 Airbnb-Analytics-Project/
 │
 ├── data/
-|   |
 │   ├── raw/
-│   │
 │   └── processed/
-|       |
 │       ├── Airbnb_Cleaned.csv
-|       |
 │       ├── Dim_Host.csv
-|       |
 │       ├── Dim_Location.csv
-|       |
 │       ├── Dim_Room_Type.csv
-|       |
 │       ├── Dim_Date.csv
-|       |
 │       └── Fact_Listings.csv
 │
 ├── diagrams/
@@ -216,7 +208,8 @@ Dim_Date
 
 Contains date-related attributes used for time-based analysis.
 
-Model Structure
+###Model Structure
+```text
                     Dim_Host
                        │
                        │
