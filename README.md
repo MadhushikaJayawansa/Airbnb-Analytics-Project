@@ -493,3 +493,19 @@ Power BI Semantic Model	    ✅ Completed
 Power BI Dashboard	        ✅ Completed
 
 GitHub Documentation	    ✅ Completed
+
+--------------------------------------------------------------------------------------------------
+
+📌 Dataset
+
+Source: Kaggle
+
+Dataset: Airbnb New York City Open Data
+
+After data cleaning, the project contains:
+
+48,884 valid Airbnb listings
+
+The cleaned dataset was transformed into a dimensional model consisting of a fact table and four dimension tables.
+
+---------------------------------------------------------------------------------------------------
