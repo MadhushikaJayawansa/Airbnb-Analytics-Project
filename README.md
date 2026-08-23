@@ -303,3 +303,16 @@ Borough
 
 ---------------------------------------------------------------------------------------------------
 
+3. Location & Room Analysis
+
+Analyzes the geographic and room-type distribution of Airbnb listings.
+
+Visualizations
+Top 10 Neighbourhoods by Listings
+Listings by Borough
+Room Type Distribution by Borough
+Average Availability by Borough
+Filter
+Room Type
+
+---------------------------------------------------------------------------------------------------
