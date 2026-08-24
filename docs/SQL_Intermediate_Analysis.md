@@ -50,7 +50,7 @@ How many Airbnb listings have a price greater than $500 and availability greater
 
 ### Result
 
-| Metric                           | Value  |
+| Metric                           | Value   |
 |----------------------------------|--------:|
 | Listings meeting both conditions | **514** |
 
