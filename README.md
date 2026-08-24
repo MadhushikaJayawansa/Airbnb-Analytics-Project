@@ -35,13 +35,21 @@ Interactive Dashboard
 The goal of this project is to help Airbnb managers understand listing performance and answer key business questions such as:
 
 Which neighbourhoods have the highest number of listings?
+
 Which boroughs have the highest average prices?
+
 Which room types are most common?
+
 Which hosts manage the most listings?
+
 Which hosts receive the most reviews?
+
 Which locations have the highest availability?
+
 How are listings distributed across price ranges?
+
 How do listing volumes change over time?
+
 How do room types vary across different boroughs?
 
 ---------------------------------------------------------------------------------------------------
