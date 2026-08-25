@@ -7,7 +7,7 @@ This project is an end-to-end Business Intelligence and Data Analytics project b
 The project follows a real-world analytics workflow, transforming raw Airbnb listing data into a cleaned and dimensional Star Schema, loading the modeled data into Snowflake, analyzing the data using SQL, and building an interactive Power BI dashboard for business reporting and visualization.
 
 The project demonstrates the complete journey from raw data to business insights:
-
+```text
 Raw Airbnb Dataset
         ↓
 Data Profiling
