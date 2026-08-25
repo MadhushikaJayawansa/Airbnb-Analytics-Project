@@ -54,29 +54,21 @@ How do room types vary across different boroughs?
 
 ---------------------------------------------------------------------------------------------------
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 
-|Category	                |      Technology                |
-|-------------------------------|--------------------------------|
-|Programming	                |      Python, Pandas            |
-|                               |                                |
-|Database / Data Warehouse      |      Snowflake                 |
-|                               |                                |
-|Query Language	                |      SQL                       |
-|                               |                                |
-|Data Visualization	        |      Power BI Online           |
-|                               |                                |
-|                               |                                |            
-|Semantic Model	                |      Power BI Semantic Model   |
-|                               |                                |
-|Version Control	        |      Git & GitHub              |
-|                               |                                |
-|Diagramming	                |      Draw.io                   |
-|                               |                                |
-|Dataset	                |     Kaggle  Airbnb NYC Dataset |
-
+| Category                  | Technology                  |
+|---------------------------|-----------------------------|
+| Programming               | Python, Pandas              |
+| Database / Data Warehouse | Snowflake                   |
+| Query Language            | SQL                         |
+| Data Visualization        | Power BI Online             |
+| Semantic Model            | Power BI Semantic Model     |
+| Version Control           | Git & GitHub                |
+| Diagramming               | Draw.io                     |
+| Dataset                   | Kaggle — Airbnb NYC Dataset |
 
 ---------------------------------------------------------------------------------------------------
+
 ```text
 📂 Project Structure
 
