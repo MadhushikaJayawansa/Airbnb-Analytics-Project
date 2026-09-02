@@ -194,7 +194,7 @@ Airbnb-Analytics-Project/
 
 It combines technical data skills with business-focused analysis to turn raw Airbnb listing data into a structured and accessible reporting solution.
 
-
+## 
 👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills  through an end-to-end analytics workflow.**
 
 
