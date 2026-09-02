@@ -48,15 +48,7 @@ The dataset includes information such as:
 
 ## 🛠 Technologies & Tools 
 
-Category	Technologies
-Programming	Python
-Data Manipulation	Pandas
-Data Warehouse	Snowflake
-Query Language	SQL
-Business Intelligence	Power BI Online
-Version Control	Git & GitHub
-
-|  Category              |  Technologies    |
+| Category               |  Technologies    |
 | --------------------   |  ------------    | 
 | Programming            |  Python          | 
 | Data Manipulation      |  Pandas          |
@@ -64,4 +56,74 @@ Version Control	Git & GitHub
 | Query Language         |  SQL             |
 | Business Intelligence  |  Power BI Online | 
 | Version Control        |  Git & GitHub    |
+
+## 🏗️ Data Architecture
+
+A Star Schema was designed to structure the Airbnb data for analytical reporting.
+
+◽Fact Table
+◽Fact_Listings
+◽Dimension Tables
+◽Dim_Host
+◽Dim_Location
+◽Dim_Room_Type
+◽Dim_Date
+
+The fact table stores listing-level measures, while the dimension tables provide descriptive information for analysis.
+
+## 🏢 Project Workflow
+
+1. Data Profiling & Cleaning
+
+Python and Pandas were used to inspect data types, missing values, duplicate records, invalid values, and potential outliers.
+
+2. Data Modelling
+
+The cleaned data was transformed into a Star Schema with fact and dimension tables.
+
+3. Snowflake Data Warehouse
+
+The dimensional model was implemented in Snowflake and the processed datasets were loaded into the warehouse.
+
+4. SQL Analysis
+
+SQL was used to validate the data and answer business questions related to pricing, location, room types, hosts, availability, and trends.
+
+5. Power BI Dashboard
+
+The Snowflake data warehouse was connected to Power BI Online to create an interactive semantic model and a four-page BI report.
+
+## 🔑 Key Findings
+
+Some of the key results from the analysis include:
+
+### Metric	Result
+
+| Total Listings            |  48,884      | 
+| Average Price             |  $152.76     |
+| Total Reviews             | 1,137,628    | 
+| Average Minimum Nights    |  7.03        |
+| Average Availability      |  112.78 days | 
+
+
+### Selected Insights
+
+Manhattan had the highest number of listings, followed by Brooklyn.
+Entire home/apt was the most common room type.
+Airbnb prices varied considerably across boroughs and room types.
+A small number of hosts accounted for a large number of listings.
+Listing availability and review activity varied across accommodation types and locations.
+
+## 📈 Power BI Dashboard
+
+The final Power BI report contains four analytical pages:
+
+Executive Overview – Overall marketplace KPIs and listing distribution
+Pricing Analysis – Pricing patterns by location and room type
+Location & Room Analysis – Neighbourhood, borough, and room type analysis
+Host & Performance Analysis – Host activity, reviews, and availability
+
+### Dashboard Preview
+
+<img src="./screenshots/powerbi/executive_overview.png">
 
