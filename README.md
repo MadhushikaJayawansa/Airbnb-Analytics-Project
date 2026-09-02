@@ -150,14 +150,6 @@ Some of the key results from the analysis include:
 
 The final Power BI report contains four analytical pages:
 
-Executive Overview – Overall marketplace KPIs and listing distribution
-
-Pricing Analysis – Pricing patterns by location and room type
-
-Location & Room Analysis – Neighbourhood, borough, and room type analysis
-
-Host & Performance Analysis – Host activity, reviews, and availability
-
 ### Dashboard Preview
 
 #### Executive Overview – Overall marketplace KPIs and listing distribution
@@ -186,7 +178,6 @@ Host & Performance Analysis – Host activity, reviews, and availability
 
 ## Repository Structure
 
-```text
 Airbnb-Analytics-Project/
 │
 ├── data/                 # Raw and processed datasets
@@ -197,6 +188,13 @@ Airbnb-Analytics-Project/
 ├── screenshots/          # Dashboard screenshots
 └── README.md             # Project overview
 
+##  Conclusion
+ 
+ This project demonstrates an end-to-end data analytics and Business Intelligence workflow, from raw dataset profiling and cleaning to dimensional modelling, cloud data warehousing, SQL analysis, and interactive dashboard development.
 
-## Conclusion
+It combines technical data skills with business-focused analysis to turn raw Airbnb listing data into a structured and accessible reporting solution.
+
+
+👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills  through an end-to-end analytics workflow.**
+
 
