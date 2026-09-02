@@ -178,6 +178,7 @@ The final Power BI report contains four analytical pages:
 
 ## Repository Structure
 
+
 Airbnb-Analytics-Project/
 │
 ├── data/                 # Raw and processed datasets
@@ -188,6 +189,8 @@ Airbnb-Analytics-Project/
 ├── screenshots/          # Dashboard screenshots
 └── README.md             # Project overview
 
+
+##
 ##  Conclusion
  
  This project demonstrates an end-to-end data analytics and Business Intelligence workflow, from raw dataset profiling and cleaning to dimensional modelling, cloud data warehousing, SQL analysis, and interactive dashboard development.
