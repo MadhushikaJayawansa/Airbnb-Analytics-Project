@@ -31,6 +31,7 @@ Airbnb listing data contains useful information about pricing, locations, accomm
 
 ◽ Develop an interactive BI dashboard for business users
 
+
 ## 🗃️ Data Source
 
 Dataset: Airbnb NYC 2019
@@ -40,6 +41,7 @@ Source: Kaggle
 Original size: 48,895 rows × 16 columns
 
 After data cleaning, 48,884 valid listings were used for analysis.
+
 
 
 The dataset includes information such as:
@@ -61,6 +63,7 @@ The dataset includes information such as:
 
 ◽Last review date
 
+
 ## 🛠 Technologies & Tools 
 
 | Category               |  Technologies    |
@@ -71,6 +74,7 @@ The dataset includes information such as:
 | Query Language         |  SQL             |
 | Business Intelligence  |  Power BI Online | 
 | Version Control        |  Git & GitHub    |
+
 
 ## 🏗️ Data Architecture
 
@@ -94,23 +98,23 @@ The fact table stores listing-level measures, while the dimension tables provide
 
 ## 🏢 Project Workflow
 
-1. Data Profiling & Cleaning
+1.Data Profiling & Cleaning
 
   Python and Pandas were used to inspect data types, missing values, duplicate records, invalid values, and potential outliers.
 
-2. Data Modelling
+2.Data Modelling
 
   The cleaned data was transformed into a Star Schema with fact and dimension tables.
 
-3. Snowflake Data Warehouse
+3.Snowflake Data Warehouse
 
   The dimensional model was implemented in Snowflake and the processed datasets were loaded into the warehouse.
 
-4. SQL Analysis
+4.SQL Analysis
 
   SQL was used to validate the data and answer business questions related to pricing, location, room types, hosts, availability, and trends.
 
-5. Power BI Dashboard
+5.Power BI Dashboard
 
   The Snowflake data warehouse was connected to Power BI Online to create an interactive semantic model and a four-page BI report.
 
@@ -120,6 +124,7 @@ Some of the key results from the analysis include:
 
 ### Metric	Result
 
+|                           |              |
 | --------------------      |  ------------| 
 | Total Listings            |  48,884      | 
 | Average Price             |  $152.76     |
@@ -130,15 +135,16 @@ Some of the key results from the analysis include:
 
 ### Selected Insights
 
-Manhattan had the highest number of listings, followed by Brooklyn.
+◽Manhattan had the highest number of listings, followed by Brooklyn.
 
-Entire home/apt was the most common room type.
+◽Entire home/apt was the most common room type.
 
-Airbnb prices varied considerably across boroughs and room types.
+◽Airbnb prices varied considerably across boroughs and room types.
 
-A small number of hosts accounted for a large number of listings.
+◽A small number of hosts accounted for a large number of listings.
 
-Listing availability and review activity varied across accommodation types and locations.
+◽Listing availability and review activity varied across accommodation types and locations.
+
 
 ## 📈 Power BI Dashboard
 
@@ -157,4 +163,40 @@ Host & Performance Analysis – Host activity, reviews, and availability
 #### Executive Overview – Overall marketplace KPIs and listing distribution
 
 <img src="./screenshots/powerbi/executive_overview.png">
+
+#### Pricing Analysis – Pricing patterns by location and room type
+
+<img src="./screenshots/powerbi/pricing_analysis.PNG">
+
+#### Location & Room Analysis – Neighbourhood, borough, and room type analysis
+
+<img src="./screenshots/powerbi/location_room_analysis.PNG">
+
+#### Host & Performance Analysis – Host activity, reviews, and availability
+
+<img src="./screenshots/powerbi/host_performance_analysis.PNG">
+
+
+## Project Resources
+
+◽Detailed Project Walkthrough:Medium article link 
+
+◽Power BI Report:  dashboard link 
+
+
+## Repository Structure
+
+```text
+Airbnb-Analytics-Project/
+│
+├── data/                 # Raw and processed datasets
+├── docs/                 # Project documentation
+├── diagrams/             # Data model diagrams
+├── sql/                  # SQL scripts and analysis
+├── powerbi/              # Power BI files and resources
+├── screenshots/          # Dashboard screenshots
+└── README.md             # Project overview
+
+
+## Conclusion
 
