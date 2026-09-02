@@ -80,11 +80,11 @@ The dataset includes information such as:
 
 A Star Schema was designed to structure the Airbnb data for analytical reporting.
 
-◽Fact Table
+Fact Table
 
 ◽Fact_Listings
 
-◽Dimension Tables
+Dimension Tables
 
 ◽Dim_Host
 
@@ -197,6 +197,6 @@ Airbnb-Analytics-Project/
 It combines technical data skills with business-focused analysis to turn raw Airbnb listing data into a structured and accessible reporting solution.
 
 ## 
-👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills  through an end-to-end analytics workflow.**
+👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills  through an end-to-end analytics workflow.
 
 
