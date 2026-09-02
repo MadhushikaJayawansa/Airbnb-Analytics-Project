@@ -20,16 +20,23 @@ Airbnb listing data contains useful information about pricing, locations, accomm
 ### Goals
 
 ◽ Analyze Airbnb listings across NYC boroughs and neighbourhoods
+
 ◽ Understand pricing patterns across locations and room types
+
 ◽ Analyze room type distribution and listing availability
+
 ◽ Explore host activity and review performance
+
 ◽ Build a structured data warehouse for analytical reporting
+
 ◽ Develop an interactive BI dashboard for business users
 
 ## 🗃️ Data Source
 
 Dataset: Airbnb NYC 2019
+
 Source: Kaggle
+
 Original size: 48,895 rows × 16 columns
 
 After data cleaning, 48,884 valid listings were used for analysis.
@@ -38,12 +45,20 @@ After data cleaning, 48,884 valid listings were used for analysis.
 The dataset includes information such as:
 
 ◽Listing and host identifiers
+
 ◽Neighbourhood and borough
+
 ◽Room type
+
 ◽Price
+
 ◽Minimum nights
+
+
 ◽Number of reviews
+
 ◽Availability
+
 ◽Last review date
 
 ## 🛠 Technologies & Tools 
@@ -62,11 +77,17 @@ The dataset includes information such as:
 A Star Schema was designed to structure the Airbnb data for analytical reporting.
 
 ◽Fact Table
+
 ◽Fact_Listings
+
 ◽Dimension Tables
+
 ◽Dim_Host
+
 ◽Dim_Location
+
 ◽Dim_Room_Type
+
 ◽Dim_Date
 
 The fact table stores listing-level measures, while the dimension tables provide descriptive information for analysis.
@@ -75,23 +96,23 @@ The fact table stores listing-level measures, while the dimension tables provide
 
 1. Data Profiling & Cleaning
 
-Python and Pandas were used to inspect data types, missing values, duplicate records, invalid values, and potential outliers.
+  Python and Pandas were used to inspect data types, missing values, duplicate records, invalid values, and potential outliers.
 
 2. Data Modelling
 
-The cleaned data was transformed into a Star Schema with fact and dimension tables.
+  The cleaned data was transformed into a Star Schema with fact and dimension tables.
 
 3. Snowflake Data Warehouse
 
-The dimensional model was implemented in Snowflake and the processed datasets were loaded into the warehouse.
+  The dimensional model was implemented in Snowflake and the processed datasets were loaded into the warehouse.
 
 4. SQL Analysis
 
-SQL was used to validate the data and answer business questions related to pricing, location, room types, hosts, availability, and trends.
+  SQL was used to validate the data and answer business questions related to pricing, location, room types, hosts, availability, and trends.
 
 5. Power BI Dashboard
 
-The Snowflake data warehouse was connected to Power BI Online to create an interactive semantic model and a four-page BI report.
+  The Snowflake data warehouse was connected to Power BI Online to create an interactive semantic model and a four-page BI report.
 
 ## 🔑 Key Findings
 
@@ -99,6 +120,7 @@ Some of the key results from the analysis include:
 
 ### Metric	Result
 
+| --------------------      |  ------------| 
 | Total Listings            |  48,884      | 
 | Average Price             |  $152.76     |
 | Total Reviews             | 1,137,628    | 
@@ -109,9 +131,13 @@ Some of the key results from the analysis include:
 ### Selected Insights
 
 Manhattan had the highest number of listings, followed by Brooklyn.
+
 Entire home/apt was the most common room type.
+
 Airbnb prices varied considerably across boroughs and room types.
+
 A small number of hosts accounted for a large number of listings.
+
 Listing availability and review activity varied across accommodation types and locations.
 
 ## 📈 Power BI Dashboard
@@ -119,11 +145,16 @@ Listing availability and review activity varied across accommodation types and l
 The final Power BI report contains four analytical pages:
 
 Executive Overview – Overall marketplace KPIs and listing distribution
+
 Pricing Analysis – Pricing patterns by location and room type
+
 Location & Room Analysis – Neighbourhood, borough, and room type analysis
+
 Host & Performance Analysis – Host activity, reviews, and availability
 
 ### Dashboard Preview
+
+#### Executive Overview – Overall marketplace KPIs and listing distribution
 
 <img src="./screenshots/powerbi/executive_overview.png">
 
