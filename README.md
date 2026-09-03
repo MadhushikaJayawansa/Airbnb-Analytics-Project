@@ -32,6 +32,7 @@ Airbnb listing data contains useful information about pricing, locations, accomm
 ◽ Develop an interactive BI dashboard for business users
 
 
+##
 ## 🗃️ Data Source
 
 Dataset: Airbnb NYC 2019
@@ -40,8 +41,8 @@ Source: Kaggle
 
 Original size: 48,895 rows × 16 columns
 
-After data cleaning, 48,884 valid listings were used for analysis.
 
+After data cleaning, 48,884 valid listings were used for analysis.
 
 
 The dataset includes information such as:
@@ -63,7 +64,7 @@ The dataset includes information such as:
 
 ◽Last review date
 
-
+##
 ## 🛠 Technologies & Tools 
 
 | Category               |  Technologies    |
