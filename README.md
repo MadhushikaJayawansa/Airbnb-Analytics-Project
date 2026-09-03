@@ -9,9 +9,13 @@ An end-to-end data analytics and Business Intelligence project using the Airbnb 
 The project explores Airbnb listing data to answer key business questions around:
 
 Listing distribution across NYC boroughs and neighbourhoods
+
 Pricing patterns by location and room type
+
 Room type distribution and availability
+
 Host activity and review performance
+
 Trends in listing activity and availability
 
 The objective was to build a structured data solution that could support business-oriented analysis and interactive reporting.
@@ -21,7 +25,9 @@ The objective was to build a structured data solution that could support busines
 ## 🗃️ Dataset
 
 Source: Kaggle – Airbnb NYC 2019
+
 Original size: 48,895 rows × 16 columns
+
 Final analytical dataset: 48,884 listings
 
 The dataset contains listing, host, location, room type, pricing, review, availability, and date-related information.
