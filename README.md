@@ -3,6 +3,7 @@
 
 An end-to-end data analytics and Business Intelligence project using the Airbnb NYC 2019 dataset. The project demonstrates how raw data can be transformed into a structured analytical data warehouse and interactive BI dashboard using Python, Snowflake, SQL, and Power BI.
 
+##
 ## 📌 Project Overview
 
 The goal of this project was to build a complete analytics solution that transforms raw Airbnb listing data into meaningful business insights.
@@ -13,10 +14,12 @@ Raw Data → Data Cleaning → Star Schema → Snowflake → SQL Analysis → Po
 
 The solution focuses on understanding Airbnb listings across different locations, room types, pricing, hosts, reviews, and availability.
 
+##
 ## 🎯 Business Problem & Goals
 
 Airbnb listing data contains useful information about pricing, locations, accommodation types, hosts, and availability. However, the raw dataset requires cleaning, structuring, and analysis before it can be used effectively for business reporting.
 
+###
 ### Goals
 
 ◽ Analyze Airbnb listings across NYC boroughs and neighbourhoods
@@ -47,6 +50,7 @@ After data cleaning, 48,884 valid listings were used for analysis.
 
 The dataset includes information such as:
 
+
 ◽Listing and host identifiers
 
 ◽Neighbourhood and borough
@@ -56,7 +60,6 @@ The dataset includes information such as:
 ◽Price
 
 ◽Minimum nights
-
 
 ◽Number of reviews
 
@@ -77,6 +80,7 @@ The dataset includes information such as:
 | Version Control        |  Git & GitHub    |
 
 
+##
 ## 🏗️ Data Architecture
 
 A Star Schema was designed to structure the Airbnb data for analytical reporting.
@@ -97,6 +101,7 @@ Dimension Tables
 
 The fact table stores listing-level measures, while the dimension tables provide descriptive information for analysis.
 
+##
 ## 🏢 Project Workflow
 
 1.Data Profiling & Cleaning
@@ -119,6 +124,7 @@ The fact table stores listing-level measures, while the dimension tables provide
 
   The Snowflake data warehouse was connected to Power BI Online to create an interactive semantic model and a four-page BI report.
 
+##
 ## 🔑 Key Findings
 
 Some of the key results from the analysis include:
@@ -146,7 +152,7 @@ Some of the key results from the analysis include:
 
 ◽Listing availability and review activity varied across accommodation types and locations.
 
-
+##
 ## 📈 Power BI Dashboard
 
 The final Power BI report contains four analytical pages:
@@ -169,14 +175,14 @@ The final Power BI report contains four analytical pages:
 
 <img src="./screenshots/powerbi/host_performance_analysis.PNG">
 
-
+##
 ## Project Resources
 
 ◽Detailed Project Walkthrough:Medium article link 
 
 ◽Power BI Report:  dashboard link 
 
-
+##
 ## Repository Structure
 
 ```text
@@ -197,7 +203,7 @@ Airbnb-Analytics-Project/
 
 It combines technical data skills with business-focused analysis to turn raw Airbnb listing data into a structured and accessible reporting solution.
 
-## 
+##
 👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills  through an end-to-end analytics workflow.
 
 
