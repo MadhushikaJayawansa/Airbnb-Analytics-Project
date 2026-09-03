@@ -29,6 +29,7 @@ The dataset contains listing, host, location, room type, pricing, review, availa
 ##
 ## 🛠 Technologies 
 
+
 | Category               |  Technologies    |
 | --------------------   |  ------------    | 
 | Programming            |  Python          | 
@@ -75,6 +76,7 @@ The final Power BI report includes four analytical views covering executive KPIs
 💻 Power BI Report: <a href="powerbi/Power_bi_Report.md">View Power BI Report</a>
 
 Repository Structure
+```text
 Airbnb-Analytics-Project/
 │
 ├── data/                 # Raw and processed datasets
@@ -84,5 +86,6 @@ Airbnb-Analytics-Project/
 ├── powerbi/              # Power BI resources
 ├── screenshots/          # Dashboard screenshots
 └── README.md             # Project overview
+```
 
 👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills through an end-to-end analytics workflow.
