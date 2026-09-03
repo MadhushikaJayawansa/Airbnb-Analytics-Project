@@ -178,10 +178,10 @@ The final Power BI report contains four analytical pages:
 ##
 ## Project Resources
 
-◽Detailed Project Walkthrough:<a href="https://medium.com/@jayawansa123s/building-an-end-to-end-airbnb-analytics-solution-with-python-snowflake-sql-and-power-bi-f2ad4544a234
-">Visit My Blogs</a>
+◽Detailed Project Walkthrough: <a href="https://medium.com/@jayawansa123s/building-an-end-to-end-airbnb-analytics-solution-with-python-snowflake-sql-and-power-bi-f2ad4544a234
+">Visit My Blog</a>
 
-◽Power BI Report: <a href="powerbi/Power_bi_Report.md"> </a>
+◽Power BI Report: <a href="powerbi/Power_bi_Report.md">View Power BI Report</a>
 
 ##
 ## Repository Structure
