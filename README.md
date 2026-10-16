@@ -45,7 +45,10 @@ The objective was to build a structured data solution that could support busines
 
 <img src="./screenshots/powerbi/executive_overview.png">
  
-The Executive Overview provides a high-level summary of the Airbnb NYC marketplace through key performance indicators (KPIs) and visualizations. It highlights listing distribution across boroughs and room types, average prices by borough, and listing trends by year.
+### Executive Overview
+
+The dashboard shows that the NYC Airbnb marketplace contained **48,884 listings**, with an average nightly price of **$152.76**. Manhattan had the highest listing count (21,660), followed by Brooklyn (20,095). Entire homes and apartments were the most common accommodation type, accounting for 25,407 listings. Across the dataset, listings received approximately 1.14 million reviews, while average availability was around 113 days per year.
+
 
 #### Explore Other Dashboard Pages
 
@@ -58,8 +61,13 @@ The report includes three additional pages for more detailed analysis:
 
 <a href="screenshots/powerbi/host_performance_analysis.PNG">Host & Performance Analysis </a> – Explores host listing activity, review performance, and availability patterns across room types.
 
-<a href="powerbi/Power_bi_Report.md">View Power BI Report</a> \n
+<a href="powerbi/Power_bi_Report.md">Explore results, what they suggest, and a business recommendation </a> 
+
 <a href="powerbi/Airbnb Analytics Dashboard.pbix">Power BI Dashboard</a>
+
+### Business Recommendation:
+
+Manhattan and Brooklyn are key markets to investigate further because they contain most of the listings. Comparing prices, room types, and availability within these boroughs could help identify potential opportunities for pricing and market positioning.
 
 ##
 ## Project Documentation
