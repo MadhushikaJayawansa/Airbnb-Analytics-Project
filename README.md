@@ -37,22 +37,6 @@ The objective was to build a structured data solution that could support busines
 | Version Control        |  Git & GitHub    |
 
 
-##
-## 🔑Key Skills 
-
-◽Data profiling and cleaning
-
-◽Data transformation using Python/Pandas
-
-◽Dimensional modelling and Star Schema design
-
-◽Cloud data warehousing with Snowflake
-
-◽SQL-based business analysis
-
-◽Power BI semantic modelling and dashboard development
-
-◽Git/GitHub project documentation
 
 ##
 ## 📈 Dashboard Preview
