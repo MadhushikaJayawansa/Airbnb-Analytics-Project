@@ -1,7 +1,9 @@
 
 # Airbnb Analytics & Business Intelligence Project
 
-An end-to-end data analytics and Business Intelligence project using the Airbnb NYC 2019 dataset. The project transforms raw listing data into a structured analytical solution using Python, Snowflake, SQL, and Power BI.
+ Airbnb marketplace in New York City managers need data-driven insights to understand pricing differences, identify high-demand locations, evaluate listing performance, and explore opportunities to improve their business strategy.
+
+This project addresses these questions by analyzing the Airbnb NYC 2019 dataset and transforming raw listing data into actionable business insights using Python, Snowflake, SQL, and Power BI.
 
 ##
 ## 🎯Business Problem & Goals
@@ -72,7 +74,7 @@ The report includes three additional pages for more detailed analysis:
 
 <a href="screenshots/powerbi/host_performance_analysis.PNG">Host & Performance Analysis </a> – Explores host listing activity, review performance, and availability patterns across room types.
 
-<a href="powerbi/Power_bi_Report.md">View Power BI Report</a>/n
+<a href="powerbi/Power_bi_Report.md">View Power BI Report</a> \n
 <a href="powerbi/Airbnb Analytics Dashboard.pbix">Power BI Dashboard</a>
 
 ##
