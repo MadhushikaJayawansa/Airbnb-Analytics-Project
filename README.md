@@ -61,9 +61,9 @@ The report includes three additional pages for more detailed analysis:
 
 <a href="screenshots/powerbi/host_performance_analysis.PNG">Host & Performance Analysis </a> – Explores host listing activity, review performance, and availability patterns across room types.
 
-<a href="powerbi/Power_bi_Report.md">Explore results</a>, what they suggest, and a business recommendation  
+#### <a href="powerbi/Power_bi_Report.md">Explore results</a>, what they suggest, and a business recommendation  
 
-<a href="powerbi/Airbnb Analytics Dashboard.pbix">View Power BI Dashboard</a>
+#### <a href="powerbi/Airbnb Analytics Dashboard.pbix">View Power BI Dashboard</a>
 
 ### Business Recommendation:
 
