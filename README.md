@@ -22,17 +22,6 @@ The objective was to build a structured data solution that could support busines
 
 
 ##
-## 🗃️ Dataset
-
-Source: Kaggle – Airbnb NYC 2019
-
-Original size: 48,895 rows × 16 columns
-
-Final analytical dataset: 48,884 listings
-
-The dataset contains listing, host, location, room type, pricing, review, availability, and date-related information.
-
-##
 ## 🛠 Technologies 
 
 
@@ -47,7 +36,7 @@ The dataset contains listing, host, location, room type, pricing, review, availa
 
 
 ##
-## 🔑Key Skills Demonstrated
+## 🔑Key Skills 
 
 ◽Data profiling and cleaning
 
@@ -66,20 +55,32 @@ The dataset contains listing, host, location, room type, pricing, review, availa
 ##
 ## 📈 Dashboard Preview
 
-The final Power BI report includes four analytical views covering executive KPIs, pricing, location and room types, and host performance.
-
-
 #### Executive Overview – Overall marketplace KPIs and listing distribution
 
 <img src="./screenshots/powerbi/executive_overview.png">
  
+The Executive Overview provides a high-level summary of the Airbnb NYC marketplace through key performance indicators (KPIs) and visualizations. It highlights listing distribution across boroughs and room types, average prices by borough, and listing trends by year.
+
+#### Explore Other Dashboard Pages
+
+The report includes three additional pages for more detailed analysis:
+
+<a href="screenshots/powerbi/pricing_analysis.PNG">Pricing Analysis</a>– Explores price differences across boroughs and room types, listing price ranges, and the relationship between price and minimum-night requirements.
+
+
+<a href="screenshots/powerbi/location_room_analysis.PNG">Location & Room Analysis</a> – Examines listing concentration across neighbourhoods and boroughs, room type distribution, and average availability.
+
+<a href="screenshots/powerbi/host_performance_analysis.PNG">Host & Performance Analysis </a> – Explores host listing activity, review performance, and availability patterns across room types.
+
+<a href="powerbi/Power_bi_Report.md">View Power BI Report</a>/n
+<a href="powerbi/Airbnb Analytics Dashboard.pbix">Power BI Dashboard</a>
+
 ##
 ## Project Documentation
 
 📖 Detailed Project Walkthrough: <a href="https://medium.com/@jayawansa123s/building-an-end-to-end-airbnb-analytics-solution-with-python-snowflake-sql-and-power-bi-f2ad4544a234
 ">Read the Medium Article</a>
 
-💻 Power BI Report: <a href="powerbi/Power_bi_Report.md">View Power BI Report</a>
 
 Repository Structure
 ```text
@@ -94,4 +95,15 @@ Airbnb-Analytics-Project/
 └── README.md             # Project overview
 ```
 
-👨‍💻 A self-directed project built to strengthen Snowflake, SQL, data modelling, and BI skills through an end-to-end analytics workflow.
+
+##
+## 🗃️ Dataset
+
+Source: Kaggle – Airbnb NYC 2019
+
+Original size: 48,895 rows × 16 columns
+
+Final analytical dataset: 48,884 listings
+
+The dataset contains listing, host, location, room type, pricing, review, availability, and date-related information.
+
